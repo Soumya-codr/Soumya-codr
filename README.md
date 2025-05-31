@@ -26,4 +26,4 @@ Let's Connect!
 Feel free to explore my repositories and connect with me. Let's build amazing things together!
  * GitHub: Soumya-codr
  * LinkedIn: NotAvailble
- * Portfolio: [(🌚🌚 Click Here)](https://soumya-codr.github.io)
+ * Portfolio: [(🌚🌚 Click Here)](https://github.com/Soumya-codr)
