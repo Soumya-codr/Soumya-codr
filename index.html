@@ -51,7 +51,7 @@
             position: absolute;
             font-family: 'monospace';
             font-size: 0.8rem;
-            color: rgba(99, 179, 237, 0.5);
+            /* Color will be set dynamically by JS */
             animation: fall linear infinite;
             white-space: nowrap;
             opacity: 0;
@@ -86,7 +86,7 @@
         /* Particle background animation */
         .particle {
             position: absolute;
-            background-color: rgba(255, 255, 255, 0.2); /* White particles, semi-transparent */
+            /* Color will be set dynamically by JS */
             border-radius: 50%;
             animation: float-and-fade linear infinite;
             pointer-events: none;
@@ -147,6 +147,14 @@
         }
 
         /* Mode button styles */
+        .mode-buttons button {
+            background-color: #4a5568; /* bg-gray-600 equivalent */
+            color: #e2e8f0; /* text-white equivalent */
+            transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .mode-buttons button:hover {
+            background-color: #2d3748; /* hover:bg-gray-700 equivalent */
+        }
         .mode-button-active {
             background-color: #3B82F6 !important;
             box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
@@ -157,55 +165,53 @@
             background-color: rgba(45, 55, 72, 0.9); /* Darker gray with transparency */
             border: 2px solid #4a5568;
             border-radius: 12px;
-            padding: 1.5rem; /* Slightly less padding than main panel */
+            padding: 1.5rem;
             box-shadow: 0 0 20px rgba(99, 179, 237, 0.3); /* Blue glow */
             text-align: center;
-            max-width: 900px; /* Increased to match main container */
-            width: 100%; /* Ensure it takes full width within its parent */
-            margin: 2rem auto; /* Margin to separate from other sections */
+            max-width: 900px;
+            width: 100%;
+            margin: 2rem auto;
         }
 
         .pixel-grid-display {
-            display: grid; /* Changed to grid for better control */
-            gap: 0.5px; /* Tiny gap between pixels */
+            display: grid;
+            gap: 0.5px;
             margin-bottom: 1rem;
-            border: 1px solid #63b3ed; /* Light blue border */
+            border: 1px solid #63b3ed;
             border-radius: 8px;
-            padding: 8px; /* Smaller padding for pixel grid */
-            background-color: #1a202c; /* Even darker background for grid */
+            padding: 8px;
+            background-color: #1a202c;
             box-shadow: inset 0 0 8px rgba(0,0,0,0.7);
-            /* Dynamic grid-template-columns and rows set by JS */
         }
 
         .pixel-display {
-            width: 100%; /* Fill grid cell */
-            height: 100%; /* Fill grid cell */
-            background-color: #2d3748; /* Default pixel background */
-            transition: background-color 0.1s ease-out; /* Smooth color change */
-            box-shadow: inset 0 0 0.5px rgba(255,255,255,0.05); /* Inner light for depth */
+            width: 100%;
+            height: 100%;
+            background-color: #2d3748;
+            transition: background-color 0.1s ease-out;
+            box-shadow: inset 0 0 0.5px rgba(255,255,255,0.05);
         }
 
         .pixel-text-color {
-            /* This class will be dynamically applied for text pixels */
             /* Colors will be set via inline style for animation */
         }
 
         .pixel-heading {
-            font-family: 'Press Start 2P', cursive; /* Pixel font for heading */
-            font-size: 1.5rem; /* Slightly smaller for this section */
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.5rem;
             margin-bottom: 0.8rem;
-            text-shadow: 0 0 6px #63b3ed; /* Neon blue shadow */
+            text-shadow: 0 0 6px #63b3ed;
             animation: pulse-text 2s infinite alternate;
         }
 
         .github-link-pixel-board {
             display: inline-flex;
             align-items: center;
-            padding: 0.6rem 1.2rem; /* Slightly smaller padding */
-            background-color: #63b3ed; /* Tailwind blue-400 */
-            color: #1a202c; /* Dark text for contrast */
+            padding: 0.6rem 1.2rem;
+            background-color: #63b3ed;
+            color: #1a202c;
             font-weight: bold;
-            border-radius: 9999px; /* Full rounded */
+            border-radius: 9999px;
             box-shadow: 0 4px 12px rgba(99, 179, 237, 0.3);
             transition: all 0.3s ease-in-out;
             text-decoration: none;
@@ -213,14 +219,14 @@
         }
 
         .github-link-pixel-board:hover {
-            background-color: #4299e1; /* Darker blue on hover */
+            background-color: #4299e1;
             transform: translateY(-2px) scale(1.01);
             box-shadow: 0 6px 15px rgba(99, 179, 237, 0.5);
         }
 
         .github-link-pixel-board svg {
             margin-right: 0.4rem;
-            width: 1.25rem; /* Smaller icon */
+            width: 1.25rem;
             height: 1.25rem;
         }
 
@@ -240,10 +246,10 @@
                 font-size: 1rem;
             }
             #interactive-grid {
-                grid-template-columns: repeat(auto-fill, minmax(12px, 1fr)); /* Smaller cells on mobile */
+                grid-template-columns: repeat(auto-fill, minmax(12px, 1fr));
                 grid-template-rows: repeat(7, minmax(12px, 1fr));
-                width: 100%; /* Make grid fluid */
-                max-width: 300px; /* Max width for smaller screens */
+                width: 100%;
+                max-width: 300px;
             }
             .grid-cell {
                 width: 12px;
@@ -257,13 +263,13 @@
             /* Pixel Message Board responsive */
             .pixel-message-panel-container {
                 padding: 1rem;
-                max-width: 100%; /* Full width on small screens */
+                max-width: 100%;
             }
             .pixel-heading {
                 font-size: 1.2rem;
             }
             .pixel-grid-display {
-                gap: 0.25px; /* Even smaller gap on mobile */
+                gap: 0.25px;
             }
             .github-link-pixel-board {
                 padding: 0.5rem 0.8rem;
@@ -274,7 +280,6 @@
 </head>
 <body>
     <div class="code-rain-container" id="code-rain"></div>
-
     <div class="absolute inset-0 overflow-hidden" id="particle-container"></div>
 
     <div class="container relative z-10 p-6 md:p-8 bg-gray-800 bg-opacity-70 rounded-xl shadow-lg card-glow border border-gray-700">
@@ -392,6 +397,17 @@
         // 2. Code Rain Animation
         const codeRainContainer = document.getElementById('code-rain');
         const codeCharacters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+{}[]|:;"<>,.?/~`';
+        const vibrantColors = [
+            '#f87171', /* Red */
+            '#fb923c', /* Orange */
+            '#fcd34d', /* Yellow */
+            '#a78bfa', /* Purple */
+            '#60a5fa', /* Blue */
+            '#34d399', /* Green */
+            '#e879f9', /* Pink */
+            '#00FFFF', /* Cyan */
+            '#FF00FF'  /* Magenta */
+        ];
 
         function createCodeDrop() {
             const drop = document.createElement('span');
@@ -399,6 +415,7 @@
             drop.style.left = Math.random() * 100 + 'vw';
             drop.style.animationDuration = (Math.random() * 5 + 3) + 's';
             drop.style.animationDelay = (Math.random() * 5) + 's';
+            drop.style.color = vibrantColors[Math.floor(Math.random() * vibrantColors.length)]; // Random vibrant color
 
             let codeString = '';
             const length = Math.floor(Math.random() * 10) + 5;
@@ -435,6 +452,7 @@
             particle.style.bottom = Math.random() * 100 + 'vh'; // Start from random bottom position
             particle.style.animationDuration = (Math.random() * 15 + 10) + 's'; // Float duration (10-25s)
             particle.style.animationDelay = (Math.random() * 10) + 's'; // Start delay
+            particle.style.backgroundColor = vibrantColors[Math.floor(Math.random() * vibrantColors.length)]; // Random vibrant color
 
             // Custom CSS variables for animation
             particle.style.setProperty('--float-x', (Math.random() * 200 - 100) + 'px'); // Random horizontal drift
@@ -1184,3 +1202,4 @@
     </script>
 </body>
 </html>
+
