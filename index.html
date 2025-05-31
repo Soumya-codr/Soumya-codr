@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soumya-codr's Enhanced Animated GitHub Profile</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Custom CSS for animations and specific styles */
@@ -110,28 +110,122 @@
             }
         }
 
-        /* Contribution grid squares animation */
-        .contribution-square {
-            width: 20px; /* Size of a single square */
-            height: 20px;
-            background-color: #4a5568; /* Default grey */
-            border-radius: 3px;
-            transition: background-color 0.3s ease-in-out, transform 0.2s ease-out;
-            cursor: pointer;
+        /* Contribution Grid & Game Styles */
+        #interactive-grid {
+            display: grid;
+            grid-template-columns: repeat(26, minmax(15px, 1fr)); /* 26 weeks */
+            grid-template-rows: repeat(7, minmax(15px, 1fr)); /* 7 days */
+            gap: 2px;
+            background-color: #2d3748; /* Dark background for grid */
+            border: 2px solid #4a5568;
+            border-radius: 5px;
+            padding: 5px;
+            width: fit-content;
+            margin: 0 auto;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5); /* Inner shadow for depth */
         }
 
-        .contribution-square:hover {
-            transform: scale(1.1);
+        .grid-cell {
+            width: 15px;
+            height: 15px;
+            background-color: #4a5568; /* Default empty/low contribution color */
+            border-radius: 2px;
+            transition: background-color 0.1s linear; /* Smooth transition for visual feedback */
         }
 
-        /* Different shades for contributions */
-        .level-0 { background-color: #4a5568; } /* No contributions */
-        .level-1 { background-color: #2d6b42; } /* Low contributions */
-        .level-2 { background-color: #3b82f6; } /* Medium contributions */
-        .level-3 { background-color: #63b3ed; } /* High contributions */
-        .level-4 { background-color: #90cdf4; } /* Very high contributions */
+        /* Contribution levels */
+        .level-0 { background-color: #4a5568; } /* Default gray */
+        .level-1 { background-color: #10B981; } /* Green */
+        .level-2 { background-color: #3B82F6; } /* Blue */
+        .level-3 { background-color: #63B3ED; } /* Lighter Blue */
+        .level-4 { background-color: #90CDF4; } /* Even Lighter Blue */
 
-        /* Responsive adjustments for smaller screens */
+        /* Conway's Game of Life specific styles */
+        .conway-alive {
+            background-color: #fcd34d; /* Yellow for alive cells */
+            box-shadow: 0 0 5px #fcd34d;
+        }
+
+        /* Mode button styles */
+        .mode-button-active {
+            background-color: #3B82F6 !important;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+
+        /* --- Pixel Message Board Specific Styles --- */
+        .pixel-message-panel-container {
+            background-color: rgba(45, 55, 72, 0.9); /* Darker gray with transparency */
+            border: 2px solid #4a5568;
+            border-radius: 12px;
+            padding: 1.5rem; /* Slightly less padding than main panel */
+            box-shadow: 0 0 20px rgba(99, 179, 237, 0.3); /* Blue glow */
+            text-align: center;
+            max-width: 900px; /* Increased to match main container */
+            width: 100%; /* Ensure it takes full width within its parent */
+            margin: 2rem auto; /* Margin to separate from other sections */
+        }
+
+        .pixel-grid-display {
+            display: grid; /* Changed to grid for better control */
+            gap: 0.5px; /* Tiny gap between pixels */
+            margin-bottom: 1rem;
+            border: 1px solid #63b3ed; /* Light blue border */
+            border-radius: 8px;
+            padding: 8px; /* Smaller padding for pixel grid */
+            background-color: #1a202c; /* Even darker background for grid */
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.7);
+            /* Dynamic grid-template-columns and rows set by JS */
+        }
+
+        .pixel-display {
+            width: 100%; /* Fill grid cell */
+            height: 100%; /* Fill grid cell */
+            background-color: #2d3748; /* Default pixel background */
+            transition: background-color 0.1s ease-out; /* Smooth color change */
+            box-shadow: inset 0 0 0.5px rgba(255,255,255,0.05); /* Inner light for depth */
+        }
+
+        .pixel-text-color {
+            /* This class will be dynamically applied for text pixels */
+            /* Colors will be set via inline style for animation */
+        }
+
+        .pixel-heading {
+            font-family: 'Press Start 2P', cursive; /* Pixel font for heading */
+            font-size: 1.5rem; /* Slightly smaller for this section */
+            margin-bottom: 0.8rem;
+            text-shadow: 0 0 6px #63b3ed; /* Neon blue shadow */
+            animation: pulse-text 2s infinite alternate;
+        }
+
+        .github-link-pixel-board {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.6rem 1.2rem; /* Slightly smaller padding */
+            background-color: #63b3ed; /* Tailwind blue-400 */
+            color: #1a202c; /* Dark text for contrast */
+            font-weight: bold;
+            border-radius: 9999px; /* Full rounded */
+            box-shadow: 0 4px 12px rgba(99, 179, 237, 0.3);
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .github-link-pixel-board:hover {
+            background-color: #4299e1; /* Darker blue on hover */
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 6px 15px rgba(99, 179, 237, 0.5);
+        }
+
+        .github-link-pixel-board svg {
+            margin-right: 0.4rem;
+            width: 1.25rem; /* Smaller icon */
+            height: 1.25rem;
+        }
+
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
@@ -145,15 +239,40 @@
             .text-lg {
                 font-size: 1rem;
             }
-            .contribution-square {
-                width: 15px;
-                height: 15px;
+            #interactive-grid {
+                grid-template-columns: repeat(auto-fill, minmax(12px, 1fr)); /* Smaller cells on mobile */
+                grid-template-rows: repeat(7, minmax(12px, 1fr));
+                width: 100%; /* Make grid fluid */
+                max-width: 300px; /* Max width for smaller screens */
+            }
+            .grid-cell {
+                width: 12px;
+                height: 12px;
+            }
+            .mode-buttons button {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
+            }
+            /* Pixel Message Board responsive */
+            .pixel-message-panel-container {
+                padding: 1rem;
+                max-width: 100%; /* Full width on small screens */
+            }
+            .pixel-heading {
+                font-size: 1.2rem;
+            }
+            .pixel-grid-display {
+                gap: 0.25px; /* Even smaller gap on mobile */
+            }
+            .github-link-pixel-board {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center relative">
-
+<body>
     <div class="code-rain-container" id="code-rain"></div>
 
     <div class="absolute inset-0 overflow-hidden" id="particle-container"></div>
@@ -208,38 +327,35 @@
         </section>
 
         <section class="mb-8 p-6 bg-gray-700 bg-opacity-80 rounded-lg card-glow text-center">
-            <h2 class="text-2xl md:text-3xl font-bold text-blue-300 mb-4">My Skills</h2>
-            <div class="flex flex-wrap justify-center gap-4">
-                <div class="flex flex-col items-center p-3 bg-gray-600 rounded-lg hover:scale-110 transition-transform duration-300">
-                    <i class="fab fa-html5 text-5xl text-orange-500 mb-2"></i>
-                    <span class="text-gray-200 font-medium">HTML5</span>
+            <h2 class="text-2xl md:text-3xl font-bold text-blue-300 mb-4">
+                My Interactive Grid
+            </h2>
+            <p id="grid-instructions" class="text-gray-300 mb-4">
+                Explore different interactive modes on my grid! Select a mode below.
+            </p>
+            <div class="mb-4 mode-buttons">
+                <button id="mode-contributions" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-md text-white mr-2">Contributions</button>
+                <button id="mode-conway" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-md text-white mr-2">Conway's Game of Life</button>
+                <button id="mode-pixelArt" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-md text-white mr-2">Pixel Art</button>
+                <button id="mode-generativeFlow" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-md text-white">Generative Flow</button>
+            </div>
+            <div id="interactive-grid">
                 </div>
-                <div class="flex flex-col items-center p-3 bg-gray-600 rounded-lg hover:scale-110 transition-transform duration-300">
-                    <i class="fab fa-css3-alt text-5xl text-blue-500 mb-2"></i>
-                    <span class="text-gray-200 font-medium">CSS3</span>
-                </div>
-                <div class="flex flex-col items-center p-3 bg-gray-600 rounded-lg hover:scale-110 transition-transform duration-300">
-                    <i class="fab fa-js-square text-5xl text-yellow-400 mb-2"></i>
-                    <span class="text-gray-200 font-medium">JavaScript</span>
-                </div>
-                <div class="flex flex-col items-center p-3 bg-gray-600 rounded-lg hover:scale-110 transition-transform duration-300">
-                    <i class="fab fa-python text-5xl text-blue-600 mb-2"></i>
-                    <span class="text-gray-200 font-medium">Python</span>
-                </div>
-                <div class="flex flex-col items-center p-3 bg-gray-600 rounded-lg hover:scale-110 transition-transform duration-300">
-                    <i class="fab fa-github text-5xl text-gray-300 mb-2"></i>
-                    <span class="text-gray-200 font-medium">GitHub</span>
-                </div>
+            <p id="grid-message" class="text-blue-300 font-bold text-xl mt-4 hidden"> </p>
+            <div id="conway-controls" class="mt-4 hidden">
+                <button id="conway-start-stop" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-md text-white mr-2">Start</button>
+                <button id="conway-clear" class="px-4 py-2 bg-red-500 hover:bg-red-600 rounded-md text-white">Clear</button>
             </div>
         </section>
 
-        <section class="mb-8 p-6 bg-gray-700 bg-opacity-80 rounded-lg card-glow">
-            <h2 class="text-2xl md:text-3xl font-bold text-blue-300 mb-4">Contribution Insights</h2>
-            <p class="text-gray-300 mb-4">
-                A visual representation of my coding activity. (Simulated, not live data)
-            </p>
-            <div id="contribution-grid" class="grid gap-1 justify-center" style="grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));">
+        <section class="pixel-message-panel-container">
+            <h2 class="pixel-heading">Soumya-codr's Message</h2>
+            <div class="pixel-grid-display" id="pixel-message-grid">
                 </div>
+            <a href="https://github.com/Soumya-codr" target="_blank" rel="noopener noreferrer" class="github-link-pixel-board">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.828.092-.643.354-1.088.643-1.333-2.22-.253-4.555-1.119-4.555-4.934 0-1.089.389-1.979 1.029-2.679-.103-.253-.446-1.266.099-2.64 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.373.202 2.387.099 2.64.64.7 1.028 1.59.1028 2.679 0 3.823-2.339 4.681-4.566 4.925.359.309.678.92.678 1.855 0 1.336-.012 2.419-.012 2.747 0 .268.18.58.688.482C21.137 20.281 24 16.516 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"></path></svg>
+                Visit my GitHub Profile
+            </a>
         </section>
 
         <section class="text-center p-6 bg-gray-700 bg-opacity-80 rounded-lg card-glow">
@@ -250,7 +366,7 @@
             <a href="https://github.com/Soumya-codr" target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75">
                 <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.828.092-.643.354-1.088.643-1.333-2.22-.253-4.555-1.119-4.555-4.934 0-1.089.389-1.979 1.029-2.679-.103-.253-.446-1.266.099-2.64 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.373.202 2.387.099 2.64.64.7 1.028 1.59.1028 2.679 0 3.823-2.339 4.681-4.566 4.925.359.309.678.92.678 1.855 0 1.336-.012 2.419-.012 2.747 0 .268.18.58.688.482C21.137 20.281 24 16.516 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"></path></svg>
-                Visit My GitHub
+                Visit my GitHub
             </a>
         </section>
     </div>
@@ -358,59 +474,713 @@
         }
         setInterval(updateQuote, 8000); // Change quote every 8 seconds
 
-        // Initialize first quote
-        window.onload = function() {
-            const { quote, author } = quotes[currentQuoteIndex];
-            quoteDisplay.innerHTML = `"${quote}"<br><span class="text-sm text-gray-400">- ${author}</span>`;
-        };
 
-        // 5. Contribution Insights Grid (Animated Placeholder)
-        const contributionGrid = document.getElementById('contribution-grid');
-        const numRows = 7; // Represents days of the week
-        const numCols = 26; // Represents weeks (approx 6 months)
+        // 5. Interactive Grid Modes
+        // Declare global variables for DOM elements
+        let interactiveGrid;
+        let gridMessageElement;
+        let conwayControls;
+        let conwayStartStopBtn;
+        let conwayClearBtn;
+        let modeButtonsGlobal; 
 
-        function generateContributionGrid() {
-            contributionGrid.innerHTML = ''; // Clear existing grid
-            for (let i = 0; i < numRows; i++) {
-                for (let j = 0; j < numCols; j++) {
-                    const square = document.createElement('div');
-                    let level;
+        const numRows = 7; // Days of the week for main grid
+        const numCols = 26; // Weeks for main grid
+        
+        let currentMode = 'contributions'; // Default mode
+        let gridState = []; // Stores the state of cells for current mode
+        let conwayInterval = null; // Interval for Conway's Game of Life
+        let conwayIsRunning = false; // State for Conway's Game of Life
+        let generativeFlowInterval = null; // Interval for Generative Flow
 
-                    // Simulate more recent contributions (towards the right/end of the grid)
-                    // and generally higher levels for a "fresher" showing activity
-                    if (j > numCols - 8) { // Last 8 weeks (more recent)
-                        level = Math.floor(Math.random() * 3) + 2; // Levels 2, 3, 4 (more active)
-                    } else if (j > numCols - 15) { // Weeks 9-15
-                        level = Math.floor(Math.random() * 3) + 1; // Levels 1, 2, 3
-                    } else { // Older weeks
-                        level = Math.floor(Math.random() * 2); // Levels 0, 1
-                    }
+        // Store original contribution levels (for 'contributions' mode)
+        let originalContributionLevels = []; 
 
-                    // Introduce some randomness to prevent perfect patterns
-                    if (Math.random() < 0.1) { // 10% chance to drop a level
-                        level = Math.max(0, level - 1);
-                    }
-                    if (Math.random() > 0.9) { // 10% chance to boost a level
-                        level = Math.min(4, level + 1);
-                    }
+        // Function to get a cell by its grid coordinates (for main interactive grid)
+        function getGridCell(x, y) {
+            if (x < 0 || x >= numCols || y < 0 || y >= numRows) {
+                return null;
+            }
+            return interactiveGrid.children[y * numCols + x];
+        }
 
-                    square.classList.add('contribution-square', `level-${level}`);
-                    // Add a slight animation delay for a ripple effect
-                    square.style.animationDelay = `${(i * 0.05) + (j * 0.02)}s`;
-                    contributionGrid.appendChild(square);
+        // --- Core Grid Initialization (for main interactive grid) ---
+        function createGrid(initialStateGenerator) {
+            interactiveGrid.innerHTML = ''; // Clear existing grid
+            gridState = []; // Reset current grid state for new mode
+            for (let r = 0; r < numRows; r++) {
+                gridState[r] = [];
+                for (let c = 0; c < numCols; c++) {
+                    const cell = document.createElement('div');
+                    cell.classList.add('grid-cell');
+                    cell.dataset.x = c;
+                    cell.dataset.y = r;
+                    interactiveGrid.appendChild(cell);
+                    gridState[r][c] = initialStateGenerator(c, r); // Set initial state based on generator
+                    updateCellVisual(c, r, gridState[r][c]); // Update visual
                 }
             }
         }
 
-        // Regenerate the grid periodically for a dynamic feel
-        setInterval(generateContributionGrid, 10000); // Regenerate every 10 seconds
+        function updateCellVisual(x, y, state, additionalClass = null) {
+            const cell = getGridCell(x, y);
+            if (cell) {
+                // Clear all level and mode-specific classes first
+                cell.classList.remove('level-0', 'level-1', 'level-2', 'level-3', 'level-4', 'conway-alive');
+                cell.style.backgroundColor = ''; // Clear inline style for pixel art/generative flow
 
-        // Start all animations on window load
+                if (currentMode === 'contributions') {
+                    cell.classList.add(state); // State is like 'level-X'
+                } else if (currentMode === 'conway') {
+                    if (state === 1) { // 1 for alive
+                        cell.classList.add('conway-alive');
+                    } else { // 0 for dead
+                        cell.classList.add('level-0'); // Default empty grid cell color
+                    }
+                } else if (currentMode === 'pixelArt' || currentMode === 'generativeFlow') {
+                    // State will be a color class or hex code
+                    cell.style.backgroundColor = state;
+                }
+                // Add any extra classes
+                if (additionalClass) {
+                    cell.classList.add(additionalClass);
+                }
+            }
+        }
+
+        // --- Mode: Contributions ---
+        function initContributionsMode() {
+            gridMessageElement.classList.add('hidden');
+            conwayControls.classList.add('hidden'); // Hide Conway controls
+            
+            createGrid((c, r) => {
+                const today = new Date();
+                const currentDayOfWeek = today.getDay(); // 0 for Sunday, 1 for Monday, etc.
+                const relativeWeek = numCols - 1 - c;
+                let level;
+
+                if (Math.random() < 0.03) { // 3% chance for level 1 (green)
+                    level = 1;
+                } else if (Math.random() < 0.08) { // 8% chance for level 2 (blue)
+                    level = 2;
+                } else if (relativeWeek < 4) { // Last 4 weeks (most recent)
+                    if (r >= 1 && r <= 5) { // Weekdays (Monday to Friday)
+                        level = Math.floor(Math.random() * 2) + 3; // Levels 3, 4
+                    } else { // Weekends (Sunday, Saturday)
+                        level = Math.floor(Math.random() * 2) + 0; // Levels 0, 3
+                    }
+                } else if (relativeWeek < 12) { // Weeks 5-12 (medium recent)
+                    if (r >= 1 && r <= 5) { // Weekdays
+                        level = Math.floor(Math.random() * 2) + 0; // Levels 0, 3
+                    } else { // Weekends
+                        level = Math.floor(Math.random() * 1); // Level 0
+                    }
+                } else { // Older weeks
+                    level = 0;
+                }
+
+                if (c === numCols -1 && r > currentDayOfWeek) { // Future days in current week
+                    level = 0;
+                }
+                return `level-${level}`; // Store the level class directly
+            });
+            interactiveGrid.removeEventListener('click', handleConwayGridClick); // Remove Conway click handler
+            interactiveGrid.removeEventListener('click', handlePixelArtGridClick); // Remove Pixel Art click handler
+            // No click handler for contributions mode
+
+            // Store this initial state to `originalContributionLevels`
+            for(let r = 0; r < numRows; r++) {
+                originalContributionLevels[r] = [];
+                for(let c = 0; c < numCols; c++) {
+                    originalContributionLevels[r][c] = gridState[r][c];
+                }
+            }
+        }
+
+        // --- Mode: Conway's Game of Life ---
+        
+        function initConwayMode() {
+            gridMessageElement.textContent = "Click cells to make them alive, then hit Start/Stop!";
+            gridMessageElement.classList.remove('hidden');
+            conwayControls.classList.add('hidden'); // Show Conway controls
+
+            createGrid((c, r) => 0); // All cells dead (0) initially
+            
+            interactiveGrid.removeEventListener('click', handlePixelArtGridClick); // Ensure no other click handlers
+            interactiveGrid.addEventListener('click', handleConwayGridClick);
+
+            conwayStartStopBtn.textContent = 'Start'; // Reset button text
+            conwayIsRunning = false;
+            if (conwayInterval) {
+                clearInterval(conwayInterval);
+                conwayInterval = null;
+            }
+        }
+
+        function handleConwayGridClick(event) {
+            const cell = event.target.closest('.grid-cell');
+            if (cell) {
+                const x = parseInt(cell.dataset.x);
+                const y = parseInt(cell.dataset.y);
+                gridState[y][x] = gridState[y][x] === 0 ? 1 : 0; // Toggle state
+                updateCellVisual(x, y, gridState[y][x]);
+            }
+        }
+
+        function runConwayGeneration() {
+            const newGrid = [];
+            for (let r = 0; r < numRows; r++) {
+                newGrid[r] = [];
+                for (let c = 0; c < numCols; c++) {
+                    const currentState = gridState[r][c];
+                    let liveNeighbors = 0;
+
+                    // Check all 8 neighbors
+                    for (let dr = -1; dr <= 1; dr++) {
+                        for (let dc = -1; dc <= 1; dc++) {
+                            if (dr === 0 && dc === 0) continue; // Skip self
+
+                            const nr = r + dr;
+                            const nc = c + dc;
+
+                            if (nr >= 0 && nr < numRows && nc >= 0 && nc < numCols) {
+                                if (gridState[nr][nc] === 1) {
+                                    liveNeighbors++;
+                                }
+                            }
+                        }
+                    }
+
+                    // Apply Conway's rules
+                    if (currentState === 1) { // If cell is alive
+                        if (liveNeighbors < 2 || liveNeighbors > 3) {
+                            newGrid[r][c] = 0; // Underpopulation or overpopulation
+                        } else {
+                            newGrid[r][c] = 1; // Survives
+                        }
+                    } else { // If cell is dead
+                        if (liveNeighbors === 3) {
+                            newGrid[r][c] = 1; // Reproduction
+                        } else {
+                            newGrid[r][c] = 0; // Stays dead
+                        }
+                    }
+                }
+            }
+            gridState = newGrid; // Update grid state
+            drawConwayGrid(); // Update visuals
+        }
+
+        function drawConwayGrid() {
+            for (let r = 0; r < numRows; r++) {
+                for (let c = 0; c < numCols; c++) {
+                    updateCellVisual(c, r, gridState[r][c]);
+                }
+            }
+        }
+
+        // --- Mode: Pixel Art ---
+        // Simple color palette (you can expand this with more complex logic later)
+        const pixelArtColors = ['#4a5568', '#f87171', '#60a5fa', '#facc15', '#a78bfa']; // Gray, Red, Blue, Yellow, Purple
+
+        function initPixelArtMode() {
+            gridMessageElement.textContent = "Click cells to draw! Use buttons below to change color (future feature).";
+            gridMessageElement.classList.remove('hidden');
+            conwayControls.classList.add('hidden'); // Hide Conway controls
+            
+            // Reinitialize grid to a blank canvas
+            createGrid((c, r) => pixelArtColors[0]); // Start with empty cells
+            
+            interactiveGrid.removeEventListener('click', handleConwayGridClick); // Remove Conway click handler
+            interactiveGrid.addEventListener('click', handlePixelArtGridClick);
+            
+            if (conwayInterval) {
+                clearInterval(conwayInterval); // Stop any running Conway animation
+                conwayInterval = null;
+                conwayIsRunning = false;
+                conwayStartStopBtn.textContent = 'Start';
+            }
+        }
+
+        function handlePixelArtGridClick(event) {
+            const cell = event.target.closest('.grid-cell');
+            if (cell) {
+                const x = parseInt(cell.dataset.x);
+                const y = parseInt(cell.dataset.y);
+                // Cycle through colors on click
+                let currentColor = cell.style.backgroundColor;
+                let nextColorIndex = (pixelArtColors.indexOf(currentColor) + 1) % pixelArtColors.length;
+                let nextColor = pixelArtColors[nextColorIndex];
+                
+                gridState[y][x] = nextColor; // Store the actual color in state
+                updateCellVisual(x, y, nextColor);
+            }
+        }
+
+        // --- Mode: Generative Flow ---
+        let flowTime = 0;
+        let flowParams = {}; // Store parameters for current flow pattern
+
+        function generateFlowParams() {
+            return {
+                speed: 0.01 + Math.random() * 0.04, // Slower to faster flow
+                scaleX: 0.05 + Math.random() * 0.2, // Horizontal frequency
+                scaleY: 0.05 + Math.random() * 0.2, // Vertical frequency
+                offsetX: Math.random() * 100, // Random starting offset
+                offsetY: Math.random() * 100, // Random starting offset
+                hueShiftSpeed: 0.01 + Math.random() * 0.05, // How fast hue shifts
+                saturationBase: 60 + Math.random() * 30, // Base saturation
+                saturationRange: 10 + Math.random() * 30, // Saturation variation
+                lightnessBase: 40 + Math.random() * 20, // Base lightness
+                lightnessRange: 10 + Math.random() * 20, // Lightness variation
+                complexFactor1: 0.01 + Math.random() * 0.05, // Additional complexity
+                complexFactor2: 0.01 + Math.random() * 0.05, // Additional complexity
+            };
+        }
+
+        function initGenerativeFlowMode() {
+            gridMessageElement.textContent = "Watch the mesmerizing, ever-changing colorful pattern!";
+            gridMessageElement.classList.remove('hidden');
+            conwayControls.classList.add('hidden'); // Hide Conway controls
+
+            flowTime = 0; // Reset time for new pattern
+            flowParams = generateFlowParams(); // Generate new random parameters for this run
+
+            createGrid((c, r) => {
+                // Initial color calculation using new parameters
+                const hue = (Math.sin(c * flowParams.scaleX + r * flowParams.scaleY + flowParams.offsetX) * 0.5 + 0.5) * 360;
+                const saturation = flowParams.saturationBase + Math.sin(c * flowParams.complexFactor1) * flowParams.saturationRange;
+                const lightness = flowParams.lightnessBase + Math.cos(r * flowParams.complexFactor2) * flowParams.lightnessRange;
+                return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+            });
+
+            interactiveGrid.removeEventListener('click', handleConwayGridClick);
+            interactiveGrid.removeEventListener('click', handlePixelArtGridClick);
+
+            // Start the generative flow animation
+            if (generativeFlowInterval) {
+                clearInterval(generativeFlowInterval);
+            }
+            generativeFlowInterval = setInterval(runGenerativeFlow, 80); // Update every 80ms for smoother flow
+        }
+
+        function runGenerativeFlow() {
+            flowTime += flowParams.speed; // Advance time based on generated speed
+            for (let r = 0; r < numRows; r++) {
+                for (let c = 0; c < numCols; c++) {
+                    // Calculate color based on position, time, and random parameters
+                    const hue = (
+                        Math.sin(c * flowParams.scaleX + r * flowParams.scaleY + flowTime + flowParams.offsetX) +
+                        Math.cos(r * flowParams.complexFactor1 + c * flowParams.complexFactor2 + flowTime * flowParams.hueShiftSpeed)
+                    ) * 0.5 + 0.5; // Normalize to 0-1 range
+                    
+                    const saturation = flowParams.saturationBase + Math.sin(c * flowParams.complexFactor1 + flowTime * 0.5) * flowParams.saturationRange;
+                    const lightness = flowParams.lightnessBase + Math.cos(r * flowParams.complexFactor2 + flowTime * 0.3) * flowParams.lightnessRange;
+                    
+                    const finalHue = (hue * 360) % 360; // Ensure hue wraps around
+                    const finalSaturation = Math.max(0, Math.min(100, saturation)); // Clamp saturation
+                    const finalLightness = Math.max(0, Math.min(100, lightness)); // Clamp lightness
+
+                    const color = `hsl(${finalHue}, ${finalSaturation}%, ${finalLightness}%)`;
+                    
+                    gridState[r][c] = color; // Update state
+                    updateCellVisual(c, r, color); // Update visual
+                }
+            }
+        }
+
+
+        // --- Mode Switching Logic ---
+        function switchMode(newMode) {
+            // Clear any running intervals from previous modes
+            if (conwayInterval) {
+                clearInterval(conwayInterval);
+                conwayInterval = null;
+                conwayIsRunning = false;
+                conwayStartStopBtn.textContent = 'Start';
+            }
+            if (generativeFlowInterval) {
+                clearInterval(generativeFlowInterval);
+                generativeFlowInterval = null;
+            }
+
+            // Remove all specific event listeners
+            interactiveGrid.removeEventListener('click', handleConwayGridClick);
+            interactiveGrid.removeEventListener('click', handlePixelArtGridClick);
+            // ... remove other game specific listeners if added later
+
+            // Reset button active states
+            modeButtonsGlobal.forEach(button => button.classList.remove('mode-button-active'));
+            const activeButton = document.getElementById(`mode-${newMode}`);
+            if (activeButton) { 
+                activeButton.classList.add('mode-button-active');
+            }
+            
+            currentMode = newMode;
+            gridMessageElement.classList.add('hidden'); // Hide default message for now
+            conwayControls.classList.add('hidden'); // Always hide by default, show if needed by mode
+
+            switch (currentMode) {
+                case 'contributions':
+                    initContributionsMode();
+                    document.getElementById('grid-instructions').textContent = "Explore different interactive modes on my grid! Select a mode below.";
+                    break;
+                case 'conway':
+                    initConwayMode();
+                    document.getElementById('grid-instructions').textContent = "Conway's Game of Life: Click cells to toggle them alive/dead. Then Start/Stop the simulation.";
+                    break;
+                case 'pixelArt': 
+                    initPixelArtMode();
+                    document.getElementById('grid-instructions').textContent = "Pixel Art Canvas: Click cells to cycle through colors and draw your own art!";
+                    break;
+                case 'generativeFlow':
+                    initGenerativeFlowMode();
+                    document.getElementById('grid-instructions').textContent = "Watch the mesmerizing, ever-changing colorful pattern!";
+                    break;
+                default:
+                    console.error("Unknown mode:", newMode);
+                    initContributionsMode(); // Fallback
+            }
+        }
+
+        // --- Pixel Message Board Logic ---
+        const pixelFont = {
+            'H': ["10001", "10001", "11111", "10001", "10001", "10001", "10001"],
+            'i': ["01000", "00000", "01000", "01000", "01000", "01000", "01000"],
+            ' ': ["00000", "00000", "00000", "00000", "00000", "00000", "00000"], // Space character
+            'a': ["00000", "01110", "10001", "11111", "10001", "10001", "10001"], // Simplified 'a'
+            'm': ["00000", "11011", "10101", "10101", "10101", "10101", "10000"], // Simplified 'm'
+            'S': ["01110", "10000", "10000", "01110", "00001", "00001", "01110"],
+            'o': ["00000", "01110", "10001", "10001", "10001", "10001", "01110"],
+            'u': ["00000", "10001", "10001", "10001", "10001", "10001", "01110"],
+            'y': ["00000", "10001", "10001", "01110", "00001", "01110", "00000"],
+            'c': ["00000", "01110", "10000", "10000", "10000", "10000", "01110"],
+            'd': ["00000", "11100", "10010", "10010", "10010", "10010", "11100"], // Simplified 'd'
+            'r': ["00000", "11100", "10010", "10000", "10000", "10000", "10000"], // Simplified 'r'
+            '.': ["00000", "00000", "00000", "00000", "00000", "01000", "01000"],
+            '!': ["01000", "01000", "01000", "01000", "01000", "00000", "01000"],
+            'C': ["01110", "10000", "10000", "10000", "10000", "10000", "01110"],
+            'n': ["00000", "11010", "10100", "10010", "10010", "10010", "10000"], // Simplified 'n'
+            'e': ["00000", "01110", "10000", "11110", "10000", "10000", "01110"],
+            't': ["01000", "01000", "11111", "01000", "01000", "01000", "00100"], // Simplified 't'
+            'w': ["10001", "10001", "10001", "10001", "10101", "01010", "00100"], // Simplified 'w'
+            'h': ["10000", "10000", "10000", "11110", "10001", "10001", "10001"], // Simplified 'h'
+            'G': ["01110", "10000", "10000", "10110", "10001", "10001", "01110"],
+            'b': ["10000", "10000", "10000", "11110", "10001", "10001", "01110"], // Simplified 'b'
+            'u': ["10001", "10001", "10001", "10001", "10001", "01110", "01110"], // Simplified 'u'
+            'l': ["10000", "10000", "10000", "10000", "10000", "10000", "11111"], // Simplified 'l'
+            'k': ["10001", "10010", "10100", "11000", "10100", "10010", "10001"], // Simplified 'k'
+            'p': ["11110", "10001", "10001", "11110", "10000", "10000", "10000"], // Simplified 'p'
+            'f': ["11111", "10000", "10000", "11110", "10000", "10000", "10000"], // Simplified 'f'
+            'v': ["10001", "10001", "10001", "10001", "10001", "01010", "00100"], // Simplified 'v'
+            'x': ["10001", "01010", "00100", "01010", "10001", "00000", "00000"], // Simplified 'x'
+            'z': ["11111", "00010", "00100", "01000", "10000", "11111", "00000"], // Simplified 'z'
+            'R': ["11110", "10001", "10001", "11110", "10010", "10001", "10001"], // Simplified 'R'
+            'L': ["10000", "10000", "10000", "10000", "10000", "10000", "11111"], // Simplified 'L'
+            'J': ["00111", "00010", "00010", "00010", "00010", "10010", "01100"], // Simplified 'J'
+            'N': ["10001", "11001", "10101", "10011", "10001", "10001", "10001"], // Simplified 'N'
+            'M': ["10001", "11011", "10101", "10001", "10001", "10001", "10001"], // Simplified 'M'
+            'I': ["11111", "01000", "01000", "01000", "01000", "01000", "11111"], // Simplified 'I'
+            'P': ["11110", "10001", "10001", "11110", "10000", "10000", "10000"],
+            'X': ["10001", "01010", "00100", "01010", "10001", "00000", "00000"],
+            'Y': ["10001", "01010", "00100", "00100", "00100", "00100", "00100"],
+            'Z': ["11111", "00010", "00100", "01000", "10000", "11111", "00000"],
+            'Q': ["01110", "10001", "10001", "10001", "10011", "01101", "00011"],
+            'D': ["11110", "10001", "10001", "10001", "10001", "10001", "11110"],
+            'F': ["11111", "10000", "10000", "11110", "10000", "10000", "10000"],
+            'V': ["10001", "10001", "10001", "10001", "10001", "01010", "00100"],
+            'W': ["10001", "10001", "10001", "10101", "10101", "01010", "00100"],
+            'B': ["11110", "10001", "10001", "11110", "10001", "10001", "11110"],
+            'A': ["01110", "10001", "10001", "11111", "10001", "10001", "10001"],
+            'E': ["11111", "10000", "10000", "11110", "10000", "10000", "11111"],
+            'G': ["01110", "10000", "10000", "10110", "10001", "10001", "01110"],
+            'K': ["10001", "10010", "10100", "11000", "10100", "10010", "10001"],
+            'L': ["10000", "10000", "10000", "10000", "10000", "10000", "11111"],
+            'O': ["01110", "10001", "10001", "10001", "10001", "10001", "01110"],
+            'T': ["11111", "01000", "01000", "01000", "01000", "01000", "01000"],
+            'U': ["10001", "10001", "10001", "10001", "10001", "10001", "01110"],
+            'R': ["11110", "10001", "10001", "11110", "10010", "10001", "10001"],
+            'D': ["11110", "10001", "10001", "10001", "10001", "10001", "11110"],
+            'N': ["10001", "11001", "10101", "10011", "10001", "10001", "10001"],
+            'M': ["10001", "11011", "10101", "10001", "10001", "10001", "10001"],
+            'P': ["11110", "10001", "10001", "11110", "10000", "10000", "10000"],
+            'F': ["11111", "10000", "10000", "11110", "10000", "10000", "10000"],
+            'V': ["10001", "10001", "10001", "10001", "10001", "01010", "00100"],
+            'W': ["10001", "10001", "10001", "10101", "10101", "01010", "00100"],
+            'B': ["11110", "10001", "10001", "11110", "10001", "10001", "11110"],
+            ',': ["00000", "00000", "00000", "00000", "00000", "01000", "10000"],
+            '1': ["01000", "11000", "01000", "01000", "01000", "01000", "11100"],
+            '2': ["11110", "00001", "00010", "00100", "01000", "10000", "11111"],
+            '3': ["11110", "00001", "00001", "01110", "00001", "00001", "11110"],
+            '4': ["00100", "01100", "10100", "11111", "00100", "00100", "00100"],
+            '5': ["11111", "10000", "10000", "11110", "00001", "00001", "11110"],
+            '6': ["01110", "10000", "10000", "11110", "10001", "10001", "01110"],
+            '7': ["11111", "00001", "00010", "00100", "01000", "10000", "10000"],
+            '8': ["01110", "10001", "10001", "01110", "10001", "10001", "01110"],
+            '9': ["01110", "10001", "10001", "01111", "00001", "00001", "01110"],
+            '0': ["01110", "10001", "10001", "10001", "10001", "10001", "01110"],
+            ':': ["00000", "01000", "00000", "01000", "00000", "00000", "00000"],
+            '/': ["00001", "00001", "00010", "00100", "01000", "10000", "10000"],
+            '-': ["00000", "00000", "00000", "11111", "00000", "00000", "00000"],
+            '_': ["00000", "00000", "00000", "00000", "00000", "00000", "11111"],
+            '(': ["00100", "01000", "10000", "10000", "10000", "01000", "00100"],
+            ')': ["00100", "00010", "00001", "00001", "00001", "00010", "00100"],
+            '[': ["11110", "10000", "10000", "10000", "10000", "10000", "11110"],
+            ']': ["01111", "00001", "00001", "00001", "00001", "00001", "01111"],
+            '{': ["00100", "01000", "01000", "10000", "01000", "01000", "00100"],
+            '}': ["00100", "00010", "00010", "00001", "00010", "00010", "00100"],
+            '<': ["00100", "01000", "10000", "01000", "00100", "00000", "00000"],
+            '>': ["10000", "01000", "00100", "01000", "10000", "00000", "00000"],
+            '+': ["00100", "00100", "00100", "11111", "00100", "00100", "00100"],
+            '=': ["00000", "11111", "00000", "11111", "00000", "00000", "00000"],
+            '*': ["00000", "10101", "01110", "10101", "00000", "00000", "00000"],
+            '#': ["01010", "11111", "01010", "11111", "01010", "00000", "00000"],
+            '@': ["01110", "10001", "10111", "10101", "10111", "10000", "01110"]
+        };
+
+        // --- Pixel Message Board Global Variables ---
+        let pixelMessageGridElement;
+        let pixelsMessage = []; // 2D array to store pixel elements for the message board
+        const pixelMessageCharWidth = 5; // Base width of a character in pixels
+        const pixelMessageCharSpacing = 1; // Pixels between characters
+        const pixelMessageCharHeight = 7; // Base height of a character in pixels
+        const pixelMessageLineSpacing = 2; // Pixels between lines (increased for better readability)
+        
+        // Adjusted pixel size to ensure text fits within the border
+        const pixelMessagePixelSize = 6; // Increased size of each individual pixel in px for this board
+        
+        // UPDATED: Message content for typing animation loop
+        const messages = [
+            ["Find me on GitHub!"],
+        ];
+
+        // Global variables for animation state (explicitly attached to window)
+        window.pixelMessageAnimationFrame = 0;
+        window.currentMessageIndex = 0;
+        window.currentLineIndex = 0;
+        window.currentCharIndex = 0;
+        window.animationPhase = 'typing'; // 'typing' or 'displayed'
+        window.animationStartTime = 0; // For timing phases
+        const typingSpeed = 70; // ms per character (adjusted for smoother typing)
+        
+        // fadeOutDuration and waitDuration are no longer needed as text will not vanish.
+
+        // Calculate grid dimensions for the message board
+        // Find the maximum character length among all lines in all messages
+        let maxCharsInAnyLine = 0;
+        messages.forEach(msg => {
+            msg.forEach(line => {
+                if (line.length > maxCharsInAnyLine) {
+                    maxCharsInAnyLine = line.length;
+                }
+            });
+        });
+        
+        // Add some buffer for aesthetics and ensure it fits within the panel
+        const bufferChars = 4; // Additional characters for left/right padding
+        const targetCharCols = maxCharsInAnyLine + bufferChars; 
+        const pixelMessageTotalCols = targetCharCols * (pixelMessageCharWidth + pixelMessageCharSpacing) - pixelMessageCharSpacing;
+
+        // Max lines in any message is 1, as only one sentence is provided.
+        const maxLinesInAnyMessage = 1; // Changed to 1
+        const pixelMessageTotalRows = (pixelMessageCharHeight + pixelMessageLineSpacing) * maxLinesInAnyMessage + pixelMessageLineSpacing; // Max 1 line of text + spacing
+
+        const pixelMessageAnimationColors = [
+            '#f87171', /* Red */
+            '#fb923c', /* Orange */
+            '#fcd34d', /* Yellow */
+            '#a78bfa', /* Purple */
+            '#60a5fa', /* Blue */
+            '#34d399', /* Green */
+            '#e879f9', /* Pink */
+        ];
+        
+        // Function to get a pixel element from the message board
+        function getPixelMessageElement(x, y) {
+            if (x < 0 || x >= pixelMessageTotalCols || y < 0 || y >= pixelMessageTotalRows) {
+                return null;
+            }
+            return pixelsMessage[y][x];
+        }
+
+        // Function to draw a character on the message board grid
+        function drawCharMessage(char, startCol, startRow, color = null) {
+            const charPixels = pixelFont[char];
+            if (!charPixels) {
+                console.warn(`Character '${char}' not found in pixel font for message board.`);
+                return;
+            }
+
+            for (let r = 0; r < pixelMessageCharHeight; r++) {
+                for (let c = 0; c < pixelMessageCharWidth; c++) {
+                    if (charPixels[r] && charPixels[r][c] === '1') {
+                        const gridRow = startRow + r;
+                        const gridCol = startCol + c;
+                        // Ensure pixel is within bounds before trying to access
+                        if (gridRow >= 0 && gridRow < pixelMessageTotalRows && gridCol >= 0 && gridCol < pixelMessageTotalCols) {
+                            const pixel = getPixelMessageElement(gridCol, gridRow);
+                            if (pixel) {
+                                pixel.classList.add('pixel-text-color');
+                                if (color) {
+                                    pixel.style.backgroundColor = color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Animation loop for the pixel message board
+        function animatePixelText(timestamp) {
+            // Clear all pixels first for each frame, then redraw based on phase
+            for (let r = 0; r < pixelMessageTotalRows; r++) {
+                for (let c = 0; c < pixelMessageTotalCols; c++) {
+                    const pixel = getPixelMessageElement(c, r);
+                    if (pixel) {
+                        pixel.style.backgroundColor = '#2d3748'; // Default dark background
+                    }
+                }
+            }
+
+            const currentMessageLines = messages[window.currentMessageIndex];
+            const totalLinesInCurrentMessage = currentMessageLines.length;
+            
+            // Calculate vertical centering for the current message
+            const currentMessageHeightInPixels = (pixelMessageCharHeight * totalLinesInCurrentMessage) + (pixelMessageLineSpacing * (totalLinesInCurrentMessage - 1));
+            const verticalStartRow = Math.floor((pixelMessageTotalRows - currentMessageHeightInPixels) / 2);
+
+
+            if (window.animationPhase === 'typing') {
+                if (!window.animationStartTime) window.animationStartTime = timestamp;
+                const elapsed = timestamp - window.animationStartTime;
+
+                const currentLineText = currentMessageLines[window.currentLineIndex];
+
+                // Calculate how many characters to display for typing effect
+                let displayCharCount = Math.floor(elapsed / typingSpeed);
+                if (displayCharCount > currentLineText.length) {
+                    displayCharCount = currentLineText.length; // Ensure not to go beyond text length
+                }
+
+                // Draw all lines of the current message, with typing effect on the active line
+                for (let l = 0; l < totalLinesInCurrentMessage; l++) {
+                    const lineText = currentMessageLines[l];
+                    const lineLengthInChars = lineText.length;
+                    const lineStartCol = Math.floor((pixelMessageTotalCols - (lineLengthInChars * (pixelMessageCharWidth + pixelMessageCharSpacing) - pixelMessageCharSpacing)) / 2);
+                    const lineStartRow = verticalStartRow + l * (pixelMessageCharHeight + pixelMessageLineSpacing);
+
+                    for (let i = 0; i < lineText.length; i++) {
+                        if (l === window.currentLineIndex && i >= displayCharCount) {
+                            break; // Stop typing animation for current line
+                        }
+                        const char = lineText[i];
+                        const colorIndex = (window.pixelMessageAnimationFrame + i + l * 5) % pixelMessageAnimationColors.length; // Vary color per line
+                        drawCharMessage(char, lineStartCol + i * (pixelMessageCharWidth + pixelMessageCharSpacing), lineStartRow, pixelMessageAnimationColors[colorIndex]);
+                    }
+                }
+
+                if (displayCharCount === currentLineText.length) {
+                    // All lines of current message finished typing
+                    window.animationPhase = 'displayed'; // Transition to 'displayed' phase
+                    window.animationStartTime = 0; // Reset start time
+                }
+
+            } else if (window.animationPhase === 'displayed') {
+                // Draw the full text without any fading
+                for (let l = 0; l < totalLinesInCurrentMessage; l++) {
+                    const lineText = currentMessageLines[l];
+                    const lineLengthInChars = lineText.length;
+                    const lineStartCol = Math.floor((pixelMessageTotalCols - (lineLengthInChars * (pixelMessageCharWidth + pixelMessageCharSpacing) - pixelMessageCharSpacing)) / 2);
+                    const lineStartRow = verticalStartRow + l * (pixelMessageCharHeight + pixelMessageLineSpacing);
+
+                    for (let i = 0; i < lineText.length; i++) {
+                        const char = lineText[i];
+                        const colorIndex = (window.pixelMessageAnimationFrame + i + l * 5) % pixelMessageAnimationColors.length;
+                        drawCharMessage(char, lineStartCol + i * (pixelMessageCharWidth + pixelMessageCharSpacing), lineStartRow, pixelMessageAnimationColors[colorIndex]);
+                    }
+                }
+                // No further state changes needed, just keep redrawing in this phase
+            }
+
+            window.pixelMessageAnimationFrame++;
+            requestAnimationFrame(animatePixelText);
+        }
+
+        // Initialize the pixel message board
+        function initPixelMessageBoard() {
+            pixelMessageGridElement = document.getElementById('pixel-message-grid');
+            // Set grid template columns/rows dynamically based on calculated pixel size
+            pixelMessageGridElement.style.gridTemplateColumns = `repeat(${pixelMessageTotalCols}, ${pixelMessagePixelSize}px)`;
+            pixelMessageGridElement.style.gridTemplateRows = `repeat(${pixelMessageTotalRows}, ${pixelMessagePixelSize}px)`;
+
+            for (let r = 0; r < pixelMessageTotalRows; r++) {
+                // No need for pixel-row-display div when using CSS Grid
+                for (let c = 0; c < pixelMessageTotalCols; c++) {
+                    const pixelElement = document.createElement('div');
+                    pixelElement.classList.add('pixel-display');
+                    pixelMessageGridElement.appendChild(pixelElement);
+                    if (!pixelsMessage[r]) pixelsMessage[r] = []; // Initialize row if not exists
+                    pixelsMessage[r][c] = pixelElement;
+                }
+            }
+            animatePixelText(); // Start the animation for the message board
+        }
+
+
+        // Initial setup on window load
         window.onload = function() {
+            // Assign global DOM element variables for main interactive grid
+            interactiveGrid = document.getElementById('interactive-grid');
+            gridMessageElement = document.getElementById('grid-message');
+            conwayControls = document.getElementById('conway-controls');
+            conwayStartStopBtn = document.getElementById('conway-start-stop');
+            conwayClearBtn = document.getElementById('conway-clear');
+            modeButtonsGlobal = document.querySelectorAll('.mode-buttons button'); 
+
             typeIntroText();
-            generateContributionGrid(); // Initial generation of the grid
+            updateQuote(); // Initial quote display
+
+            // Event Listeners for Mode Buttons (main interactive grid)
+            modeButtonsGlobal.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    switchMode(event.target.id.replace('mode-', ''));
+                });
+            });
+
+            // Conway Controls Listeners
+            conwayStartStopBtn.addEventListener('click', () => {
+                if (conwayIsRunning) {
+                    clearInterval(conwayInterval);
+                    conwayInterval = null;
+                    conwayStartStopBtn.textContent = 'Start';
+                    conwayIsRunning = false;
+                    gridMessageElement.textContent = "Simulation Paused. Click Start or change cells.";
+                } else {
+                    conwayInterval = setInterval(runConwayGeneration, 200); // Faster speed for Conway
+                    conwayStartStopBtn.textContent = 'Stop';
+                    conwayIsRunning = true;
+                    gridMessageElement.textContent = "Simulation Running! Watch the cells evolve.";
+                }
+            });
+
+            conwayClearBtn.addEventListener('click', () => {
+                if (conwayInterval) {
+                    clearInterval(conwayInterval);
+                    conwayInterval = null;
+                    conwayIsRunning = false;
+                    conwayStartStopBtn.textContent = 'Start';
+                }
+                createGrid((c, r) => 0); // Clear grid to all dead cells
+                gridMessageElement.textContent = "Grid Cleared. Click cells to set up a new pattern!";
+            });
+
+            // Start with contributions mode for the main interactive grid
+            switchMode('contributions');
+
+            // Initialize the new Pixel Message Board
+            initPixelMessageBoard();
         };
     </script>
 </body>
 </html>
-
