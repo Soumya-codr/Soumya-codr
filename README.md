@@ -25,5 +25,5 @@ Click the button below to see a more dynamic and interactive version of my GitHu
 Let's Connect!
 Feel free to explore my repositories and connect with me. Let's build amazing things together!
  * GitHub: Soumya-codr
- * LinkedIn: (Add your LinkedIn profile link here if you have one!)
- * Portfolio: (Add your portfolio link here if you have one!)
+ * LinkedIn: NotAvailble
+ * Portfolio: [(🌚🌚 Click Here)](https://soumya-codr.github.io)
