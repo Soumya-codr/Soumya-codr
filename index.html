@@ -6,6 +6,7 @@
     <title>Soumya-codr's Enhanced Animated GitHub Profile</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Custom CSS for animations and specific styles */
@@ -175,13 +176,16 @@
 
         .pixel-grid-display {
             display: grid;
-            gap: 0.5px;
+            gap: 0.5px; /* Fixed gap */
             margin-bottom: 1rem;
             border: 1px solid #63b3ed;
             border-radius: 8px;
-            padding: 8px;
+            padding: 8px; /* Fixed padding */
             background-color: #1a202c;
             box-shadow: inset 0 0 8px rgba(0,0,0,0.7);
+            width: 100%; /* Ensure it takes full available width */
+            box-sizing: border-box; /* Include padding and border in the width */
+            /* grid-template-columns and grid-template-rows will be set dynamically by JS */
         }
 
         .pixel-display {
@@ -230,6 +234,39 @@
             height: 1.25rem;
         }
 
+        /* --- License Section Specific Styles (Solid Red Tint) --- */
+        .license-glass-effect {
+            background-color: rgba(153, 27, 27, 0.9); /* More solid red, slightly transparent */
+            /* Removed backdrop-filter for glass effect */
+            border: 1px solid rgba(220, 38, 38, 1); /* Solid red border */
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 0 30px rgba(220, 38, 38, 0.5); /* Stronger red glow */
+            margin-top: 2rem;
+            font-family: 'Roboto Slab', serif; /* Professional, serif font */
+            line-height: 1.7; /* Increased line height for readability */
+            color: #e2e8f0; /* Light text color */
+        }
+
+        .license-glass-effect h2 {
+            font-family: 'Roboto Slab', serif; /* Ensure heading also uses the serious font */
+            font-size: 2rem; /* Slightly larger heading */
+            color: #f87171; /* A slightly different, but still professional, color for the heading (lighter red) */
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-shadow: none; /* Remove pixel-heading's text shadow */
+        }
+
+        .license-glass-effect pre {
+            background-color: rgba(26, 32, 44, 0.8); /* Slightly darker, less transparent code background */
+            padding: 1.2rem;
+            border-radius: 8px;
+            font-family: 'monospace'; /* Keep monospace for code blocks */
+            font-size: 0.9rem;
+            color: #cbd5e0; /* Lighter text for code */
+            overflow-x: auto; /* Enable horizontal scrolling for long lines */
+            border: 1px solid rgba(74, 85, 104, 1); /* Solid border for code block */
+        }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -269,10 +306,20 @@
                 font-size: 1.2rem;
             }
             .pixel-grid-display {
-                gap: 0.25px;
+                gap: 0.25px; /* Smaller gap on mobile */
             }
             .github-link-pixel-board {
                 padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            /* License section responsive */
+            .license-glass-effect {
+                padding: 1.5rem;
+            }
+            .license-glass-effect h2 {
+                font-size: 1.6rem;
+            }
+            .license-glass-effect pre {
                 font-size: 0.8rem;
             }
         }
@@ -363,6 +410,42 @@
             </a>
         </section>
 
+        <section class="mb-8 p-6 bg-gray-700 bg-opacity-80 rounded-lg card-glow">
+            <h2 class="text-2xl md:text-3xl font-bold text-blue-300 mb-4">Recent Updates</h2>
+            <ul class="list-disc list-inside text-left text-gray-200 space-y-2">
+                <li><strong class="text-blue-300">June 2, 2025:</strong> Implemented responsive pixel message board, ensuring optimal display across all device sizes.</li>
+                <li><strong class="text-blue-300">May 30, 2025:</strong> Fixed minor layout issues on smaller screens, improving overall mobile compatibility.</li>
+                <li><strong class="text-blue-300">May 25, 2025:</strong> Added interactive grid modes (Conway's Game of Life, Pixel Art, Generative Flow) for enhanced user engagement.</li>
+                <li><strong class="text-blue-300">May 20, 2025:</strong> Initial release of animated GitHub profile with code rain and particle background.</li>
+            </ul>
+            <p class="text-sm text-gray-400 mt-4">Stay tuned for more exciting updates and features!</p>
+        </section>
+
+        <section class="license-glass-effect">
+            <h2>MIT License</h2>
+            <pre>
+Copyright (c) 2025 Soumya Sagar (@Soumya-codr)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+            </pre>
+        </section>
+
         <section class="text-center p-6 bg-gray-700 bg-opacity-80 rounded-lg card-glow">
             <h2 class="text-2xl md:text-3xl font-bold text-blue-300 mb-4">Let's Connect!</h2>
             <p class="text-lg text-gray-200 mb-6">
@@ -371,7 +454,7 @@
             <a href="https://github.com/Soumya-codr" target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75">
                 <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.828.092-.643.354-1.088.643-1.333-2.22-.253-4.555-1.119-4.555-4.934 0-1.089.389-1.979 1.029-2.679-.103-.253-.446-1.266.099-2.64 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.373.202 2.387.099 2.64.64.7 1.028 1.59.1028 2.679 0 3.823-2.339 4.681-4.566 4.925.359.309.678.92.678 1.855 0 1.336-.012 2.419-.012 2.747 0 .268.18.58.688.482C21.137 20.281 24 16.516 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"></path></svg>
-                Visit my GitHub
+                Visit My GitHub
             </a>
         </section>
     </div>
@@ -964,9 +1047,6 @@
         const pixelMessageCharHeight = 7; // Base height of a character in pixels
         const pixelMessageLineSpacing = 2; // Pixels between lines (increased for better readability)
         
-        // Adjusted pixel size to ensure text fits within the border
-        const pixelMessagePixelSize = 6; // Increased size of each individual pixel in px for this board
-        
         // UPDATED: Message content for typing animation loop
         const messages = [
             ["Find me on GitHub!"],
@@ -981,10 +1061,7 @@
         window.animationStartTime = 0; // For timing phases
         const typingSpeed = 70; // ms per character (adjusted for smoother typing)
         
-        // fadeOutDuration and waitDuration are no longer needed as text will not vanish.
-
-        // Calculate grid dimensions for the message board
-        // Find the maximum character length among all lines in all messages
+        // Calculate grid dimensions for the message board dynamically
         let maxCharsInAnyLine = 0;
         messages.forEach(msg => {
             msg.forEach(line => {
@@ -993,15 +1070,12 @@
                 }
             });
         });
-        
-        // Add some buffer for aesthetics and ensure it fits within the panel
-        const bufferChars = 4; // Additional characters for left/right padding
-        const targetCharCols = maxCharsInAnyLine + bufferChars; 
-        const pixelMessageTotalCols = targetCharCols * (pixelMessageCharWidth + pixelMessageCharSpacing) - pixelMessageCharSpacing;
 
-        // Max lines in any message is 1, as only one sentence is provided.
-        const maxLinesInAnyMessage = 1; // Changed to 1
-        const pixelMessageTotalRows = (pixelMessageCharHeight + pixelMessageLineSpacing) * maxLinesInAnyMessage + pixelMessageLineSpacing; // Max 1 line of text + spacing
+        // Calculate the total number of pixel columns needed for the longest line of text
+        // This will be used to define the grid's columns using '1fr' units for responsiveness.
+        const pixelMessageTotalCols = maxCharsInAnyLine * (pixelMessageCharWidth + pixelMessageCharSpacing) - pixelMessageCharSpacing;
+        // The number of pixel rows needed for the message (fixed for a single line of pixel text)
+        const pixelMessageTotalRows = pixelMessageCharHeight;
 
         const pixelMessageAnimationColors = [
             '#f87171', /* Red */
@@ -1085,6 +1159,7 @@
                 for (let l = 0; l < totalLinesInCurrentMessage; l++) {
                     const lineText = currentMessageLines[l];
                     const lineLengthInChars = lineText.length;
+                    // Calculate horizontal centering for the current line
                     const lineStartCol = Math.floor((pixelMessageTotalCols - (lineLengthInChars * (pixelMessageCharWidth + pixelMessageCharSpacing) - pixelMessageCharSpacing)) / 2);
                     const lineStartRow = verticalStartRow + l * (pixelMessageCharHeight + pixelMessageLineSpacing);
 
@@ -1128,22 +1203,57 @@
         // Initialize the pixel message board
         function initPixelMessageBoard() {
             pixelMessageGridElement = document.getElementById('pixel-message-grid');
+            
+            // Get the computed width of the container (pixel-grid-display itself)
+            const containerWidth = pixelMessageGridElement.offsetWidth;
+            
+            // Subtract the padding from the container width
+            const padding = parseFloat(getComputedStyle(pixelMessageGridElement).paddingLeft) * 2; // Assuming symmetrical padding
+            const effectiveContainerWidth = containerWidth - padding; 
+
+            // Calculate the total width taken by gaps (0.5px per gap)
+            const totalGapWidth = (pixelMessageTotalCols - 1) * 0.5; 
+
+            // Calculate the available space for the actual pixels
+            const availableSpaceForPixels = effectiveContainerWidth - totalGapWidth;
+
+            // Calculate the dynamic pixel size. Ensure a minimum size to prevent extreme squeezing.
+            let calculatedPixelSize = availableSpaceForPixels / pixelMessageTotalCols;
+            const minPixelSize = 2; // Minimum pixel size in px. Adjust this value as needed.
+            calculatedPixelSize = Math.max(calculatedPixelSize, minPixelSize); // Ensure pixels don't get too small
+
             // Set grid template columns/rows dynamically based on calculated pixel size
-            pixelMessageGridElement.style.gridTemplateColumns = `repeat(${pixelMessageTotalCols}, ${pixelMessagePixelSize}px)`;
-            pixelMessageGridElement.style.gridTemplateRows = `repeat(${pixelMessageTotalRows}, ${pixelMessagePixelSize}px)`;
+            pixelMessageGridElement.style.gridTemplateColumns = `repeat(${pixelMessageTotalCols}, ${calculatedPixelSize}px)`;
+            pixelMessageGridElement.style.gridTemplateRows = `repeat(${pixelMessageTotalRows}, ${calculatedPixelSize}px)`;
+
+            // Clear existing pixels before re-drawing
+            pixelMessageGridElement.innerHTML = '';
+            pixelsMessage = []; // Reset the pixels array
 
             for (let r = 0; r < pixelMessageTotalRows; r++) {
-                // No need for pixel-row-display div when using CSS Grid
+                pixelsMessage[r] = []; // Initialize row if not exists
                 for (let c = 0; c < pixelMessageTotalCols; c++) {
                     const pixelElement = document.createElement('div');
                     pixelElement.classList.add('pixel-display');
                     pixelMessageGridElement.appendChild(pixelElement);
-                    if (!pixelsMessage[r]) pixelsMessage[r] = []; // Initialize row if not exists
                     pixelsMessage[r][c] = pixelElement;
                 }
             }
-            animatePixelText(); // Start the animation for the message board
+            // Only start animation if it's not already running
+            if (!window.pixelMessageAnimationRunning) {
+                animatePixelText(); // Start the animation for the message board
+                window.pixelMessageAnimationRunning = true;
+            }
         }
+
+        // Add a resize listener to re-initialize the pixel board on window resize
+        window.addEventListener('resize', () => {
+            // Debounce the resize event to prevent excessive calls
+            clearTimeout(window.resizeTimer);
+            window.resizeTimer = setTimeout(() => {
+                initPixelMessageBoard();
+            }, 250); // Wait 250ms after resize stops
+        });
 
 
         // Initial setup on window load
@@ -1202,4 +1312,5 @@
     </script>
 </body>
 </html>
+
 
