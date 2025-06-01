@@ -15,7 +15,7 @@
             background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
             color: #e2e8f0;
             overflow-x: hidden;
-            position: relative; /* Needed for absolute positioning of particles */
+            position: relative; /* Needed for absolute positioning of particles/animations */
         }
 
         .container {
@@ -36,8 +36,8 @@
             50% { border-color: #63b3ed; }
         }
 
-        /* Code rain animation */
-        .code-rain-container {
+        /* Base styles for all background animation containers */
+        .background-animation-container {
             position: absolute;
             top: 0;
             left: 0;
@@ -46,13 +46,14 @@
             overflow: hidden;
             pointer-events: none;
             z-index: 0;
+            display: none; /* Hidden by default, shown by JS */
         }
 
-        .code-drop {
+        /* Specific styles for current/default theme animations */
+        #code-rain-container .code-drop {
             position: absolute;
             font-family: 'monospace';
             font-size: 0.8rem;
-            /* Color will be set dynamically by JS */
             animation: fall linear infinite;
             white-space: nowrap;
             opacity: 0;
@@ -75,19 +76,8 @@
             }
         }
 
-        /* Subtle glow effect for cards */
-        .card-glow {
-            box-shadow: 0 0 15px rgba(99, 179, 237, 0.3);
-            transition: box-shadow 0.3s ease-in-out;
-        }
-        .card-glow:hover {
-            box-shadow: 0 0 25px rgba(99, 179, 237, 0.6);
-        }
-
-        /* Particle background animation */
-        .particle {
+        #particle-container .particle {
             position: absolute;
-            /* Color will be set dynamically by JS */
             border-radius: 50%;
             animation: float-and-fade linear infinite;
             pointer-events: none;
@@ -109,6 +99,149 @@
                 transform: translateY(-100vh) translateX(var(--float-x)) scale(var(--scale));
                 opacity: 0;
             }
+        }
+
+        /* Specific styles for Video Game theme animation */
+        #video-game-bg {
+            perspective: 500px; /* For 3D effect of blocks */
+        }
+
+        #video-game-bg .tetris-block {
+            position: absolute;
+            display: flex;
+            flex-wrap: wrap;
+            animation: tetris-fall linear infinite;
+            opacity: 0;
+            transform: translateY(-100%) rotateX(0deg); /* Initial state */
+            transform-style: preserve-3d; /* For 3D rotation */
+        }
+
+        #video-game-bg .tetris-pixel {
+            width: 15px; /* Size of individual pixel */
+            height: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+        }
+
+        @keyframes tetris-fall {
+            0% {
+                transform: translateY(-100%) rotateX(0deg) scale(1);
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            95% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotateX(360deg) scale(0.8); /* Fall and rotate */
+                opacity: 0;
+            }
+        }
+
+        /* Specific styles for Universe theme animation */
+        #universe-bg {
+            perspective: 800px; /* Stronger perspective for depth */
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%); /* Darker space background */
+        }
+
+        #universe-bg .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: star-travel linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes star-travel {
+            0% {
+                transform: translateZ(-1000px) scale(0.1); /* Start far and small */
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            80% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateZ(0px) scale(2); /* End near and large */
+                opacity: 0;
+            }
+        }
+
+        #universe-bg .spacecraft {
+            position: absolute;
+            bottom: 5%; /* Position near the bottom */
+            left: 50%;
+            transform: translateX(-50%) rotateY(0deg) rotateZ(0deg);
+            width: 80px;
+            height: 80px;
+            pointer-events: none;
+            z-index: 1; /* Above stars */
+            animation: spacecraft-hover 8s ease-in-out infinite alternate,
+                       spacecraft-drift 15s linear infinite;
+        }
+
+        #universe-bg .spacecraft-body {
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 80px solid #63b3ed; /* Blue triangle */
+            position: absolute;
+            top: 0;
+            left: 0;
+            filter: drop-shadow(0 0 10px rgba(99, 179, 237, 0.8));
+        }
+
+        #universe-bg .engine-trail {
+            position: absolute;
+            width: 10px;
+            height: 30px;
+            background: linear-gradient(to top, rgba(255, 165, 0, 0.8), rgba(255, 255, 0, 0.5), transparent);
+            border-radius: 50%;
+            bottom: -20px; /* Below the spacecraft */
+            left: calc(50% - 5px);
+            animation: engine-flicker 0.2s infinite alternate,
+                       engine-expand 1s ease-out infinite;
+            filter: blur(5px);
+            opacity: 0.7;
+        }
+
+        @keyframes spacecraft-hover {
+            0% { transform: translateX(-50%) translateY(0px) rotateY(0deg); }
+            50% { transform: translateX(-50%) translateY(-10px) rotateY(10deg); }
+            100% { transform: translateX(-50%) translateY(0px) rotateY(0deg); }
+        }
+
+        @keyframes spacecraft-drift {
+            0% { left: 0%; transform: translateX(-50%) rotateZ(0deg); }
+            50% { left: 100%; transform: translateX(-50%) rotateZ(180deg); }
+            100% { left: 0%; transform: translateX(-50%) rotateZ(360deg); }
+        }
+
+        @keyframes engine-flicker {
+            0% { opacity: 0.7; transform: scaleY(1); }
+            100% { opacity: 1; transform: scaleY(1.2); }
+        }
+
+        @keyframes engine-expand {
+            0% { transform: scale(0.5); opacity: 0.5; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0.5); opacity: 0.5; }
+        }
+
+
+        /* Subtle glow effect for cards */
+        .card-glow {
+            box-shadow: 0 0 15px rgba(99, 179, 237, 0.3);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .card-glow:hover {
+            box-shadow: 0 0 25px rgba(99, 179, 237, 0.6);
         }
 
         /* Contribution Grid & Game Styles */
@@ -237,7 +370,6 @@
         /* --- License Section Specific Styles (Solid Red Tint) --- */
         .license-glass-effect {
             background-color: rgba(153, 27, 27, 0.9); /* More solid red, slightly transparent */
-            /* Removed backdrop-filter for glass effect */
             border: 1px solid rgba(220, 38, 38, 1); /* Solid red border */
             border-radius: 12px;
             padding: 2rem;
@@ -267,6 +399,161 @@
             overflow-x: auto; /* Enable horizontal scrolling for long lines */
             border: 1px solid rgba(74, 85, 104, 1); /* Solid border for code block */
         }
+
+        /* Theme Changer styles */
+        .theme-changer-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .theme-button {
+            background-color: #63b3ed;
+            color: #1a202c;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+            margin-bottom: 1rem; /* Space below the button */
+        }
+
+        .theme-button:hover {
+            background-color: #4299e1;
+        }
+
+        .theme-dropdown {
+            position: absolute;
+            top: 100%; /* Position below the button */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            background-color: #2d3748;
+            border: 1px solid #4a5568;
+            border-radius: 8px;
+            padding: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            z-index: 10;
+            display: none; /* Hidden by default */
+            min-width: 180px; /* Ensure buttons fit */
+            text-align: center;
+        }
+
+        .theme-dropdown.show {
+            display: block;
+        }
+
+        .theme-dropdown button {
+            display: block; /* Make buttons stack vertically */
+            width: calc(100% - 1rem); /* Full width minus padding */
+            padding: 0.6rem 0.8rem;
+            margin: 0.25rem 0.5rem; /* Small margin for spacing */
+            background-color: #4a5568;
+            color: #e2e8f0;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .theme-dropdown button:hover {
+            background-color: #63b3ed;
+            color: #1a202c;
+            transform: translateY(-1px);
+        }
+
+        /* New Neon Glass Effect Styles */
+        .neon-glass-card {
+            background-color: rgba(45, 55, 72, 0.4); /* Semi-transparent background */
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden; /* To contain pseudo-elements if used for glow */
+            border: 1px solid; /* Will be colored by specific classes */
+            box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Base shadow */
+            
+            /* Apply a subtle, continuous pulse animation to make it feel more "alive" */
+            animation: neon-pulse 3s infinite alternate ease-in-out;
+        }
+
+        /* Hover effect for scaling and stronger glow */
+        .neon-glass-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            /* Box-shadow for hover is defined in specific color classes below */
+        }
+
+        /* Keyframes for the neon pulse animation. */
+        /* This creates a subtle ebb and flow of the glow, mimicking a living light source. */
+        @keyframes neon-pulse {
+            0% {
+                transform: scale(1);
+                /* Using 0.8 for initial shadow intensity ensures it's not too bright at rest */
+                box-shadow: 0 0 10px rgba(var(--neon-color-rgb), 0.8), inset 0 0 3px rgba(var(--neon-color-rgb), 0.5);
+            }
+            50% {
+                transform: scale(1.005); /* Very slight scale up to mimic breathing */
+                /* Increasing intensity at 50% for the pulse effect */
+                box-shadow: 0 0 20px rgba(var(--neon-color-rgb), 1), inset 0 0 8px rgba(var(--neon-color-rgb), 0.7);
+            }
+            100% {
+                transform: scale(1);
+                /* Fading back to original intensity */
+                box-shadow: 0 0 10px rgba(var(--neon-color-rgb), 0.8), inset 0 0 3px rgba(var(--neon-color-rgb), 0.5);
+            }
+        }
+
+        /* Specific neon colors and shadows */
+        /* We define custom properties (var(--neon-color-rgb)) for reuse in the animation */
+        .neon-html {
+            border-color: #ff6600; /* Orange */
+            --neon-color-rgb: 255, 102, 0; /* RGB for orange */
+        }
+        .neon-html:hover {
+            box-shadow: 0 0 25px #ff6600, inset 0 0 8px #ff6600;
+        }
+
+        .neon-css {
+            border-color: #007bff; /* Blue */
+            --neon-color-rgb: 0, 123, 255; /* RGB for blue */
+        }
+        .neon-css:hover {
+            box-shadow: 0 0 25px #007bff, inset 0 0 8px #007bff;
+        }
+
+        .neon-js {
+            border-color: #ffee00; /* Yellow */
+            --neon-color-rgb: 255, 238, 0; /* RGB for yellow */
+            color: #e2e8f0; /* Ensure text is visible on yellow glow */
+        }
+        .neon-js:hover {
+            box-shadow: 0 0 25px #ffee00, inset 0 0 8px #ffee00;
+        }
+
+        .neon-python {
+            border-color: #306998; /* Darker blue for Python */
+            --neon-color-rgb: 48, 105, 152; /* RGB for Python blue */
+        }
+        .neon-python:hover {
+            box-shadow: 0 0 25px #306998, inset 0 0 8px #306998;
+        }
+
+        .neon-glass-card i {
+            font-size: 4rem; /* Larger icon size */
+            margin-bottom: 0.75rem;
+            filter: drop-shadow(0 0 5px currentColor); /* Icon glow */
+        }
+
+        .neon-glass-card span {
+            font-size: 1.25rem; /* Larger text */
+            font-weight: 600;
+            color: #e2e8f0; /* Light text color */
+        }
+
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -322,12 +609,40 @@
             .license-glass-effect pre {
                 font-size: 0.8rem;
             }
+            /* Theme Changer responsive */
+            .theme-dropdown {
+                width: 90%; /* Take more width on smaller screens */
+                left: 5%;
+                transform: translateX(0%);
+            }
+            /* Neon Glass Cards responsive */
+            .neon-glass-card {
+                padding: 1rem;
+            }
+            .neon-glass-card i {
+                font-size: 3rem; /* Smaller icons on mobile */
+            }
+            .neon-glass-card span {
+                font-size: 1rem; /* Smaller text on mobile */
+            }
         }
     </style>
 </head>
 <body>
-    <div class="code-rain-container" id="code-rain"></div>
-    <div class="absolute inset-0 overflow-hidden" id="particle-container"></div>
+    <div id="default-bg-container" class="background-animation-container">
+        <div class="code-rain-container" id="code-rain-container"></div>
+        <div class="absolute inset-0 overflow-hidden" id="particle-container"></div>
+    </div>
+
+    <div id="video-game-bg" class="background-animation-container">
+        </div>
+
+    <div id="universe-bg" class="background-animation-container">
+        <div class="spacecraft">
+            <div class="spacecraft-body"></div>
+            <div class="engine-trail"></div>
+        </div>
+    </div>
 
     <div class="container relative z-10 p-6 md:p-8 bg-gray-800 bg-opacity-70 rounded-xl shadow-lg card-glow border border-gray-700">
         <header class="text-center mb-8">
@@ -339,6 +654,19 @@
             </p>
             <div class="h-1 w-24 bg-blue-500 rounded-full mx-auto mt-4"></div>
         </header>
+
+        <div class="text-center mb-8">
+            <div class="theme-changer-container">
+                <button id="theme-changer-toggle" class="theme-button">
+                    Change Theme <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+                <div id="theme-dropdown" class="theme-dropdown">
+                    <button id="theme-default">Current Simple Theme</button>
+                    <button id="theme-video-game">Video Game Theme</button>
+                    <button id="theme-universe">Travel to Universe Theme</button>
+                </div>
+            </div>
+        </div>
 
         <section class="mb-8 p-6 bg-gray-700 bg-opacity-80 rounded-lg card-glow">
             <h2 class="text-2xl md:text-3xl font-bold text-blue-300 mb-4">About Me</h2>
@@ -377,6 +705,29 @@
                 </div>
             </div>
         </section>
+
+        <section class="mb-8 p-6 bg-gray-700 bg-opacity-80 rounded-lg card-glow text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-blue-300 mb-6">My Tech Stack</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="neon-glass-card neon-html">
+                    <i class="fab fa-html5 text-orange-500"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="neon-glass-card neon-css">
+                    <i class="fab fa-css3-alt text-blue-500"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="neon-glass-card neon-js">
+                    <i class="fab fa-js-square text-yellow-400"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="neon-glass-card neon-python">
+                    <i class="fab fa-python text-blue-600"></i>
+                    <span>Python</span>
+                </div>
+            </div>
+        </section>
+
 
         <section class="mb-8 p-6 bg-gray-700 bg-opacity-80 rounded-lg card-glow text-center">
             <h2 class="text-2xl md:text-3xl font-bold text-blue-300 mb-4">
@@ -453,7 +804,7 @@ SOFTWARE.
             </p>
             <a href="https://github.com/Soumya-codr" target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75">
-                <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.828.092-.643.354-1.088.643-1.333-2.22-.253-4.555-1.119-4.555-4.934 0-1.089.389-1.979 1.029-2.679-.103-.253-.446-1.266.099-2.64 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.373.202 2.387.099 2.64.64.7 1.028 1.59.1028 2.679 0 3.823-2.339 4.681-4.566 4.925.359.309.678.92.678 1.855 0 1.336-.012 2.419-.012 2.747 0 .268.18.58.688.482C21.137 20.281 24 16.516 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"></path></svg>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.828.092-.643.354-1.088.643-1.333-2.22-.253-4.555-1.119-4.555-4.934 0-1.089.389-1.979 1.029-2.679-.103-.253-.446-1.266.099-2.64 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.373.202 2.387.099 2.64.64.7 1.028 1.59.1028 2.679 0 3.823-2.339 4.681-4.566 4.925.359.309.678.92.678 1.855 0 1.336-.012 2.419-.012 2.747 0 .268.18.58.688.482C21.137 20.281 24 16.516 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"></path></svg>
                 Visit My GitHub
             </a>
         </section>
@@ -462,23 +813,34 @@ SOFTWARE.
     <script>
         // JavaScript for animations and dynamic content
 
-        // 1. Typing Effect for Introduction
-        const introTextElement = document.getElementById('intro-text');
-        const fullIntroText = "Hello there! I'm Soumya Sagar, a passionate and aspiring developer embarking on an exciting journey into the world of code. As a new fresher, I'm eager to learn, build, and innovate.";
-        let introCharIndex = 0;
+        // Global animation interval/timeout IDs
+        let codeRainInterval = null;
+        let particleInterval = null;
+        let videoGameBlockInterval = null;
+        let universeStarInterval = null;
+        let universeStarClearTimeout = null;
 
-        function typeIntroText() {
-            if (introCharIndex < fullIntroText.length) {
-                introTextElement.textContent += fullIntroText.charAt(introCharIndex);
-                introCharIndex++;
-                setTimeout(typeIntroText, 50); // Adjust typing speed here (milliseconds per character)
-            } else {
-                introTextElement.classList.remove('typing-text'); // Remove cursor after typing
-            }
+        // Function to stop all background animations and clear their containers
+        function stopAllBackgroundAnimations() {
+            clearInterval(codeRainInterval);
+            clearInterval(particleInterval);
+            clearInterval(videoGameBlockInterval);
+            clearInterval(universeStarInterval);
+            clearTimeout(universeStarClearTimeout); // Clear any pending star removal
+            
+            document.getElementById('code-rain-container').innerHTML = '';
+            document.getElementById('particle-container').innerHTML = '';
+            document.getElementById('video-game-bg').innerHTML = '';
+            document.getElementById('universe-bg').innerHTML = '';
+
+            // Hide all animation containers
+            document.querySelectorAll('.background-animation-container').forEach(container => {
+                container.style.display = 'none';
+            });
         }
 
-        // 2. Code Rain Animation
-        const codeRainContainer = document.getElementById('code-rain');
+        // --- 1. Current Simple Theme Animations (Code Rain & Particles) ---
+        const codeRainContainer = document.getElementById('code-rain-container');
         const codeCharacters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+{}[]|:;"<>,.?/~`';
         const vibrantColors = [
             '#f87171', /* Red */
@@ -498,106 +860,218 @@ SOFTWARE.
             drop.style.left = Math.random() * 100 + 'vw';
             drop.style.animationDuration = (Math.random() * 5 + 3) + 's';
             drop.style.animationDelay = (Math.random() * 5) + 's';
-            drop.style.color = vibrantColors[Math.floor(Math.random() * vibrantColors.length)]; // Random vibrant color
-
+            drop.style.color = vibrantColors[Math.floor(Math.random() * vibrantColors.length)];
             let codeString = '';
             const length = Math.floor(Math.random() * 10) + 5;
             for (let i = 0; i < length; i++) {
                 codeString += codeCharacters.charAt(Math.floor(Math.random() * codeCharacters.length));
             }
             drop.textContent = codeString;
-
             codeRainContainer.appendChild(drop);
-
-            drop.addEventListener('animationend', () => {
-                drop.remove();
-            });
+            // Remove after animation to prevent memory leak
+            drop.addEventListener('animationend', () => { drop.remove(); });
         }
 
-        // Generate initial code drops and then continuously add new ones
-        const numberOfCodeDrops = 50;
-        for (let i = 0; i < numberOfCodeDrops; i++) {
-            createCodeDrop();
+        function startCodeRain() {
+            if (codeRainInterval) return; // Prevent multiple intervals
+            codeRainContainer.style.display = 'block'; // Show container
+            for (let i = 0; i < 50; i++) createCodeDrop(); // Initial drops
+            codeRainInterval = setInterval(createCodeDrop, 500); // Continuous drops
         }
-        setInterval(createCodeDrop, 500);
 
-        // 3. Particle Background Animation
         const particleContainer = document.getElementById('particle-container');
-        const numberOfParticles = 70; // Adjust for desired density
+        const numberOfParticles = 70;
 
         function createParticle() {
             const particle = document.createElement('div');
             particle.classList.add('particle');
-            const size = Math.random() * 3 + 1; // Particle size (1-4px)
+            const size = Math.random() * 3 + 1;
             particle.style.width = size + 'px';
             particle.style.height = size + 'px';
             particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.bottom = Math.random() * 100 + 'vh'; // Start from random bottom position
-            particle.style.animationDuration = (Math.random() * 15 + 10) + 's'; // Float duration (10-25s)
-            particle.style.animationDelay = (Math.random() * 10) + 's'; // Start delay
-            particle.style.backgroundColor = vibrantColors[Math.floor(Math.random() * vibrantColors.length)]; // Random vibrant color
-
-            // Custom CSS variables for animation
-            particle.style.setProperty('--float-x', (Math.random() * 200 - 100) + 'px'); // Random horizontal drift
-            particle.style.setProperty('--scale', (Math.random() * 0.5 + 0.5)); // Random scale variation
-
+            particle.style.bottom = Math.random() * 100 + 'vh';
+            particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            particle.style.animationDelay = (Math.random() * 10) + 's';
+            particle.style.backgroundColor = vibrantColors[Math.floor(Math.random() * vibrantColors.length)];
+            particle.style.setProperty('--float-x', (Math.random() * 200 - 100) + 'px');
+            particle.style.setProperty('--scale', (Math.random() * 0.5 + 0.5));
             particleContainer.appendChild(particle);
-
-            particle.addEventListener('animationend', () => {
-                particle.remove();
-                createParticle(); // Recreate particle when one finishes
-            });
+            particle.addEventListener('animationend', () => { particle.remove(); createParticle(); });
         }
 
-        for (let i = 0; i < numberOfParticles; i++) {
-            createParticle();
+        function startParticleBackground() {
+            if (particleInterval) return; // Prevent multiple intervals
+            particleContainer.style.display = 'block'; // Show container
+            for (let i = 0; i < numberOfParticles; i++) createParticle();
         }
 
-        // 4. Dynamic Coding Quotes
-        const quotes = [
-            { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
-            { quote: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.", author: "Martin Fowler" },
-            { quote: "First, solve the problem. Then, write the code.", author: "John Johnson" },
-            { quote: "Experience is the name everyone gives to their mistakes.", author: "Oscar Wilde" },
-            { quote: "Code is like humor. When you have to explain it, it’s bad.", author: "Cory House" }
-        ];
-        let currentQuoteIndex = 0;
-        const quoteDisplay = document.getElementById('quote-display');
+        // --- 2. Video Game Theme Animations (Tetris-like Blocks) ---
+        const videoGameBgContainer = document.getElementById('video-game-bg');
+        const tetriminoShapes = {
+            'I': [[1,1,1,1]],
+            'O': [[1,1],[1,1]],
+            'T': [[0,1,0],[1,1,1]],
+            'L': [[1,0,0],[1,1,1]],
+            'J': [[0,0,1],[1,1,1]],
+            'S': [[0,1,1],[1,1,0]],
+            'Z': [[1,1,0],[0,1,1]]
+        };
+        const tetriminoColors = {
+            'I': '#00FFFF', // Cyan
+            'O': '#FDE047', // Yellow
+            'T': '#A855F7', // Purple
+            'L': '#F97316', // Orange
+            'J': '#3B82F6', // Blue
+            'S': '#22C55E', // Green
+            'Z': '#EF4444'  // Red
+        };
+        const pixelSize = 15; // Matches .tetris-pixel width/height
 
-        function updateQuote() {
-            quoteDisplay.style.opacity = 0; // Fade out
-            setTimeout(() => {
-                currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-                const { quote, author } = quotes[currentQuoteIndex];
-                quoteDisplay.innerHTML = `"${quote}"<br><span class="text-sm text-gray-400">- ${author}</span>`;
-                quoteDisplay.style.opacity = 1; // Fade in
-            }, 500); // Wait for fade out to complete
+        function createTetrisBlock() {
+            const shapes = Object.keys(tetriminoShapes);
+            const randomShapeKey = shapes[Math.floor(Math.random() * shapes.length)];
+            const shape = tetriminoShapes[randomShapeKey];
+            const color = tetriminoColors[randomShapeKey];
+
+            const blockContainer = document.createElement('div');
+            blockContainer.classList.add('tetris-block');
+            blockContainer.style.animationDuration = (Math.random() * 5 + 4) + 's'; // Fall speed 4-9s
+            blockContainer.style.animationDelay = (Math.random() * 3) + 's'; // Staggered start
+
+            // Calculate block width and height based on its shape
+            const blockWidth = shape[0].length * pixelSize;
+            const blockHeight = shape.length * pixelSize;
+
+            blockContainer.style.width = blockWidth + 'px';
+            blockContainer.style.height = blockHeight + 'px';
+
+            // Random horizontal position, ensuring it stays within bounds
+            blockContainer.style.left = Math.random() * (window.innerWidth - blockWidth) + 'px';
+
+            for (let r = 0; r < shape.length; r++) {
+                for (let c = 0; c < shape[r].length; c++) {
+                    if (shape[r][c] === 1) {
+                        const pixel = document.createElement('div');
+                        pixel.classList.add('tetris-pixel');
+                        pixel.style.backgroundColor = color;
+                        blockContainer.appendChild(pixel);
+                    } else {
+                        // For empty spaces within the block's bounding box to maintain layout
+                        const emptyPixel = document.createElement('div');
+                        emptyPixel.style.width = pixelSize + 'px';
+                        emptyPixel.style.height = pixelSize + 'px';
+                        blockContainer.appendChild(emptyPixel);
+                    }
+                }
+            }
+            videoGameBgContainer.appendChild(blockContainer);
+            blockContainer.addEventListener('animationend', () => { blockContainer.remove(); });
         }
-        setInterval(updateQuote, 8000); // Change quote every 8 seconds
+
+        function startVideoGameBackground() {
+            if (videoGameBlockInterval) return;
+            videoGameBgContainer.style.display = 'block'; // Show container
+            // Ensure the container has enough perspective for 3D rotation
+            videoGameBgContainer.style.perspective = '500px';
+            for (let i = 0; i < 15; i++) createTetrisBlock(); // Initial blocks
+            videoGameBlockInterval = setInterval(createTetrisBlock, 1500); // Continuous blocks
+        }
+
+        // --- 3. Travel to Universe Theme Animations ---
+        const universeBgContainer = document.getElementById('universe-bg');
+        const spacecraftElement = universeBgContainer.querySelector('.spacecraft');
+
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            const size = Math.random() * 3 + 1; // 1-4px
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            
+            // Random position across the screen
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            
+            star.style.animationDuration = (Math.random() * 8 + 4) + 's'; // Travel speed 4-12s
+            star.style.animationDelay = (Math.random() * 8) + 's'; // Staggered start
+
+            // Give stars a slight color tint
+            const tint = Math.random() > 0.5 ? 'rgba(255, 255, 200, 0.8)' : 'rgba(200, 220, 255, 0.8)';
+            star.style.backgroundColor = tint;
+
+            universeBgContainer.appendChild(star);
+            star.addEventListener('animationend', () => { star.remove(); createStar(); }); // Recreate on end
+        }
+
+        function startUniverseBackground() {
+            if (universeStarInterval) return;
+            universeBgContainer.style.display = 'block'; // Show container
+            spacecraftElement.style.display = 'block'; // Show spacecraft
+
+            // Initial stars
+            for (let i = 0; i < 150; i++) createStar(); // More stars for density
+            // Continuously add new stars
+            universeStarInterval = setInterval(createStar, 200);
+        }
 
 
-        // 5. Interactive Grid Modes
-        // Declare global variables for DOM elements
+        // --- Theme Switching Logic ---
+        function applyTheme(themeName) {
+            stopAllBackgroundAnimations(); // Stop all current animations
+
+            const defaultContainer = document.getElementById('default-bg-container');
+            const videoGameContainer = document.getElementById('video-game-bg');
+            const universeContainer = document.getElementById('universe-bg');
+            
+            // Hide spacecraft by default, it will be shown only for universe theme
+            spacecraftElement.style.display = 'none';
+
+            // Hide all first
+            defaultContainer.style.display = 'none';
+            videoGameContainer.style.display = 'none';
+            universeContainer.style.display = 'none';
+
+            // Then show and start the selected one
+            switch (themeName) {
+                case 'default':
+                    defaultContainer.style.display = 'block';
+                    startCodeRain();
+                    startParticleBackground();
+                    break;
+                case 'video-game':
+                    videoGameContainer.style.display = 'block';
+                    startVideoGameBackground();
+                    break;
+                case 'universe':
+                    universeContainer.style.display = 'block';
+                    startUniverseBackground();
+                    break;
+                default:
+                    // Fallback to default
+                    defaultContainer.style.display = 'block';
+                    startCodeRain();
+                    startParticleBackground();
+                    break;
+            }
+        }
+
+
+        // Global variables for main interactive grid (from previous version)
         let interactiveGrid;
         let gridMessageElement;
         let conwayControls;
         let conwayStartStopBtn;
         let conwayClearBtn;
         let modeButtonsGlobal; 
-
-        const numRows = 7; // Days of the week for main grid
-        const numCols = 26; // Weeks for main grid
-        
-        let currentMode = 'contributions'; // Default mode
-        let gridState = []; // Stores the state of cells for current mode
-        let conwayInterval = null; // Interval for Conway's Game of Life
-        let conwayIsRunning = false; // State for Conway's Game of Life
-        let generativeFlowInterval = null; // Interval for Generative Flow
-
-        // Store original contribution levels (for 'contributions' mode)
+        const numRows = 7;
+        const numCols = 26;
+        let currentMode = 'contributions';
+        let gridState = [];
+        let conwayInterval = null;
+        let conwayIsRunning = false;
+        let generativeFlowInterval = null;
         let originalContributionLevels = []; 
 
-        // Function to get a cell by its grid coordinates (for main interactive grid)
         function getGridCell(x, y) {
             if (x < 0 || x >= numCols || y < 0 || y >= numRows) {
                 return null;
@@ -605,10 +1079,9 @@ SOFTWARE.
             return interactiveGrid.children[y * numCols + x];
         }
 
-        // --- Core Grid Initialization (for main interactive grid) ---
         function createGrid(initialStateGenerator) {
-            interactiveGrid.innerHTML = ''; // Clear existing grid
-            gridState = []; // Reset current grid state for new mode
+            interactiveGrid.innerHTML = '';
+            gridState = [];
             for (let r = 0; r < numRows; r++) {
                 gridState[r] = [];
                 for (let c = 0; c < numCols; c++) {
@@ -617,8 +1090,8 @@ SOFTWARE.
                     cell.dataset.x = c;
                     cell.dataset.y = r;
                     interactiveGrid.appendChild(cell);
-                    gridState[r][c] = initialStateGenerator(c, r); // Set initial state based on generator
-                    updateCellVisual(c, r, gridState[r][c]); // Update visual
+                    gridState[r][c] = initialStateGenerator(c, r);
+                    updateCellVisual(c, r, gridState[r][c]);
                 }
             }
         }
@@ -626,70 +1099,64 @@ SOFTWARE.
         function updateCellVisual(x, y, state, additionalClass = null) {
             const cell = getGridCell(x, y);
             if (cell) {
-                // Clear all level and mode-specific classes first
                 cell.classList.remove('level-0', 'level-1', 'level-2', 'level-3', 'level-4', 'conway-alive');
-                cell.style.backgroundColor = ''; // Clear inline style for pixel art/generative flow
+                cell.style.backgroundColor = '';
 
                 if (currentMode === 'contributions') {
-                    cell.classList.add(state); // State is like 'level-X'
+                    cell.classList.add(state);
                 } else if (currentMode === 'conway') {
-                    if (state === 1) { // 1 for alive
+                    if (state === 1) {
                         cell.classList.add('conway-alive');
-                    } else { // 0 for dead
-                        cell.classList.add('level-0'); // Default empty grid cell color
+                    } else {
+                        cell.classList.add('level-0');
                     }
                 } else if (currentMode === 'pixelArt' || currentMode === 'generativeFlow') {
-                    // State will be a color class or hex code
                     cell.style.backgroundColor = state;
                 }
-                // Add any extra classes
                 if (additionalClass) {
                     cell.classList.add(additionalClass);
                 }
             }
         }
 
-        // --- Mode: Contributions ---
         function initContributionsMode() {
             gridMessageElement.classList.add('hidden');
-            conwayControls.classList.add('hidden'); // Hide Conway controls
+            conwayControls.classList.add('hidden');
             
             createGrid((c, r) => {
                 const today = new Date();
-                const currentDayOfWeek = today.getDay(); // 0 for Sunday, 1 for Monday, etc.
+                const currentDayOfWeek = today.getDay();
                 const relativeWeek = numCols - 1 - c;
                 let level;
 
-                if (Math.random() < 0.03) { // 3% chance for level 1 (green)
+                if (Math.random() < 0.03) {
                     level = 1;
-                } else if (Math.random() < 0.08) { // 8% chance for level 2 (blue)
+                } else if (Math.random() < 0.08) {
                     level = 2;
-                } else if (relativeWeek < 4) { // Last 4 weeks (most recent)
-                    if (r >= 1 && r <= 5) { // Weekdays (Monday to Friday)
-                        level = Math.floor(Math.random() * 2) + 3; // Levels 3, 4
-                    } else { // Weekends (Sunday, Saturday)
-                        level = Math.floor(Math.random() * 2) + 0; // Levels 0, 3
+                } else if (relativeWeek < 4) {
+                    if (r >= 1 && r <= 5) {
+                        level = Math.floor(Math.random() * 2) + 3;
+                    } else {
+                        level = Math.floor(Math.random() * 2) + 0;
                     }
-                } else if (relativeWeek < 12) { // Weeks 5-12 (medium recent)
-                    if (r >= 1 && r <= 5) { // Weekdays
-                        level = Math.floor(Math.random() * 2) + 0; // Levels 0, 3
-                    } else { // Weekends
-                        level = Math.floor(Math.random() * 1); // Level 0
+                } else if (relativeWeek < 12) {
+                    if (r >= 1 && r <= 5) {
+                        level = Math.floor(Math.random() * 2) + 0;
+                    } else {
+                        level = Math.floor(Math.random() * 1);
                     }
-                } else { // Older weeks
+                } else {
                     level = 0;
                 }
 
-                if (c === numCols -1 && r > currentDayOfWeek) { // Future days in current week
+                if (c === numCols -1 && r > currentDayOfWeek) {
                     level = 0;
                 }
-                return `level-${level}`; // Store the level class directly
+                return `level-${level}`;
             });
-            interactiveGrid.removeEventListener('click', handleConwayGridClick); // Remove Conway click handler
-            interactiveGrid.removeEventListener('click', handlePixelArtGridClick); // Remove Pixel Art click handler
-            // No click handler for contributions mode
+            interactiveGrid.removeEventListener('click', handleConwayGridClick);
+            interactiveGrid.removeEventListener('click', handlePixelArtGridClick);
 
-            // Store this initial state to `originalContributionLevels`
             for(let r = 0; r < numRows; r++) {
                 originalContributionLevels[r] = [];
                 for(let c = 0; c < numCols; c++) {
@@ -698,19 +1165,17 @@ SOFTWARE.
             }
         }
 
-        // --- Mode: Conway's Game of Life ---
-        
         function initConwayMode() {
             gridMessageElement.textContent = "Click cells to make them alive, then hit Start/Stop!";
             gridMessageElement.classList.remove('hidden');
-            conwayControls.classList.add('hidden'); // Show Conway controls
-
-            createGrid((c, r) => 0); // All cells dead (0) initially
+            conwayControls.classList.remove('hidden'); // Show Conway controls
             
-            interactiveGrid.removeEventListener('click', handlePixelArtGridClick); // Ensure no other click handlers
+            createGrid((c, r) => 0);
+            
+            interactiveGrid.removeEventListener('click', handlePixelArtGridClick);
             interactiveGrid.addEventListener('click', handleConwayGridClick);
 
-            conwayStartStopBtn.textContent = 'Start'; // Reset button text
+            conwayStartStopBtn.textContent = 'Start';
             conwayIsRunning = false;
             if (conwayInterval) {
                 clearInterval(conwayInterval);
@@ -723,7 +1188,7 @@ SOFTWARE.
             if (cell) {
                 const x = parseInt(cell.dataset.x);
                 const y = parseInt(cell.dataset.y);
-                gridState[y][x] = gridState[y][x] === 0 ? 1 : 0; // Toggle state
+                gridState[y][x] = gridState[y][x] === 0 ? 1 : 0;
                 updateCellVisual(x, y, gridState[y][x]);
             }
         }
@@ -736,10 +1201,9 @@ SOFTWARE.
                     const currentState = gridState[r][c];
                     let liveNeighbors = 0;
 
-                    // Check all 8 neighbors
                     for (let dr = -1; dr <= 1; dr++) {
                         for (let dc = -1; dc <= 1; dc++) {
-                            if (dr === 0 && dc === 0) continue; // Skip self
+                            if (dr === 0 && dc === 0) continue;
 
                             const nr = r + dr;
                             const nc = c + dc;
@@ -752,24 +1216,23 @@ SOFTWARE.
                         }
                     }
 
-                    // Apply Conway's rules
-                    if (currentState === 1) { // If cell is alive
+                    if (currentState === 1) {
                         if (liveNeighbors < 2 || liveNeighbors > 3) {
-                            newGrid[r][c] = 0; // Underpopulation or overpopulation
+                            newGrid[r][c] = 0;
                         } else {
-                            newGrid[r][c] = 1; // Survives
+                            newGrid[r][c] = 1;
                         }
-                    } else { // If cell is dead
+                    } else {
                         if (liveNeighbors === 3) {
-                            newGrid[r][c] = 1; // Reproduction
+                            newGrid[r][c] = 1;
                         } else {
-                            newGrid[r][c] = 0; // Stays dead
+                            newGrid[r][c] = 0;
                         }
                     }
                 }
             }
-            gridState = newGrid; // Update grid state
-            drawConwayGrid(); // Update visuals
+            gridState = newGrid;
+            drawConwayGrid();
         }
 
         function drawConwayGrid() {
@@ -780,23 +1243,20 @@ SOFTWARE.
             }
         }
 
-        // --- Mode: Pixel Art ---
-        // Simple color palette (you can expand this with more complex logic later)
-        const pixelArtColors = ['#4a5568', '#f87171', '#60a5fa', '#facc15', '#a78bfa']; // Gray, Red, Blue, Yellow, Purple
+        const pixelArtColors = ['#4a5568', '#f87171', '#60a5fa', '#facc15', '#a78bfa'];
 
         function initPixelArtMode() {
             gridMessageElement.textContent = "Click cells to draw! Use buttons below to change color (future feature).";
             gridMessageElement.classList.remove('hidden');
-            conwayControls.classList.add('hidden'); // Hide Conway controls
+            conwayControls.classList.add('hidden');
             
-            // Reinitialize grid to a blank canvas
-            createGrid((c, r) => pixelArtColors[0]); // Start with empty cells
+            createGrid((c, r) => pixelArtColors[0]);
             
-            interactiveGrid.removeEventListener('click', handleConwayGridClick); // Remove Conway click handler
+            interactiveGrid.removeEventListener('click', handleConwayGridClick);
             interactiveGrid.addEventListener('click', handlePixelArtGridClick);
             
             if (conwayInterval) {
-                clearInterval(conwayInterval); // Stop any running Conway animation
+                clearInterval(conwayInterval);
                 conwayInterval = null;
                 conwayIsRunning = false;
                 conwayStartStopBtn.textContent = 'Start';
@@ -808,47 +1268,44 @@ SOFTWARE.
             if (cell) {
                 const x = parseInt(cell.dataset.x);
                 const y = parseInt(cell.dataset.y);
-                // Cycle through colors on click
                 let currentColor = cell.style.backgroundColor;
                 let nextColorIndex = (pixelArtColors.indexOf(currentColor) + 1) % pixelArtColors.length;
                 let nextColor = pixelArtColors[nextColorIndex];
                 
-                gridState[y][x] = nextColor; // Store the actual color in state
+                gridState[y][x] = nextColor;
                 updateCellVisual(x, y, nextColor);
             }
         }
 
-        // --- Mode: Generative Flow ---
         let flowTime = 0;
-        let flowParams = {}; // Store parameters for current flow pattern
+        let flowParams = {};
 
         function generateFlowParams() {
             return {
-                speed: 0.01 + Math.random() * 0.04, // Slower to faster flow
-                scaleX: 0.05 + Math.random() * 0.2, // Horizontal frequency
-                scaleY: 0.05 + Math.random() * 0.2, // Vertical frequency
-                offsetX: Math.random() * 100, // Random starting offset
-                offsetY: Math.random() * 100, // Random starting offset
-                hueShiftSpeed: 0.01 + Math.random() * 0.05, // How fast hue shifts
-                saturationBase: 60 + Math.random() * 30, // Base saturation
-                saturationRange: 10 + Math.random() * 30, // Saturation variation
-                lightnessBase: 40 + Math.random() * 20, // Base lightness
-                lightnessRange: 10 + Math.random() * 20, // Lightness variation
-                complexFactor1: 0.01 + Math.random() * 0.05, // Additional complexity
-                complexFactor2: 0.01 + Math.random() * 0.05, // Additional complexity
+                speed: 0.01 + Math.random() * 0.04,
+                scaleX: 0.05 + Math.random() * 0.2,
+                scaleY: 0.05 + Math.random() * 0.2,
+                offsetX: Math.random() * 100,
+                offsetY: Math.random() * 100,
+                hueShiftSpeed: 0.01 + Math.random() * 0.05,
+                saturationBase: 60 + Math.random() * 30,
+                saturationRange: 10 + Math.random() * 30,
+                lightnessBase: 40 + Math.random() * 20,
+                lightnessRange: 10 + Math.random() * 20,
+                complexFactor1: 0.01 + Math.random() * 0.05,
+                complexFactor2: 0.01 + Math.random() * 0.05,
             };
         }
 
         function initGenerativeFlowMode() {
             gridMessageElement.textContent = "Watch the mesmerizing, ever-changing colorful pattern!";
             gridMessageElement.classList.remove('hidden');
-            conwayControls.classList.add('hidden'); // Hide Conway controls
+            conwayControls.classList.add('hidden');
 
-            flowTime = 0; // Reset time for new pattern
-            flowParams = generateFlowParams(); // Generate new random parameters for this run
+            flowTime = 0;
+            flowParams = generateFlowParams();
 
             createGrid((c, r) => {
-                // Initial color calculation using new parameters
                 const hue = (Math.sin(c * flowParams.scaleX + r * flowParams.scaleY + flowParams.offsetX) * 0.5 + 0.5) * 360;
                 const saturation = flowParams.saturationBase + Math.sin(c * flowParams.complexFactor1) * flowParams.saturationRange;
                 const lightness = flowParams.lightnessBase + Math.cos(r * flowParams.complexFactor2) * flowParams.lightnessRange;
@@ -858,42 +1315,37 @@ SOFTWARE.
             interactiveGrid.removeEventListener('click', handleConwayGridClick);
             interactiveGrid.removeEventListener('click', handlePixelArtGridClick);
 
-            // Start the generative flow animation
             if (generativeFlowInterval) {
                 clearInterval(generativeFlowInterval);
             }
-            generativeFlowInterval = setInterval(runGenerativeFlow, 80); // Update every 80ms for smoother flow
+            generativeFlowInterval = setInterval(runGenerativeFlow, 80);
         }
 
         function runGenerativeFlow() {
-            flowTime += flowParams.speed; // Advance time based on generated speed
+            flowTime += flowParams.speed;
             for (let r = 0; r < numRows; r++) {
                 for (let c = 0; c < numCols; c++) {
-                    // Calculate color based on position, time, and random parameters
                     const hue = (
                         Math.sin(c * flowParams.scaleX + r * flowParams.scaleY + flowTime + flowParams.offsetX) +
                         Math.cos(r * flowParams.complexFactor1 + c * flowParams.complexFactor2 + flowTime * flowParams.hueShiftSpeed)
-                    ) * 0.5 + 0.5; // Normalize to 0-1 range
+                    ) * 0.5 + 0.5;
                     
                     const saturation = flowParams.saturationBase + Math.sin(c * flowParams.complexFactor1 + flowTime * 0.5) * flowParams.saturationRange;
                     const lightness = flowParams.lightnessBase + Math.cos(r * flowParams.complexFactor2 + flowTime * 0.3) * flowParams.lightnessRange;
                     
-                    const finalHue = (hue * 360) % 360; // Ensure hue wraps around
-                    const finalSaturation = Math.max(0, Math.min(100, saturation)); // Clamp saturation
-                    const finalLightness = Math.max(0, Math.min(100, lightness)); // Clamp lightness
+                    const finalHue = (hue * 360) % 360;
+                    const finalSaturation = Math.max(0, Math.min(100, saturation));
+                    const finalLightness = Math.max(0, Math.min(100, lightness));
 
                     const color = `hsl(${finalHue}, ${finalSaturation}%, ${finalLightness}%)`;
                     
-                    gridState[r][c] = color; // Update state
-                    updateCellVisual(c, r, color); // Update visual
+                    gridState[r][c] = color;
+                    updateCellVisual(c, r, color);
                 }
             }
         }
 
-
-        // --- Mode Switching Logic ---
         function switchMode(newMode) {
-            // Clear any running intervals from previous modes
             if (conwayInterval) {
                 clearInterval(conwayInterval);
                 conwayInterval = null;
@@ -905,12 +1357,9 @@ SOFTWARE.
                 generativeFlowInterval = null;
             }
 
-            // Remove all specific event listeners
             interactiveGrid.removeEventListener('click', handleConwayGridClick);
             interactiveGrid.removeEventListener('click', handlePixelArtGridClick);
-            // ... remove other game specific listeners if added later
 
-            // Reset button active states
             modeButtonsGlobal.forEach(button => button.classList.remove('mode-button-active'));
             const activeButton = document.getElementById(`mode-${newMode}`);
             if (activeButton) { 
@@ -918,8 +1367,8 @@ SOFTWARE.
             }
             
             currentMode = newMode;
-            gridMessageElement.classList.add('hidden'); // Hide default message for now
-            conwayControls.classList.add('hidden'); // Always hide by default, show if needed by mode
+            gridMessageElement.classList.add('hidden');
+            conwayControls.classList.add('hidden');
 
             switch (currentMode) {
                 case 'contributions':
@@ -928,7 +1377,7 @@ SOFTWARE.
                     break;
                 case 'conway':
                     initConwayMode();
-                    document.getElementById('grid-instructions').textContent = "Conway's Game of Life: Click cells to toggle them alive/dead. Then Start/Stop the simulation.";
+                    document.getElementById('grid-instructions').textContent = "Conway's Game of Life: Click cells to toggle them alive/dead. Then Start/Stop the simulation!";
                     break;
                 case 'pixelArt': 
                     initPixelArtMode();
@@ -940,48 +1389,47 @@ SOFTWARE.
                     break;
                 default:
                     console.error("Unknown mode:", newMode);
-                    initContributionsMode(); // Fallback
+                    initContributionsMode();
             }
         }
 
-        // --- Pixel Message Board Logic ---
         const pixelFont = {
             'H': ["10001", "10001", "11111", "10001", "10001", "10001", "10001"],
             'i': ["01000", "00000", "01000", "01000", "01000", "01000", "01000"],
-            ' ': ["00000", "00000", "00000", "00000", "00000", "00000", "00000"], // Space character
-            'a': ["00000", "01110", "10001", "11111", "10001", "10001", "10001"], // Simplified 'a'
-            'm': ["00000", "11011", "10101", "10101", "10101", "10101", "10000"], // Simplified 'm'
+            ' ': ["00000", "00000", "00000", "00000", "00000", "00000", "00000"],
+            'a': ["00000", "01110", "10001", "11111", "10001", "10001", "10001"],
+            'm': ["00000", "11011", "10101", "10101", "10101", "10101", "10000"],
             'S': ["01110", "10000", "10000", "01110", "00001", "00001", "01110"],
             'o': ["00000", "01110", "10001", "10001", "10001", "10001", "01110"],
             'u': ["00000", "10001", "10001", "10001", "10001", "10001", "01110"],
             'y': ["00000", "10001", "10001", "01110", "00001", "01110", "00000"],
             'c': ["00000", "01110", "10000", "10000", "10000", "10000", "01110"],
-            'd': ["00000", "11100", "10010", "10010", "10010", "10010", "11100"], // Simplified 'd'
-            'r': ["00000", "11100", "10010", "10000", "10000", "10000", "10000"], // Simplified 'r'
+            'd': ["00000", "11100", "10010", "10010", "10010", "10010", "11100"],
+            'r': ["00000", "11100", "10010", "10000", "10000", "10000", "10000"],
             '.': ["00000", "00000", "00000", "00000", "00000", "01000", "01000"],
             '!': ["01000", "01000", "01000", "01000", "01000", "00000", "01000"],
             'C': ["01110", "10000", "10000", "10000", "10000", "10000", "01110"],
-            'n': ["00000", "11010", "10100", "10010", "10010", "10010", "10000"], // Simplified 'n'
+            'n': ["00000", "11010", "10100", "10010", "10010", "10010", "10000"],
             'e': ["00000", "01110", "10000", "11110", "10000", "10000", "01110"],
-            't': ["01000", "01000", "11111", "01000", "01000", "01000", "00100"], // Simplified 't'
-            'w': ["10001", "10001", "10001", "10001", "10101", "01010", "00100"], // Simplified 'w'
-            'h': ["10000", "10000", "10000", "11110", "10001", "10001", "10001"], // Simplified 'h'
+            't': ["01000", "01000", "11111", "01000", "01000", "01000", "00100"],
+            'w': ["10001", "10001", "10001", "10001", "10101", "01010", "00100"],
+            'h': ["10000", "10000", "10000", "11110", "10001", "10001", "10001"],
             'G': ["01110", "10000", "10000", "10110", "10001", "10001", "01110"],
-            'b': ["10000", "10000", "10000", "11110", "10001", "10001", "01110"], // Simplified 'b'
-            'u': ["10001", "10001", "10001", "10001", "10001", "01110", "01110"], // Simplified 'u'
-            'l': ["10000", "10000", "10000", "10000", "10000", "10000", "11111"], // Simplified 'l'
-            'k': ["10001", "10010", "10100", "11000", "10100", "10010", "10001"], // Simplified 'k'
-            'p': ["11110", "10001", "10001", "11110", "10000", "10000", "10000"], // Simplified 'p'
-            'f': ["11111", "10000", "10000", "11110", "10000", "10000", "10000"], // Simplified 'f'
-            'v': ["10001", "10001", "10001", "10001", "10001", "01010", "00100"], // Simplified 'v'
-            'x': ["10001", "01010", "00100", "01010", "10001", "00000", "00000"], // Simplified 'x'
-            'z': ["11111", "00010", "00100", "01000", "10000", "11111", "00000"], // Simplified 'z'
-            'R': ["11110", "10001", "10001", "11110", "10010", "10001", "10001"], // Simplified 'R'
-            'L': ["10000", "10000", "10000", "10000", "10000", "10000", "11111"], // Simplified 'L'
-            'J': ["00111", "00010", "00010", "00010", "00010", "10010", "01100"], // Simplified 'J'
-            'N': ["10001", "11001", "10101", "10011", "10001", "10001", "10001"], // Simplified 'N'
-            'M': ["10001", "11011", "10101", "10001", "10001", "10001", "10001"], // Simplified 'M'
-            'I': ["11111", "01000", "01000", "01000", "01000", "01000", "11111"], // Simplified 'I'
+            'b': ["10000", "10000", "10000", "11110", "10001", "10001", "01110"],
+            'u': ["10001", "10001", "10001", "10001", "10001", "01110", "01110"],
+            'l': ["10000", "10000", "10000", "10000", "10000", "10000", "11111"],
+            'k': ["10001", "10010", "10100", "11000", "10100", "10010", "10001"],
+            'p': ["11110", "10001", "10001", "11110", "10000", "10000", "10000"],
+            'f': ["11111", "10000", "10000", "11110", "10000", "10000", "10000"],
+            'v': ["10001", "10001", "10001", "10001", "10001", "01010", "00100"],
+            'x': ["10001", "01010", "00100", "01010", "10001", "00000", "00000"],
+            'z': ["11111", "00010", "00100", "01000", "10000", "11111", "00000"],
+            'R': ["11110", "10001", "10001", "11110", "10010", "10001", "10001"],
+            'L': ["10000", "10000", "10000", "10000", "10000", "10000", "11111"],
+            'J': ["00111", "00010", "00010", "00010", "00010", "10010", "01100"],
+            'N': ["10001", "11001", "10101", "10011", "10001", "10001", "10001"],
+            'M': ["10001", "11011", "10101", "10001", "10001", "10001", "10001"],
+            'I': ["11111", "01000", "01000", "01000", "01000", "01000", "11111"],
             'P': ["11110", "10001", "10001", "11110", "10000", "10000", "10000"],
             'X': ["10001", "01010", "00100", "01010", "10001", "00000", "00000"],
             'Y': ["10001", "01010", "00100", "00100", "00100", "00100", "00100"],
@@ -1039,29 +1487,25 @@ SOFTWARE.
             '@': ["01110", "10001", "10111", "10101", "10111", "10000", "01110"]
         };
 
-        // --- Pixel Message Board Global Variables ---
         let pixelMessageGridElement;
-        let pixelsMessage = []; // 2D array to store pixel elements for the message board
-        const pixelMessageCharWidth = 5; // Base width of a character in pixels
-        const pixelMessageCharSpacing = 1; // Pixels between characters
-        const pixelMessageCharHeight = 7; // Base height of a character in pixels
-        const pixelMessageLineSpacing = 2; // Pixels between lines (increased for better readability)
+        let pixelsMessage = [];
+        const pixelMessageCharWidth = 5;
+        const pixelMessageCharSpacing = 1;
+        const pixelMessageCharHeight = 7;
+        const pixelMessageLineSpacing = 2;
         
-        // UPDATED: Message content for typing animation loop
         const messages = [
             ["Find me on GitHub!"],
         ];
 
-        // Global variables for animation state (explicitly attached to window)
         window.pixelMessageAnimationFrame = 0;
         window.currentMessageIndex = 0;
         window.currentLineIndex = 0;
         window.currentCharIndex = 0;
-        window.animationPhase = 'typing'; // 'typing' or 'displayed'
-        window.animationStartTime = 0; // For timing phases
-        const typingSpeed = 70; // ms per character (adjusted for smoother typing)
+        window.animationPhase = 'typing';
+        window.animationStartTime = 0;
+        const typingSpeed = 70;
         
-        // Calculate grid dimensions for the message board dynamically
         let maxCharsInAnyLine = 0;
         messages.forEach(msg => {
             msg.forEach(line => {
@@ -1071,23 +1515,19 @@ SOFTWARE.
             });
         });
 
-        // Calculate the total number of pixel columns needed for the longest line of text
-        // This will be used to define the grid's columns using '1fr' units for responsiveness.
         const pixelMessageTotalCols = maxCharsInAnyLine * (pixelMessageCharWidth + pixelMessageCharSpacing) - pixelMessageCharSpacing;
-        // The number of pixel rows needed for the message (fixed for a single line of pixel text)
         const pixelMessageTotalRows = pixelMessageCharHeight;
 
         const pixelMessageAnimationColors = [
-            '#f87171', /* Red */
-            '#fb923c', /* Orange */
-            '#fcd34d', /* Yellow */
-            '#a78bfa', /* Purple */
-            '#60a5fa', /* Blue */
-            '#34d399', /* Green */
-            '#e879f9', /* Pink */
+            '#f87171',
+            '#fb923c',
+            '#fcd34d',
+            '#a78bfa',
+            '#60a5fa',
+            '#34d399',
+            '#e879f9',
         ];
         
-        // Function to get a pixel element from the message board
         function getPixelMessageElement(x, y) {
             if (x < 0 || x >= pixelMessageTotalCols || y < 0 || y >= pixelMessageTotalRows) {
                 return null;
@@ -1095,7 +1535,6 @@ SOFTWARE.
             return pixelsMessage[y][x];
         }
 
-        // Function to draw a character on the message board grid
         function drawCharMessage(char, startCol, startRow, color = null) {
             const charPixels = pixelFont[char];
             if (!charPixels) {
@@ -1108,7 +1547,6 @@ SOFTWARE.
                     if (charPixels[r] && charPixels[r][c] === '1') {
                         const gridRow = startRow + r;
                         const gridCol = startCol + c;
-                        // Ensure pixel is within bounds before trying to access
                         if (gridRow >= 0 && gridRow < pixelMessageTotalRows && gridCol >= 0 && gridCol < pixelMessageTotalCols) {
                             const pixel = getPixelMessageElement(gridCol, gridRow);
                             if (pixel) {
@@ -1123,14 +1561,12 @@ SOFTWARE.
             }
         }
 
-        // Animation loop for the pixel message board
         function animatePixelText(timestamp) {
-            // Clear all pixels first for each frame, then redraw based on phase
             for (let r = 0; r < pixelMessageTotalRows; r++) {
                 for (let c = 0; c < pixelMessageTotalCols; c++) {
                     const pixel = getPixelMessageElement(c, r);
                     if (pixel) {
-                        pixel.style.backgroundColor = '#2d3748'; // Default dark background
+                        pixel.style.backgroundColor = '#2d3748';
                     }
                 }
             }
@@ -1138,7 +1574,6 @@ SOFTWARE.
             const currentMessageLines = messages[window.currentMessageIndex];
             const totalLinesInCurrentMessage = currentMessageLines.length;
             
-            // Calculate vertical centering for the current message
             const currentMessageHeightInPixels = (pixelMessageCharHeight * totalLinesInCurrentMessage) + (pixelMessageLineSpacing * (totalLinesInCurrentMessage - 1));
             const verticalStartRow = Math.floor((pixelMessageTotalRows - currentMessageHeightInPixels) / 2);
 
@@ -1149,38 +1584,33 @@ SOFTWARE.
 
                 const currentLineText = currentMessageLines[window.currentLineIndex];
 
-                // Calculate how many characters to display for typing effect
                 let displayCharCount = Math.floor(elapsed / typingSpeed);
                 if (displayCharCount > currentLineText.length) {
-                    displayCharCount = currentLineText.length; // Ensure not to go beyond text length
+                    displayCharCount = currentLineText.length;
                 }
 
-                // Draw all lines of the current message, with typing effect on the active line
                 for (let l = 0; l < totalLinesInCurrentMessage; l++) {
                     const lineText = currentMessageLines[l];
                     const lineLengthInChars = lineText.length;
-                    // Calculate horizontal centering for the current line
                     const lineStartCol = Math.floor((pixelMessageTotalCols - (lineLengthInChars * (pixelMessageCharWidth + pixelMessageCharSpacing) - pixelMessageCharSpacing)) / 2);
                     const lineStartRow = verticalStartRow + l * (pixelMessageCharHeight + pixelMessageLineSpacing);
 
                     for (let i = 0; i < lineText.length; i++) {
                         if (l === window.currentLineIndex && i >= displayCharCount) {
-                            break; // Stop typing animation for current line
+                            break;
                         }
                         const char = lineText[i];
-                        const colorIndex = (window.pixelMessageAnimationFrame + i + l * 5) % pixelMessageAnimationColors.length; // Vary color per line
+                        const colorIndex = (window.pixelMessageAnimationFrame + i + l * 5) % pixelMessageAnimationColors.length;
                         drawCharMessage(char, lineStartCol + i * (pixelMessageCharWidth + pixelMessageCharSpacing), lineStartRow, pixelMessageAnimationColors[colorIndex]);
                     }
                 }
 
                 if (displayCharCount === currentLineText.length) {
-                    // All lines of current message finished typing
-                    window.animationPhase = 'displayed'; // Transition to 'displayed' phase
-                    window.animationStartTime = 0; // Reset start time
+                    window.animationPhase = 'displayed';
+                    window.animationStartTime = 0;
                 }
 
             } else if (window.animationPhase === 'displayed') {
-                // Draw the full text without any fading
                 for (let l = 0; l < totalLinesInCurrentMessage; l++) {
                     const lineText = currentMessageLines[l];
                     const lineLengthInChars = lineText.length;
@@ -1193,45 +1623,35 @@ SOFTWARE.
                         drawCharMessage(char, lineStartCol + i * (pixelMessageCharWidth + pixelMessageCharSpacing), lineStartRow, pixelMessageAnimationColors[colorIndex]);
                     }
                 }
-                // No further state changes needed, just keep redrawing in this phase
             }
 
             window.pixelMessageAnimationFrame++;
             requestAnimationFrame(animatePixelText);
         }
 
-        // Initialize the pixel message board
         function initPixelMessageBoard() {
             pixelMessageGridElement = document.getElementById('pixel-message-grid');
             
-            // Get the computed width of the container (pixel-grid-display itself)
             const containerWidth = pixelMessageGridElement.offsetWidth;
-            
-            // Subtract the padding from the container width
-            const padding = parseFloat(getComputedStyle(pixelMessageGridElement).paddingLeft) * 2; // Assuming symmetrical padding
+            const padding = parseFloat(getComputedStyle(pixelMessageGridElement).paddingLeft) * 2;
             const effectiveContainerWidth = containerWidth - padding; 
 
-            // Calculate the total width taken by gaps (0.5px per gap)
             const totalGapWidth = (pixelMessageTotalCols - 1) * 0.5; 
 
-            // Calculate the available space for the actual pixels
             const availableSpaceForPixels = effectiveContainerWidth - totalGapWidth;
 
-            // Calculate the dynamic pixel size. Ensure a minimum size to prevent extreme squeezing.
             let calculatedPixelSize = availableSpaceForPixels / pixelMessageTotalCols;
-            const minPixelSize = 2; // Minimum pixel size in px. Adjust this value as needed.
-            calculatedPixelSize = Math.max(calculatedPixelSize, minPixelSize); // Ensure pixels don't get too small
+            const minPixelSize = 2;
+            calculatedPixelSize = Math.max(calculatedPixelSize, minPixelSize);
 
-            // Set grid template columns/rows dynamically based on calculated pixel size
             pixelMessageGridElement.style.gridTemplateColumns = `repeat(${pixelMessageTotalCols}, ${calculatedPixelSize}px)`;
             pixelMessageGridElement.style.gridTemplateRows = `repeat(${pixelMessageTotalRows}, ${calculatedPixelSize}px)`;
 
-            // Clear existing pixels before re-drawing
             pixelMessageGridElement.innerHTML = '';
-            pixelsMessage = []; // Reset the pixels array
+            pixelsMessage = [];
 
             for (let r = 0; r < pixelMessageTotalRows; r++) {
-                pixelsMessage[r] = []; // Initialize row if not exists
+                pixelsMessage[r] = [];
                 for (let c = 0; c < pixelMessageTotalCols; c++) {
                     const pixelElement = document.createElement('div');
                     pixelElement.classList.add('pixel-display');
@@ -1239,24 +1659,20 @@ SOFTWARE.
                     pixelsMessage[r][c] = pixelElement;
                 }
             }
-            // Only start animation if it's not already running
             if (!window.pixelMessageAnimationRunning) {
-                animatePixelText(); // Start the animation for the message board
+                animatePixelText();
                 window.pixelMessageAnimationRunning = true;
             }
         }
 
-        // Add a resize listener to re-initialize the pixel board on window resize
         window.addEventListener('resize', () => {
-            // Debounce the resize event to prevent excessive calls
             clearTimeout(window.resizeTimer);
             window.resizeTimer = setTimeout(() => {
                 initPixelMessageBoard();
-            }, 250); // Wait 250ms after resize stops
+            }, 250);
         });
 
 
-        // Initial setup on window load
         window.onload = function() {
             // Assign global DOM element variables for main interactive grid
             interactiveGrid = document.getElementById('interactive-grid');
@@ -1267,16 +1683,14 @@ SOFTWARE.
             modeButtonsGlobal = document.querySelectorAll('.mode-buttons button'); 
 
             typeIntroText();
-            updateQuote(); // Initial quote display
+            updateQuote();
 
-            // Event Listeners for Mode Buttons (main interactive grid)
             modeButtonsGlobal.forEach(button => {
                 button.addEventListener('click', (event) => {
                     switchMode(event.target.id.replace('mode-', ''));
                 });
             });
 
-            // Conway Controls Listeners
             conwayStartStopBtn.addEventListener('click', () => {
                 if (conwayIsRunning) {
                     clearInterval(conwayInterval);
@@ -1285,7 +1699,7 @@ SOFTWARE.
                     conwayIsRunning = false;
                     gridMessageElement.textContent = "Simulation Paused. Click Start or change cells.";
                 } else {
-                    conwayInterval = setInterval(runConwayGeneration, 200); // Faster speed for Conway
+                    conwayInterval = setInterval(runConwayGeneration, 200);
                     conwayStartStopBtn.textContent = 'Stop';
                     conwayIsRunning = true;
                     gridMessageElement.textContent = "Simulation Running! Watch the cells evolve.";
@@ -1299,18 +1713,98 @@ SOFTWARE.
                     conwayIsRunning = false;
                     conwayStartStopBtn.textContent = 'Start';
                 }
-                createGrid((c, r) => 0); // Clear grid to all dead cells
+                createGrid((c, r) => 0);
                 gridMessageElement.textContent = "Grid Cleared. Click cells to set up a new pattern!";
             });
 
-            // Start with contributions mode for the main interactive grid
-            switchMode('contributions');
+            // Theme changer dropdown functionality
+            const themeToggleBtn = document.getElementById('theme-changer-toggle');
+            const themeDropdown = document.getElementById('theme-dropdown');
 
-            // Initialize the new Pixel Message Board
-            initPixelMessageBoard();
+            themeToggleBtn.addEventListener('click', () => {
+                themeDropdown.classList.toggle('show');
+                const icon = themeToggleBtn.querySelector('i');
+                if (themeDropdown.classList.contains('show')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+
+            // Close dropdown if clicked outside
+            document.addEventListener('click', (event) => {
+                if (!themeToggleBtn.contains(event.target) && !themeDropdown.contains(event.target)) {
+                    themeDropdown.classList.remove('show');
+                    themeToggleBtn.querySelector('i').classList.remove('fa-chevron-up');
+                    themeToggleBtn.querySelector('i').classList.add('fa-chevron-down');
+                }
+            });
+
+            // Theme selection buttons
+            document.getElementById('theme-default').addEventListener('click', () => {
+                applyTheme('default');
+                themeDropdown.classList.remove('show'); // Hide dropdown after selection
+                themeToggleBtn.querySelector('i').classList.remove('fa-chevron-up');
+                themeToggleBtn.querySelector('i').classList.add('fa-chevron-down');
+            });
+            document.getElementById('theme-video-game').addEventListener('click', () => {
+                applyTheme('video-game');
+                themeDropdown.classList.remove('show');
+                themeToggleBtn.querySelector('i').classList.remove('fa-chevron-up');
+                themeToggleBtn.querySelector('i').classList.add('fa-chevron-down');
+            });
+            document.getElementById('theme-universe').addEventListener('click', () => {
+                applyTheme('universe');
+                themeDropdown.classList.remove('show');
+                themeToggleBtn.querySelector('i').classList.remove('fa-chevron-up');
+                themeToggleBtn.querySelector('i').classList.add('fa-chevron-down');
+            });
+
+
+            // Initial setup for the entire page
+            switchMode('contributions'); // Initialize main grid mode
+            initPixelMessageBoard(); // Initialize pixel message board
+            applyTheme('default'); // Set initial background theme
         };
+
+        // 1. Typing Effect for Introduction
+        const introTextElement = document.getElementById('intro-text');
+        const fullIntroText = "Hello there! I'm Soumya Sagar, a passionate and aspiring developer embarking on an exciting journey into the world of code. As a new fresher, I'm eager to learn, build, and innovate.";
+        let introCharIndex = 0;
+
+        function typeIntroText() {
+            if (introCharIndex < fullIntroText.length) {
+                introTextElement.textContent += fullIntroText.charAt(introCharIndex);
+                introCharIndex++;
+                setTimeout(typeIntroText, 50);
+            } else {
+                introTextElement.classList.remove('typing-text');
+            }
+        }
+
+        // 2. Dynamic Coding Quotes
+        const quotes = [
+            { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { quote: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.", author: "Martin Fowler" },
+            { quote: "First, solve the problem. Then, write the code.", author: "John Johnson" },
+            { quote: "Experience is the name everyone gives to their mistakes.", author: "Oscar Wilde" },
+            { quote: "Code is like humor. When you have to explain it, it’s bad.", author: "Cory House" }
+        ];
+        let currentQuoteIndex = 0;
+        const quoteDisplay = document.getElementById('quote-display');
+
+        function updateQuote() {
+            quoteDisplay.style.opacity = 0;
+            setTimeout(() => {
+                currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+                const { quote, author } = quotes[currentQuoteIndex];
+                quoteDisplay.innerHTML = `"${quote}"<br><span class="text-sm text-gray-400">- ${author}</span>`;
+                quoteDisplay.style.opacity = 1;
+            }, 500);
+        }
+        setInterval(updateQuote, 8000);
     </script>
 </body>
 </html>
-
-
