@@ -6,6 +6,7 @@
     <title>Soumya-codr's Enhanced Animated GitHub Profile</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Add a more serious font for the license, e.g., 'Roboto Slab' or a generic serif -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -554,6 +555,48 @@
             color: #e2e8f0; /* Light text color */
         }
 
+        /* Project Card Specific Styles */
+        .project-card {
+            background-color: rgba(60, 70, 80, 0.6); /* Slightly lighter transparent background */
+            border-radius: 12px;
+            padding: 1.2rem;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+            border: 1px solid #4a5568;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            text-decoration: none; /* Remove underline from link */
+            color: inherit; /* Inherit text color */
+            display: flex; /* Flexbox for alignment */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 0 20px rgba(99, 179, 237, 0.4);
+            border-color: #63b3ed;
+        }
+
+        .project-card .project-icon {
+            font-size: 3rem; /* Slightly smaller icon than tech stack */
+            margin-bottom: 0.5rem;
+            color: #90cdf4; /* Light blue for project icons */
+            filter: drop-shadow(0 0 3px rgba(144, 205, 244, 0.7));
+        }
+
+        .project-card .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card .project-description {
+            font-size: 0.9rem;
+            color: #cbd5e0;
+        }
+
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -625,19 +668,32 @@
             .neon-glass-card span {
                 font-size: 1rem; /* Smaller text on mobile */
             }
+            /* Project Cards responsive */
+            .project-card .project-icon {
+                font-size: 2.5rem;
+            }
+            .project-card .project-title {
+                font-size: 1rem;
+            }
+            .project-card .project-description {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Background Animation Containers -->
     <div id="default-bg-container" class="background-animation-container">
         <div class="code-rain-container" id="code-rain-container"></div>
         <div class="absolute inset-0 overflow-hidden" id="particle-container"></div>
     </div>
 
     <div id="video-game-bg" class="background-animation-container">
-        </div>
+        <!-- Tetris-like blocks will be generated here by JS -->
+    </div>
 
     <div id="universe-bg" class="background-animation-container">
+        <!-- Stars/Spacecraft will be generated here by JS -->
         <div class="spacecraft">
             <div class="spacecraft-body"></div>
             <div class="engine-trail"></div>
@@ -655,6 +711,7 @@
             <div class="h-1 w-24 bg-blue-500 rounded-full mx-auto mt-4"></div>
         </header>
 
+        <!-- Theme Changer UI -->
         <div class="text-center mb-8">
             <div class="theme-changer-container">
                 <button id="theme-changer-toggle" class="theme-button">
@@ -706,6 +763,7 @@
             </div>
         </section>
 
+        <!-- New Section: My Tech Stack (Neon Glass Effect with Human-like Pulsing) -->
         <section class="mb-8 p-6 bg-gray-700 bg-opacity-80 rounded-lg card-glow text-center">
             <h2 class="text-2xl md:text-3xl font-bold text-blue-300 mb-6">My Tech Stack</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -725,6 +783,40 @@
                     <i class="fab fa-python text-blue-600"></i>
                     <span>Python</span>
                 </div>
+            </div>
+        </section>
+
+        <!-- New Section: My Projects -->
+        <section class="mb-8 p-6 bg-gray-700 bg-opacity-80 rounded-lg card-glow text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-blue-300 mb-6">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project: EchoWhisper <An AI Companion Friend> -->
+                <a href="https://Soumya-codr.github.io/echowhisper-ai/" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <i class="fas fa-robot project-icon"></i> <!-- Changed icon to robot -->
+                    <h3 class="project-title">EchoWhisper</h3>
+                    <p class="project-description">An AI Companion Friend designed to assist and interact.</p>
+                </a>
+
+                <!-- Example Project 2: Replace with your actual project details and URLs -->
+                <a href="https://Soumya-codr.github.io/data-visualizer/" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <i class="fas fa-chart-bar project-icon"></i>
+                    <h3 class="project-title">Data Visualizer</h3>
+                    <p class="project-description">An interactive data visualization tool to explore datasets.</p>
+                </a>
+
+                <!-- Example Project 3: Replace with your actual project details and URLs -->
+                <a href="https://Soumya-codr.github.io/personal-blog/" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <i class="fas fa-blog project-icon"></i>
+                    <h3 class="project-title">Personal Blog</h3>
+                    <p class="project-description">My personal blog to share thoughts and coding experiences.</p>
+                </a>
+
+                <!-- Add more project cards as needed -->
+                <a href="https://github.com/Soumya-codr?tab=repositories" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <i class="fas fa-arrow-right project-icon"></i>
+                    <h3 class="project-title">View All Projects</h3>
+                    <p class="project-description">Explore more repositories on my GitHub profile!</p>
+                </a>
             </div>
         </section>
 
