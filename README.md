@@ -26,6 +26,19 @@
 
 ---
 
+### 🏅 Hacktoberfest Achievement  
+<p align="center">
+  <a href="https://holopin.io/@Soumya-codr" target="_blank" title="View my Holopin profile">
+    <img src="https://assets.holopin.io/hf2025levels/lvl0-human.webp" width="200" alt="Hacktoberfest 2025 Level 0 Badge"/>
+  </a>
+</p>
+
+<p align="center">
+  🥳 My first Hacktoberfest badge! Excited to continue contributing and growing in the open-source community.
+</p>
+
+---
+
 ### 👨‍💻 About Me  
 I'm **Soumya Sagar**, a passionate developer embarking on an exciting journey into the tech world.  
 I’m focused on **Web Development**, exploring **HTML, CSS, JavaScript**, and soon expanding into **Python**.  
