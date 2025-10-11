@@ -33,13 +33,13 @@
   <img src="https://komarev.com/ghpvc/?username=Soumya-codr&label=👀%20Profile%20Views&color=blueviolet&style=for-the-badge" alt="Profile views counter" />
 </p>
 
-<style>
+<!-- <style>
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-</style>
+</style> -->
 
 ---
 
