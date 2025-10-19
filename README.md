@@ -47,6 +47,7 @@
 <p align="center">
   <a href="https://holopin.io/@Soumya-codr" target="_blank" title="View my Holopin profile">
     <img src="https://assets.holopin.io/hf2025levels/lvl0-human.webp" width="200" alt="Hacktoberfest 2025 Level 0 Badge"/>
+    <img src="https://www.holopin.io/userbadge/cmgxd9zu3008mjo04ie7zmvj4" width="200" alt="Hacktoberfest 2025 Level 0 Badge"/>
   </a>
 </p>
 
