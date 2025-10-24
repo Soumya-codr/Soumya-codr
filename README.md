@@ -71,10 +71,10 @@ I’m a passionate developer embarking on an exciting journey into the tech worl
   <img src="https://avatars.githubusercontent.com/u/215826870?s=400&u=36be9cd6e0d18f16b728db1632669a8095e55d6b&v=4" />
 </p>
 
+<h1 align="center">UDriven</h1>
 
 👨‍💻 I’m also a proud member of the UDriven Community — a productivity-driven web app for students, designed to enhance focus and learning.
 It’s one of our exciting side projects, blending tech with purpose to help learners stay organized and inspired ✨
-<h1 align="center">UDriven</h1>
 ---
 
 ### 🧠 Skills & Tools  
