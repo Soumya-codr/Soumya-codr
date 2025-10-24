@@ -60,9 +60,14 @@
 ---
 
 ### 👨‍💻 About Me  
-I'm **Soumya Sagar**, a passionate developer embarking on an exciting journey into the tech world.  
-I’m focused on **Web Development**, exploring **HTML, CSS, JavaScript**, and soon expanding into **Python**.  
-My mission: **to build impactful, creative, and innovative projects** that make a difference 🌟  
+👋 Hey there! I’m Soumya Sagar
+I’m a passionate developer embarking on an exciting journey into the tech world 🚀
+
+🌐 Currently focused on Web Development, exploring HTML, CSS, and JavaScript, and soon diving into Python.
+💡 My mission is to build impactful, creative, and innovative projects that truly make a difference.
+
+👨‍💻 I’m also a proud member of the UDriven Community — a productivity-driven web app for students, designed to enhance focus and learning.
+It’s one of our exciting side projects, blending tech with purpose to help learners stay organized and inspired ✨
 
 ---
 
