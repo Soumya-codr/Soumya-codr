@@ -75,7 +75,7 @@ It’s one of our exciting side projects, blending tech with purpose to help lea
 
 ### 🧠 Skills & Tools  
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=html,css,js,python,git,github,vscode" alt="Tech Stack" />
+  <img align="center" src="https://skillicons.dev/icons?i=html,css,js,python,git,github,vscode" alt="Tech Stack" />
 </p>
 
 ---
