@@ -33,14 +33,23 @@
   <img src="https://komarev.com/ghpvc/?username=Soumya-codr&label=👀%20Profile%20Views&color=blueviolet&style=for-the-badge" alt="Profile views counter" />
 </p>
 
+<!-- <style>
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+</style> -->
+
 ---
 
 ### 🏅 Hacktoberfest Achievement  
 <p align="center">
   <a href="https://holopin.io/@Soumya-codr" target="_blank" title="View my Holopin profile">
     <img src="https://assets.holopin.io/hf2025levels/lvl0-human.webp" width="200" alt="Hacktoberfest 2025 Level 0 Badge"/>
-    <img src="https://assets.holopin.io/hf2025levels/lvl1-human.webp" width="200" alt="Hacktoberfest 2025 Level 1 Badge"/>
-    <img src="https://assets.holopin.io/hf2025levels/lvl2-human.webp" width="200" alt="Hacktoberfest 2025 Level 2 Badge"/>
+    <img src="https://assets.holopin.io/hf2025levels/lvl1-human.webp" width="200" alt="Hacktoberfest 2025 Level 0 Badge"/>
+    <img src="https://assets.holopin.io/hf2025levels/lvl2-human.webp" width="200" alt="Hacktoberfest 2025 Level 0 Badge"/>
+    
   </a>
 </p>
 
@@ -51,10 +60,12 @@
 ---
 
 ### 👨‍💻 About Me  
-👋 Hey there! I’m **Soumya Sagar**, a passionate developer embarking on an exciting journey into the tech world 🚀  
+👋 Hey there! I’m Soumya Sagar
+I’m a passionate developer embarking on an exciting journey into the tech world 🚀
 
-🌐 Currently focused on **Web Development**, exploring **HTML**, **CSS**, and **JavaScript**, and soon diving into **Python**.  
-💡 My mission is to **build impactful, creative, and innovative projects** that truly make a difference.  
+🌐 Currently focused on Web Development, exploring HTML, CSS, and JavaScript, and soon diving into Python.
+💡 My mission is to build impactful, creative, and innovative projects that truly make a difference.
+
 
 <p align="center">
   <img src="https://avatars.githubusercontent.com/u/215826870?s=400&u=36be9cd6e0d18f16b728db1632669a8095e55d6b&v=4" />
@@ -62,8 +73,8 @@
 
 <h1 align="center">UDriven</h1>
 
-👨‍💻 I’m also a proud member of the **UDriven Community** — a productivity-driven web app for students, designed to enhance focus and learning.  
-It’s one of our exciting **side projects**, blending tech with purpose to help learners stay organized and inspired ✨  
+👨‍💻 I’m also a proud member of the UDriven Community — a productivity-driven web app for students, designed to enhance focus and learning.
+It’s one of our exciting side projects, blending tech with purpose to help learners stay organized and inspired ✨
 
 ---
 
@@ -108,42 +119,17 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
 
 ---
 
-### 💎 Glass-Style Gradient Contribution Graph  
-<div align="center" style="
-  background: linear-gradient(145deg, rgba(0, 255, 255, 0.1), rgba(0, 0, 100, 0.25));
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-  padding: 20px;
-  margin-top: 20px;
-  width: 95%;
-">
-  
-  <h2 style="color:#00E5FF;">📈 Soumya Sagar's Contribution Graph</h2>
-  
-  <img 
-       src="https://github-readme-activity-graph.vercel.app/graph?username=Soumya-codr&custom_title=Soumya%20Sagar's%20Contribution%20Graph&bg_color=0d111700&color=00e5ff&line=00c3ff&point=ffffff&area=true&area_color=00c3ff&hide_border=true"
-       width="95%"
-       alt="Soumya Sagar's GitHub Contribution Graph"
-  />
-</div>
+### 🏆 GitHub Trophies  
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=Soumya-codr&theme=tokyonight&no-frame=true&margin-w=15" alt="GitHub Trophies"/>
+</p>
 
 ---
 
-## 🏆 GitHub Trophies  
-
+### 🐍 Watch My Contribution Snake 🐍  
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Soumya-codr&theme=algolia&no-bg=true&no-frame=true&margin-w=15&column=7" alt="GitHub Trophies" />
+  <img src="https://raw.githubusercontent.com/Soumya-codr/Soumya-codr/output/github-contribution-grid-snake.svg" alt="snake animation" />
 </p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/✨%20Glass%20+%20Gradient%20Style-0d1117?style=for-the-badge&logo=github&logoColor=cyan&labelColor=001F3F&color=0d1117" />
-</p>
-
-<p align="center">🌟 Celebrating milestones, commits, and creativity! 🌟</p>
-
-
 
 ---
 
