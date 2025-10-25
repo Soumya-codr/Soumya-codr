@@ -105,31 +105,6 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Soumya-codr&layout=compact&theme=tokyonight" height="150" alt="Top Languages"/>
 </p>
-
----
-
-### 💎 Glass-Style Gradient Contribution Graph  
-<div align="center" style="
-  background: linear-gradient(145deg, rgba(0, 255, 255, 0.1), rgba(0, 0, 100, 0.25));
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-  padding: 20px;
-  margin-top: 20px;
-  width: 95%;
-">
-  
-  <h2 style="color:#00E5FF;">📈 Soumya Sagar's Contribution Graph</h2>
-  
-  <img 
-  src="https://github-readme-activity-graph.vercel.app/graph?username=Soumya-codr&custom_title=Soumya%20Sagar's%20Contribution%20Graph&bg_color=0d111700&color=random&line=random&point=random&area=true&area_color=random&hide_border=true"
-  width="95%"
-  alt="Soumya Sagar's GitHub Contribution Graph"
-/>
-
-</div>
-
 ---
 
 ### 🏆 GitHub Trophies  
