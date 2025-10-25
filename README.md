@@ -131,10 +131,33 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
 
 ---
 
-### 🏆 GitHub Trophies 
-<p align="center"> 
-  <img src="https://github-profile-trophy.vercel.app/?username=Soumya-codr&theme=tokyonight&no-frame=true&margin-w=15" alt="GitHub Trophies"/> 
+### 🏆 GitHub Trophies  
+
+<div align="center" style="
+  background: linear-gradient(145deg, rgba(0, 255, 255, 0.1), rgba(0, 0, 100, 0.25));
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  width: 95%;
+  margin-top: 20px;
+">
+
+  <img 
+       src="https://github-profile-trophy.vercel.app/?username=Soumya-codr&theme=tokyonight&no-frame=true&no-bg=true&margin-w=15"
+       alt="GitHub Trophies"
+       width="95%"
+  />
+  
+  <p style="color:#00E5FF; font-weight:bold;">🏅 Celebrating milestones, commits, and creativity!</p>
+</div>
+
+<!-- 🧩 Backup Trophy Card (in case main API fails) -->
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Soumya-codr&show_icons=true&hide_border=true&theme=tokyonight" width="450" alt="Backup Stats Card"/>
 </p>
+
 
 ---
 
