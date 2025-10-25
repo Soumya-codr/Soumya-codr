@@ -131,9 +131,9 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
 
 ---
 
-### 🏆 GitHub Trophies  
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Soumya-codr&theme=tokyonight&no-frame=true&margin-w=15" alt="GitHub Trophies"/>
+### 🏆 GitHub Trophies 
+<p align="center"> 
+  <img src="https://github-profile-trophy.vercel.app/?username=Soumya-codr&theme=tokyonight&no-frame=true&margin-w=15" alt="GitHub Trophies"/> 
 </p>
 
 ---
