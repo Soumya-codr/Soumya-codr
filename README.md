@@ -123,10 +123,11 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
   <h2 style="color:#00E5FF;">📈 Soumya Sagar's Contribution Graph</h2>
   
   <img 
-       src="https://github-readme-activity-graph.vercel.app/graph?username=Soumya-codr&custom_title=Soumya%20Sagar's%20Contribution%20Graph&bg_color=0d111700&color=00e5ff&line=00c3ff&point=ffffff&area=true&area_color=00c3ff&hide_border=true"
-       width="95%"
-       alt="Soumya Sagar's GitHub Contribution Graph"
-  />
+  src="https://github-readme-activity-graph.vercel.app/graph?username=Soumya-codr&custom_title=Soumya%20Sagar's%20Contribution%20Graph&bg_color=0d111700&color=random&line=random&point=random&area=true&area_color=random&hide_border=true"
+  width="95%"
+  alt="Soumya Sagar's GitHub Contribution Graph"
+/>
+
 </div>
 
 ---
