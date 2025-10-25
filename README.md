@@ -121,6 +121,17 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
 
 ---
 
+### 💎My Contribution Graph
+<p align="center">
+  <img 
+  src="https://dynamic-contribution-graph.vercel.app/api/neon?username=Soumya-codr" 
+  width="95%" 
+  alt="Neon Pastel Contribution Graph"
+/>
+
+</p>
+
+---
 ### 🤝 Let's Connect!  
 <p align="center">
   <a href="https://github.com/Soumya-codr"><img src="https://img.shields.io/badge/GitHub-000?style=flat&logo=github&logoColor=white"></a>
