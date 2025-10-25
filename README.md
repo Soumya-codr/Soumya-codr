@@ -134,17 +134,15 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
 ## 🏆 GitHub Trophies  
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Soumya-codr&theme=algolia&no-bg=true&no-frame=true&margin-w=15" alt="GitHub Trophies" />
+  <img src="https://github-profile-trophy.vercel.app/?username=Soumya-codr&theme=algolia&no-bg=true&no-frame=true&margin-w=15&column=7" alt="GitHub Trophies" />
 </p>
 
-<div align="center">
-  
-  ![Glass Effect](https://img.shields.io/badge/-✨%20Glass%20Style%20✨-141321?style=for-the-badge&logoColor=cyan&color=0d1117&labelColor=001F3F)
-  
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Soumya-codr&theme=transparent&background=0D1117&ring=00FFFF&fire=00FFFF&currStreakLabel=00FFFF" alt="Glass Streaks" width="80%"/>
-  
-  🪩 *Celebrating milestones, commits, and creativity!* 💙
-</div>
+<p align="center">
+  <img src="https://img.shields.io/badge/✨%20Glass%20+%20Gradient%20Style-0d1117?style=for-the-badge&logo=github&logoColor=cyan&labelColor=001F3F&color=0d1117" />
+</p>
+
+<p align="center">🌟 Celebrating milestones, commits, and creativity! 🌟</p>
+
 
 
 ---
