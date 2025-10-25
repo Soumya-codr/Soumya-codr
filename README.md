@@ -145,26 +145,14 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
 ">
 
   <img 
-       src="https://github-profile-trophy.vercel.app/?username=Soumya-codr&theme=tokyonight&no-frame=true&no-bg=true&margin-w=15"
+       src="https://github-profile-trophy.vercel.app/?username=Soumya-codr&theme=algolia&no-frame=true&no-bg=true&margin-w=15"
        alt="GitHub Trophies"
        width="95%"
   />
-  
+
   <p style="color:#00E5FF; font-weight:bold;">🏅 Celebrating milestones, commits, and creativity!</p>
 </div>
 
-<!-- 🧩 Backup Trophy Card (in case main API fails) -->
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Soumya-codr&show_icons=true&hide_border=true&theme=tokyonight" width="450" alt="Backup Stats Card"/>
-</p>
-
-
----
-
-### 🐍 Watch My Contribution Snake 🐍  
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Soumya-codr/Soumya-codr/output/github-contribution-grid-snake.svg" alt="snake animation" />
-</p>
 
 ---
 
