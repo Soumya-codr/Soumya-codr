@@ -123,11 +123,7 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
 
 ### 💎My Contribution Graph
 <p align="center">
-  <img 
-  src="https://dynamic-contribution-graph.vercel.app/api/neon?username=Soumya-codr" 
-  width="95%" 
-  alt="Neon Pastel Contribution Graph"
-/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Soumya-codr&custom_title=Contribution+Graph&bg_color=0d1117&color=00e5ff&line=00c3ff&point=ffffff&area=true&area_color=00c3ff&hide_border=true" />
 
 </p>
 
