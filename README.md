@@ -131,26 +131,19 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
 
 ---
 
-### 🏆 GitHub Trophies  
+## 🏆 GitHub Trophies  
 
-<div align="center" style="
-  background: linear-gradient(145deg, rgba(0, 255, 255, 0.1), rgba(0, 0, 100, 0.25));
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-  padding: 20px;
-  width: 95%;
-  margin-top: 20px;
-">
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=Soumya-codr&theme=algolia&no-bg=true&no-frame=true&margin-w=15" alt="GitHub Trophies" />
+</p>
 
-  <img 
-       src="https://github-profile-trophy.vercel.app/?username=Soumya-codr&theme=algolia&no-frame=true&no-bg=true&margin-w=15"
-       alt="GitHub Trophies"
-       width="95%"
-  />
-
-  <p style="color:#00E5FF; font-weight:bold;">🏅 Celebrating milestones, commits, and creativity!</p>
+<div align="center">
+  
+  ![Glass Effect](https://img.shields.io/badge/-✨%20Glass%20Style%20✨-141321?style=for-the-badge&logoColor=cyan&color=0d1117&labelColor=001F3F)
+  
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Soumya-codr&theme=transparent&background=0D1117&ring=00FFFF&fire=00FFFF&currStreakLabel=00FFFF" alt="Glass Streaks" width="80%"/>
+  
+  🪩 *Celebrating milestones, commits, and creativity!* 💙
 </div>
 
 
