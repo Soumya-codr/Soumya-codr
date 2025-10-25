@@ -129,6 +129,16 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
   />
 </div>
 
+
+<p align="center">
+  <img 
+    src="https://github-readme-activity-graph.vercel.app/graph?username=Soumya-codr&bg_color=0d111700&color=random&line=random&point=random&area=true&hide_border=true&custom_title=Soumya%20Sagar's%20Contribution%20Graph"
+    width="95%"
+    alt="Soumya Sagar's GitHub Contribution Graph"
+  />
+</p>
+
+
 ---
 
 ### 🏆 GitHub Trophies  
