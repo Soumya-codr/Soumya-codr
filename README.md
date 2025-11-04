@@ -41,6 +41,8 @@
     <img src="https://assets.holopin.io/hf2025levels/lvl0-human.webp" width="200" alt="Hacktoberfest 2025 Level 0 Badge"/>
     <img src="https://assets.holopin.io/hf2025levels/lvl1-human.webp" width="200" alt="Hacktoberfest 2025 Level 1 Badge"/>
     <img src="https://assets.holopin.io/hf2025levels/lvl2-human.webp" width="200" alt="Hacktoberfest 2025 Level 2 Badge"/>
+    <img src="https://assets.holopin.io/hf2025levels/lvl3-human.webp" width="200" alt="Hacktoberfest 2025 Level 3 Badge"/>
+    <img src="https://assets.holopin.io/hf2025levels/lvl4-human.webp" width="200" alt="Hacktoberfest 2025 Level 4 Badge"/>
   </a>
 </p>
 
