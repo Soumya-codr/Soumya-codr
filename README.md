@@ -118,9 +118,14 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
 ---
 
 ### 🐍 Watch My Contribution Snake 🐍  
-<p align="center">
+<!-- <p align="center">
   <img src="https://raw.githubusercontent.com/Soumya-codr/Soumya-codr/output/github-contribution-grid-snake.svg" alt="snake animation" />
-</p>
+</p> -->
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Soumya-codr/Soumya-codr/output/snake.svg" alt="Snake animation" />
+</div>
+
 
 ---
 
