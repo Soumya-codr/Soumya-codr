@@ -1,1263 +1,839 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soumya-codr's Enhanced Animated GitHub Profile</title>
+    <title>Soumya Sagar | Creative Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- 1. CSS Variables for Theming --- */
-        
-        /* New "Revamp" Theme (Default) */
+        /* --- 1. Modern CSS Variables --- */
         :root {
-            --bg-gradient-start: #0a0a0a;
-            --bg-gradient-end: #0a0a0a;
-            --text-primary: #e0e0e0;
-            --text-secondary: #888888;
-            --text-muted: #555555;
-            --text-link: #818cf8; /* Indigo */
-            --text-link-hover: #a78bfa; /* Purple */
-            --text-link-bright: #c084fc; /* Lighter Purple */
-            --accent-gradient: linear-gradient(90deg, #4f46e5, #a855f7, #ec4899); /* Indigo -> Purple -> Pink */
-
-            --card-bg: rgba(17, 17, 17, 0.5); /* #111 */
-            --card-bg-solid: #111111;
-            --card-border: #222222;
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-
-            --section-bg: rgba(17, 17, 17, 0.7);
-            --section-hover-scale: 1.02;
-
-            --button-bg: #222222;
-            --button-text: #e0e0e0;
-            --button-hover-bg: #333333;
-            --button-active-bg: #4f46e5;
-            --button-active-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
-
-            --theme-button-bg: #222222;
-            --theme-button-text: #e0e0e0;
-            --theme-button-hover-bg: #333333;
-
-            --tech-card-bg: #111111;
-            --tech-card-icon-filter: none;
-
-            --project-card-bg: #111111;
-            --project-card-border: #222222;
-            --project-card-shadow-hover: 0 0 20px rgba(168, 85, 247, 0.3); /* Purple glow */
-            --project-card-border-hover: #a855f7;
-
-            --pixel-grid-bg: #0a0a0a;
-            --pixel-grid-border: #a855f7;
-            --pixel-grid-cell-bg: #222222;
-
-            --license-bg: #111111;
-            --license-border: #222222;
-            --license-shadow: 0 0 0 rgba(0,0,0,0);
-            --license-heading: var(--text-link-bright);
-            --license-code-bg: #0a0a0a;
-            --license-code-border: #222222;
-        }
-
-        /* Old "Neon" Dark Theme */
-        [data-theme="dark"] {
-            --bg-gradient-start: #1a202c;
-            --bg-gradient-end: #2d3748;
-            --text-primary: #e2e8f0;
-            --text-secondary: #cbd5e0;
-            --text-muted: #a0aec0;
-            --text-link: #63b3ed;
-            --text-link-hover: #4299e1;
-            --text-link-bright: #90cdf4;
+            /* Core Palette - "Midnight Aurora" */
+            --bg-dark: #050505;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+            --accent-primary: #6366f1; /* Indigo */
+            --accent-secondary: #a855f7; /* Purple */
+            --accent-tertiary: #ec4899; /* Pink */
             
-            --card-bg: rgba(45, 55, 72, 0.7);
-            --card-bg-solid: #2d3748;
-            --card-border: #4a5568;
-            --card-shadow: 0 0 15px rgba(99, 179, 237, 0.3);
-
-            --section-bg: rgba(45, 55, 72, 0.8);
-            --section-hover-scale: 1.05;
-
-            --button-bg: #4a5568;
-            --button-text: #e2e8f0;
-            --button-hover-bg: #2d3748;
-            --button-active-bg: #3B82F6;
-            --button-active-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-
-            --theme-button-bg: #63b3ed;
-            --theme-button-text: #1a202c;
-            --theme-button-hover-bg: #4299e1;
-
-            --tech-card-bg: rgba(45, 55, 72, 0.4);
-            --tech-card-animation: neon-pulse 3s infinite alternate ease-in-out;
-            --tech-card-icon-filter: drop-shadow(0 0 5px currentColor);
-
-            --project-card-bg: rgba(60, 70, 80, 0.6);
-            --project-card-border: #4a5568;
-            --project-card-shadow-hover: 0 0 20px rgba(99, 179, 237, 0.4);
-            --project-card-border-hover: #63b3ed;
-
-            --pixel-grid-bg: #1a202c;
-            --pixel-grid-border: #63b3ed;
-            --pixel-grid-cell-bg: #2d3748;
-
-            --license-bg: rgba(153, 27, 27, 0.9);
-            --license-border: rgba(220, 38, 38, 1);
-            --license-shadow: 0 0 30px rgba(220, 38, 38, 0.5);
-            --license-heading: #f87171;
-            --license-code-bg: rgba(26, 32, 44, 0.8);
-            --license-code-border: rgba(74, 85, 104, 1);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(10, 10, 10, 0.7);
+            --glass-highlight: rgba(255, 255, 255, 0.03);
+            
+            --gradient-main: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            
+            /* Grid Colors */
+            --grid-cell-bg: #1e293b;
+            --grid-cell-active: #facc15;
+            
+            /* Animations */
+            --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        /* Light Theme */
+        /* Light Theme Overrides */
         [data-theme="light"] {
-            --bg-gradient-start: #f4f7fa;
-            --bg-gradient-end: #e2e8f0;
-            --text-primary: #1a202c;
-            --text-secondary: #2d3748;
-            --text-muted: #4a5568;
-            --text-link: #007bff;
-            --text-link-hover: #0056b3;
-            --text-link-bright: #0056b3;
-            --accent-gradient: linear-gradient(90deg, #007bff, #0056b3);
-
-            --card-bg: rgba(255, 255, 255, 0.8);
-            --card-bg-solid: #ffffff;
-            --card-border: #cbd5e0;
-            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-
-            --section-bg: rgba(255, 255, 255, 0.9);
-            --section-hover-scale: 1.03;
-
-            --button-bg: #e2e8f0;
-            --button-text: #2d3748;
-            --button-hover-bg: #cbd5e0;
-            --button-active-bg: #007bff;
-            --button-active-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
-
-            --theme-button-bg: #007bff;
-            --theme-button-text: #ffffff;
-            --theme-button-hover-bg: #0056b3;
-
-            --tech-card-bg: #ffffff;
-            --tech-card-animation: none;
-            --tech-card-icon-filter: none;
-
-            --project-card-bg: #ffffff;
-            --project-card-border: #e2e8f0;
-            --project-card-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.1);
-            --project-card-border-hover: #007bff;
-            
-            --pixel-grid-bg: #e2e8f0;
-            --pixel-grid-border: #007bff;
-            --pixel-grid-cell-bg: #cbd5e0;
-
-            --license-bg: #ffffff;
-            --license-border: #cbd5e0;
-            --license-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            --license-heading: #007bff;
-            --license-code-bg: #f8f9fa;
-            --license-code-border: #e2e8f0;
+            --bg-dark: #f0f4f8;
+            --text-main: #0f172a;
+            --text-dim: #475569;
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-highlight: rgba(0, 0, 0, 0.03);
+            --grid-cell-bg: #cbd5e1;
+            --grid-cell-active: #f59e0b;
         }
 
-        /* --- 2. Base Styles --- */
+        /* --- 2. Global Reset & Typography --- */
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
-            color: var(--text-primary);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             overflow-x: hidden;
-            position: relative;
-            transition: background 0.3s ease, color 0.3s ease;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 1.5rem;
-        }
-        
-        .main-container-card {
-            position: relative;
-            z-index: 10;
-            padding: 1.5rem;
-            background-color: var(--card-bg);
-            border-radius: 0.75rem;
-            box-shadow: var(--card-shadow);
-            border: 1px solid var(--card-border);
-            transition: all 0.3s ease;
-            /* Add backdrop filter for aurora effect */
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+        h1, h2, h3, .brand-font { font-family: 'Space Grotesk', sans-serif; }
+        .mono-font { font-family: 'JetBrains Mono', monospace; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+        /* --- 3. Utility Classes --- */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
-        .section-card {
-            padding: 1.5rem;
-            background-color: var(--section-bg);
-            border-radius: 0.5rem;
-            border: 1px solid var(--card-border);
-            transition: all 0.3s ease;
-        }
-        
-        .section-card:hover {
-            transform: scale(var(--section-hover-scale));
-        }
-
-        /* Gradient Text */
-        h1, h2, .pixel-heading {
-            background: var(--accent-gradient);
+        .gradient-text {
+            background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;
         }
-        
-        [data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] .pixel-heading {
-            color: var(--text-link);
-            -webkit-text-fill-color: var(--text-link);
+
+        /* --- 4. Navigation --- */
+        .nav-floating {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            z-index: 100; padding: 0.75rem 1.5rem; border-radius: 9999px;
+            display: flex; gap: 2rem; align-items: center; justify-content: space-between;
+            width: 90%; max-width: 650px; transition: all 0.3s ease;
         }
 
-        h1 { font-size: 2.8rem; }
-        [data-theme="dark"] h1 { color: var(--text-link); -webkit-text-fill-color: var(--text-link); }
-
-        p, li { color: var(--text-secondary); }
-        strong { color: var(--text-link-bright); }
-        [data-theme="light"] strong { color: var(--text-link-bright); }
-        
-        /* Typing effect */
-        .typing-text::after {
-            content: '|';
-            display: inline-block;
-            animation: blink-caret 0.75s step-end infinite;
+        .nav-link {
+            font-size: 0.9rem; font-weight: 500; color: var(--text-dim);
+            text-decoration: none; position: relative; transition: color 0.3s ease;
         }
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--text-link); }
-        }
-
-        /* --- 3. Background Animation Containers --- */
-        .background-animation-container {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            overflow: hidden; pointer-events: none;
-            z-index: -1; /* Behind main container */
-            display: none;
-        }
-
-        /* NEW Aurora Background */
-        #aurora-bg {
-            z-index: -2; /* Even further back */
-        }
-        .aurora-shape {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.3;
-            animation: move-aurora 30s infinite alternate ease-in-out;
-        }
-        .shape-1 {
-            width: 50vw; height: 50vw;
-            background: #4f46e5; /* Indigo */
-            top: -10vh; left: -10vw;
-        }
-        .shape-2 {
-            width: 40vw; height: 40vw;
-            background: #a855f7; /* Purple */
-            bottom: -5vh; right: 10vw;
-            animation-delay: -10s;
-        }
-        .shape-3 {
-            width: 30vw; height: 30vw;
-            background: #ec4899; /* Pink */
-            top: 20vh; right: 20vw;
-            animation-delay: -20s;
-        }
-        @keyframes move-aurora {
-            from { transform: translate(0, 0) rotate(0deg); }
-            to { transform: translate(100px, 50px) rotate(180deg); }
-        }
-
-        /* Old Animations */
-        #code-rain-container .code-drop { /* ... (style unchanged) ... */ }
-        @keyframes fall { /* ... (style unchanged) ... */ }
-        #particle-container .particle { /* ... (style unchanged) ... */ }
-        @keyframes float-and-fade { /* ... (style unchanged) ... */ }
-        #video-game-bg .tetris-block { /* ... (style unchanged) ... */ }
-        #video-game-bg .tetris-pixel { /* ... (style unchanged) ... */ }
-        @keyframes tetris-fall { /* ... (style unchanged) ... */ }
-        #universe-bg .star { /* ... (style unchanged) ... */ }
-        @keyframes star-travel { /* ... (style unchanged) ... */ }
-        #universe-bg .spacecraft { /* ... (style unchanged) ... */ }
-        /* ... (All old animation keyframes and styles are preserved) ... */
-        #code-rain-container .code-drop { position: absolute; font-family: 'monospace'; font-size: 0.8rem; animation: fall linear infinite; white-space: nowrap; opacity: 0; }
-        @keyframes fall { 0% { transform: translateY(-100%); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(calc(100vh + 50px)); opacity: 0; } }
-        #particle-container .particle { position: absolute; border-radius: 50%; animation: float-and-fade linear infinite; pointer-events: none; z-index: 0; }
-        @keyframes float-and-fade { 0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; } 25% { opacity: 1; } 75% { opacity: 1; } 100% { transform: translateY(-100vh) translateX(var(--float-x)) scale(var(--scale)); opacity: 0; } }
-        #video-game-bg { perspective: 500px; }
-        #video-game-bg .tetris-block { position: absolute; display: flex; flex-wrap: wrap; animation: tetris-fall linear infinite; opacity: 0; transform: translateY(-100%) rotateX(0deg); transform-style: preserve-3d; }
-        #video-game-bg .tetris-pixel { width: 15px; height: 15px; border: 1px solid rgba(0, 0, 0, 0.2); box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.3); border-radius: 2px; }
-        @keyframes tetris-fall { 0% { transform: translateY(-100%) rotateX(0deg) scale(1); opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { transform: translateY(100vh) rotateX(360deg) scale(0.8); opacity: 0; } }
-        #universe-bg { perspective: 800px; background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%); }
-        #universe-bg .star { position: absolute; background-color: white; border-radius: 50%; animation: star-travel linear infinite; opacity: 0; }
-        @keyframes star-travel { 0% { transform: translateZ(-1000px) scale(0.1); opacity: 0; } 20% { opacity: 0.8; } 80% { opacity: 0.8; } 100% { transform: translateZ(0px) scale(2); opacity: 0; } }
-        #universe-bg .spacecraft { position: absolute; bottom: 5%; left: 50%; transform: translateX(-50%) rotateY(0deg) rotateZ(0deg); width: 80px; height: 80px; pointer-events: none; z-index: 1; animation: spacecraft-hover 8s ease-in-out infinite alternate, spacecraft-drift 15s linear infinite; }
-        #universe-bg .spacecraft-body { width: 0; height: 0; border-left: 40px solid transparent; border-right: 40px solid transparent; border-bottom: 80px solid #63b3ed; position: absolute; top: 0; left: 0; filter: drop-shadow(0 0 10px rgba(99, 179, 237, 0.8)); }
-        #universe-bg .engine-trail { position: absolute; width: 10px; height: 30px; background: linear-gradient(to top, rgba(255, 165, 0, 0.8), rgba(255, 255, 0, 0.5), transparent); border-radius: 50%; bottom: -20px; left: calc(50% - 5px); animation: engine-flicker 0.2s infinite alternate, engine-expand 1s ease-out infinite; filter: blur(5px); opacity: 0.7; }
-        @keyframes spacecraft-hover { 0% { transform: translateX(-50%) translateY(0px) rotateY(0deg); } 50% { transform: translateX(-50%) translateY(-10px) rotateY(10deg); } 100% { transform: translateX(-50%) translateY(0px) rotateY(0deg); } }
-        @keyframes spacecraft-drift { 0% { left: 0%; transform: translateX(-50%) rotateZ(0deg); } 50% { left: 100%; transform: translateX(-50%) rotateZ(180deg); } 100% { left: 0%; transform: translateX(-50%) rotateZ(360deg); } }
-        @keyframes engine-flicker { 0% { opacity: 0.7; transform: scaleY(1); } 100% { opacity: 1; transform: scaleY(1.2); } }
-        @keyframes engine-expand { 0% { transform: scale(0.5); opacity: 0.5; } 50% { transform: scale(1); opacity: 1; } 100% { transform: scale(0.5); opacity: 0.5; } }
-
-
-        /* --- 4. Contribution Grid & Game Styles --- */
-        #interactive-grid {
-            display: grid;
-            grid-template-columns: repeat(26, minmax(15px, 1fr));
-            grid-template-rows: repeat(7, minmax(15px, 1fr));
-            gap: 2px;
-            background-color: var(--card-bg-solid);
-            border: 2px solid var(--card-border);
-            border-radius: 5px;
-            padding: 5px;
-            width: fit-content;
-            margin: 0 auto;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
-        }
-
-        .grid-cell { /* ... (style unchanged) ... */ }
-        .level-0 { background-color: #4a5568; } /* ... (levels unchanged) ... */
-        .conway-alive { /* ... (style unchanged) ... */ }
-        .grid-cell { width: 15px; height: 15px; background-color: #4a5568; border-radius: 2px; transition: background-color 0.1s linear; }
-        .level-1 { background-color: #10B981; } .level-2 { background-color: #3B82F6; } .level-3 { background-color: #63B3ED; } .level-4 { background-color: #90CDF4; }
-        .conway-alive { background-color: #fcd34d; box-shadow: 0 0 5px #fcd34d; }
-
-        .mode-buttons button {
-            background-color: var(--button-bg);
-            color: var(--button-text);
-            transition: all 0.2s ease-in-out;
-        }
-        .mode-buttons button:hover {
-            background-color: var(--button-hover-bg);
-        }
-        .mode-button-active {
-            background-color: var(--button-active-bg) !important;
-            box-shadow: var(--button-active-shadow);
-            color: white !important;
-        }
-        [data-theme="light"] .mode-button-active { color: white !important; }
-
-        /* --- 5. Pixel Message Board --- */
-        .pixel-message-panel-container {
-            background-color: var(--section-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            max-width: 900px;
-            width: 100%;
-            margin: 2rem auto;
-            transition: all 0.3s ease;
-        }
-
-        .pixel-grid-display {
-            display: grid;
-            gap: 0.5px;
-            margin-bottom: 1rem;
-            border: 1px solid var(--pixel-grid-border);
-            border-radius: 8px;
-            padding: 8px;
-            background-color: var(--pixel-grid-bg);
-            box-shadow: inset 0 0 8px rgba(0,0,0,0.7);
-            width: 100%;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
-
-        .pixel-display {
-            width: 100%; height: 100%;
-            background-color: var(--pixel-grid-cell-bg);
-            transition: background-color 0.1s ease-out;
-        }
-
-        .pixel-heading {
-            font-family: 'monospace'; /* Changed from Press Start 2P */
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-            animation: pulse-text 2s infinite alternate;
-        }
-        
-        @keyframes pulse-text {
-            from { opacity: 0.8; }
-            to { opacity: 1; }
-        }
-
-        .github-link-pixel-board {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.6rem 1.2rem;
-            background: var(--accent-gradient);
-            color: white;
-            font-weight: bold;
-            border-radius: 9999px;
-            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
-            transition: all 0.3s ease-in-out;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        .github-link-pixel-board:hover {
-            transform: translateY(-2px) scale(1.01);
-            box-shadow: 0 6px 15px rgba(168, 85, 247, 0.5);
-        }
-        [data-theme="light"] .github-link-pixel-board { background: var(--text-link); box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3); }
-        [data-theme="dark"] .github-link-pixel-board { background: var(--text-link); box-shadow: 0 4px 12px rgba(99, 179, 237, 0.3); }
-
-        /* --- 6. License Section --- */
-        .license-section {
-            background-color: var(--license-bg);
-            border: 1px solid var(--license-border);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: var(--license-shadow);
-            margin-top: 2rem;
-            font-family: 'Roboto Slab', serif;
-            line-height: 1.7;
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-        }
-        .license-section h2 {
-            font-family: 'Roboto Slab', serif;
-            font-size: 2rem;
-            color: var(--license-heading);
-            margin-bottom: 1.5rem;
-            text-align: center;
-            text-shadow: none;
-        }
-        .license-section pre {
-            background-color: var(--license-code-bg);
-            padding: 1.2rem;
-            border-radius: 8px;
-            font-family: 'monospace';
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            overflow-x: auto;
-            border: 1px solid var(--license-code-border);
-            transition: all 0.3s ease;
-        }
-
-        /* --- 7. Theme Changer (Dropdown) --- */
-        .theme-changer-container {
-            position: relative;
-            display: inline-block;
-        }
-        .theme-button {
-            background-color: var(--theme-button-bg);
-            color: var(--theme-button-text);
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 1px solid var(--card-border);
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-        .theme-button:hover {
-            background-color: var(--theme-button-hover-bg);
-            transform: translateY(-1px);
-        }
-        #light-dark-toggle {
-            margin-right: 0.5rem;
-            width: 2.75rem;
-        }
-        .theme-dropdown {
-            position: absolute;
-            top: 100%; left: 50%;
+        .nav-link:hover { color: var(--text-main); }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -4px; left: 50%;
+            width: 0; height: 2px; background: var(--gradient-main);
+            transition: width 0.3s var(--ease-elastic), transform 0.3s ease;
             transform: translateX(-50%);
-            background-color: var(--card-bg-solid);
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            padding: 0.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-            z-index: 10;
-            display: none;
-            min-width: 180px;
-            text-align: center;
         }
-        .theme-dropdown.show { display: block; }
-        .theme-dropdown button {
-            display: block;
-            width: calc(100% - 1rem);
-            padding: 0.6rem 0.8rem;
-            margin: 0.25rem 0.5rem;
-            background-color: var(--button-bg);
-            color: var(--button-text);
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .theme-dropdown button:hover {
-            background-color: var(--theme-button-hover-bg);
-            color: var(--theme-button-text);
-            transform: translateY(-1px);
-        }
-        [data-theme="dark"] .theme-dropdown button:hover { background-color: var(--theme-button-bg); color: var(--theme-button-text); }
+        .nav-link:hover::after { width: 100%; }
 
+        /* --- 5. Animations & Hero --- */
+        .hero-container {
+            min-height: 90vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            padding-top: 80px; position: relative;
+        }
 
-        /* --- 8. Tech Stack --- */
-        .tech-card {
-            background-color: var(--tech-card-bg);
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            transition: all 0.3s ease-in-out;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--card-border);
-            z-index: 1;
+        /* Glitch Effect */
+        .glitch-text {
+            font-size: 3.5rem; font-weight: 800; position: relative;
+            color: var(--text-main); letter-spacing: -0.02em;
         }
-        /* Gradient border hover effect */
-        .tech-card::before {
-            content: "";
-            position: absolute;
-            inset: -1px; /* Sits just outside the border */
-            border-radius: 13px; /* 12px card radius + 1px */
-            background: var(--accent-gradient);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-        .tech-card:hover::before {
-            opacity: 1;
-        }
-        .tech-card:hover {
-            transform: translateY(-5px);
-            border-color: transparent;
-        }
+        @media(min-width: 768px) { .glitch-text { font-size: 5rem; } }
         
-        /* Old Neon Pulse Animation (for dark theme) */
-        @keyframes neon-pulse { /* ... (style unchanged) ... */ }
-        @keyframes neon-pulse {
-            0% { transform: scale(1); box-shadow: 0 0 10px rgba(var(--neon-color-rgb), 0.8), inset 0 0 3px rgba(var(--neon-color-rgb), 0.5); }
-            50% { transform: scale(1.005); box-shadow: 0 0 20px rgba(var(--neon-color-rgb), 1), inset 0 0 8px rgba(var(--neon-color-rgb), 0.7); }
-            100% { transform: scale(1); box-shadow: 0 0 10px rgba(var(--neon-color-rgb), 0.8), inset 0 0 3px rgba(var(--neon-color-rgb), 0.5); }
+        .glitch-text::before, .glitch-text::after {
+            content: attr(data-text); position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; background: var(--bg-dark);
         }
-        /* Specific neon colors only for old dark theme */
-        [data-theme="dark"] .tech-card { animation: var(--tech-card-animation); }
-        [data-theme="dark"] .tech-card.neon-html { border-color: #ff6600; --neon-color-rgb: 255, 102, 0; }
-        [data-theme="dark"] .tech-card.neon-html:hover { box-shadow: 0 0 25px #ff6600, inset 0 0 8px #ff6600; }
-        [data-theme="dark"] .tech-card.neon-css { border-color: #007bff; --neon-color-rgb: 0, 123, 255; }
-        [data-theme="dark"] .tech-card.neon-css:hover { box-shadow: 0 0 25px #007bff, inset 0 0 8px #007bff; }
-        [data-theme="dark"] .tech-card.neon-js { border-color: #ffee00; --neon-color-rgb: 255, 238, 0; }
-        [data-theme="dark"] .tech-card.neon-js:hover { box-shadow: 0 0 25px #ffee00, inset 0 0 8px #ffee00; }
-        [data-theme="dark"] .tech-card.neon-python { border-color: #306998; --neon-color-rgb: 48, 105, 152; }
-        [data-theme="dark"] .tech-card.neon-python:hover { box-shadow: 0 0 25px #306998, inset 0 0 8px #306998; }
-
-        .tech-card i {
-            font-size: 4rem;
-            margin-bottom: 0.75rem;
-            filter: var(--tech-card-icon-filter);
-            transition: filter 0.3s ease;
+        .glitch-text::before {
+            left: 2px; text-shadow: -1px 0 #ff00c1; clip-path: inset(44% 0 61% 0);
+            animation: glitch-anim 4s infinite linear alternate-reverse;
         }
-        .tech-card span {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
+        .glitch-text::after {
+            left: -2px; text-shadow: -1px 0 #00fff9; clip-path: inset(54% 0 21% 0);
+            animation: glitch-anim2 4s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip-path: inset(80% 0 5% 0); }
+            20% { clip-path: inset(10% 0 60% 0); }
+            100% { clip-path: inset(40% 0 40% 0); }
+        }
+        @keyframes glitch-anim2 {
+            0% { clip-path: inset(10% 0 80% 0); }
+            20% { clip-path: inset(80% 0 5% 0); }
+            100% { clip-path: inset(30% 0 30% 0); }
         }
 
-        /* --- 9. Project Card --- */
-        .project-card {
-            background-color: var(--project-card-bg);
-            border-radius: 12px;
-            padding: 1.2rem;
-            text-align: center;
-            transition: all 0.3s ease-in-out;
-            border: 1px solid var(--project-card-border);
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .reveal-on-scroll {
+            opacity: 0; transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
         }
-        .project-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: var(--project-card-shadow-hover);
-            border-color: var(--project-card-border-hover);
+        .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* --- 6. Holo Cards --- */
+        .projects-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;
         }
-        .project-card .project-icon {
-            font-size: 3rem; margin-bottom: 0.5rem;
-            color: var(--text-link-bright);
+        .holo-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid var(--glass-border); border-radius: 16px;
+            padding: 2rem; display: flex; flex-direction: column;
+            position: relative; overflow: hidden; transition: all 0.4s ease; cursor: pointer;
         }
-        .project-card .project-title {
-            font-size: 1.1rem; font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
+        .holo-card:hover {
+            transform: translateY(-5px); border-color: rgba(168, 85, 247, 0.4);
+            box-shadow: 0 15px 40px -10px rgba(168, 85, 247, 0.2);
         }
-        .project-card .project-description {
-            font-size: 0.9rem; color: var(--text-secondary);
+        .tech-pill {
+            font-size: 0.75rem; padding: 4px 12px; border-radius: 20px;
+            background: rgba(255,255,255,0.05); color: var(--text-dim);
+            border: 1px solid transparent; transition: all 0.3s ease;
         }
+        .holo-card:hover .tech-pill {
+            background: rgba(168, 85, 247, 0.15); color: #e9d5ff; border-color: rgba(168, 85, 247, 0.3);
+        }
+
+        /* --- 7. Skills Grid --- */
+        .skill-item {
+            background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
+            padding: 0.8rem 1.2rem; border-radius: 8px; display: flex; align-items: center; gap: 0.8rem;
+            transition: all 0.3s ease; color: var(--text-dim);
+        }
+        .skill-item:hover {
+            background: rgba(255,255,255,0.08); transform: translateY(-2px);
+            border-color: var(--accent-secondary); color: var(--text-main);
+        }
+
+        /* --- 8. Pixel Board (Fixed) --- */
+        .pixel-board-container {
+            display: grid; gap: 1px; width: fit-content; margin: 0 auto;
+            padding: 10px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid var(--glass-border);
+        }
+        .pixel-dot {
+            width: 8px; height: 8px; background-color: var(--grid-cell-bg);
+            border-radius: 1px; transition: background-color 0.1s;
+        }
+        /* Active color is now handled by inline JS styles for multi-color support */
+
+        /* --- 9. Background Layers --- */
+        .bg-layer {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2; pointer-events: none; overflow: hidden;
+        }
+        .aurora-blob {
+            position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.4;
+            animation: float 20s infinite alternate;
+        }
+        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #4f46e5; }
+        .blob-2 { bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: #a855f7; animation-delay: -5s; }
         
-        /* --- 10. Responsive --- */
-        @media (max-width: 768px) { /* ... (styles unchanged) ... */ }
+        #matrix-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; opacity: 0; transition: opacity 0.5s ease; pointer-events: none;
+        }
+        #matrix-canvas.active { opacity: 0.3; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 50px) scale(1.1); }
+        }
+
+        /* --- Responsive Tweaks --- */
         @media (max-width: 768px) {
-            .container { padding: 1rem; }
-            h1 { font-size: 2.5rem; } h2 { font-size: 1.5rem; }
-            .text-lg { font-size: 1rem; }
-            #interactive-grid { grid-template-columns: repeat(auto-fill, minmax(12px, 1fr)); grid-template-rows: repeat(7, minmax(12px, 1fr)); width: 100%; max-width: 300px; }
-            .grid-cell { width: 12px; height: 12px; }
-            .mode-buttons button { padding: 0.5rem 0.75rem; font-size: 0.8rem; margin-bottom: 0.5rem; }
-            .pixel-message-panel-container { padding: 1rem; max-width: 100%; }
-            .pixel-heading { font-size: 1.2rem; }
-            .pixel-grid-display { gap: 0.25px; }
-            .github-link-pixel-board { padding: 0.5rem 0.8rem; font-size: 0.8rem; }
-            .license-section { padding: 1.5rem; }
-            .license-section h2 { font-size: 1.6rem; }
-            .license-section pre { font-size: 0.8rem; }
-            .theme-dropdown { width: 90%; left: 5%; transform: translateX(0%); }
-            .tech-card { padding: 1rem; }
-            .tech-card i { font-size: 3rem; }
-            .tech-card span { font-size: 1rem; }
-            .project-card .project-icon { font-size: 2.5rem; }
-            .project-card .project-title { font-size: 1rem; }
-            .project-card .project-description { font-size: 0.8rem; }
+            .nav-floating { width: 95%; padding: 0.6rem 1rem; gap: 0.8rem; font-size: 0.8rem; top: 10px; }
+            .hero-container { min-height: 60vh; }
+            .holo-card { padding: 1.5rem; }
+            .section-box { padding: 1.5rem; margin-bottom: 2rem; }
         }
-
     </style>
 </head>
-<!-- Default theme is now "revamp" -->
 <body data-theme="revamp">
-    
-    <!-- NEW Aurora Background -->
-    <div id="aurora-bg" class="background-animation-container">
-        <div class="aurora-shape shape-1"></div>
-        <div class="aurora-shape shape-2"></div>
-        <div class="aurora-shape shape-3"></div>
-    </div>
 
-    <!-- Old Background Animation Containers -->
-    <div id="default-bg-container" class="background-animation-container">
-        <div class="code-rain-container" id="code-rain-container"></div>
-        <div class="absolute inset-0 overflow-hidden" id="particle-container"></div>
+    <!-- Backgrounds -->
+    <div id="main-bg" class="bg-layer">
+        <div class="aurora-blob blob-1"></div>
+        <div class="aurora-blob blob-2"></div>
     </div>
-    <div id="video-game-bg" class="background-animation-container"></div>
-    <div id="universe-bg" class="background-animation-container">
-        <div class="spacecraft">
-            <div class="spacecraft-body"></div>
-            <div class="engine-trail"></div>
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav-floating glass-panel">
+        <a href="#" class="brand-font font-bold text-lg gradient-text">SC.</a>
+        <div class="flex gap-3 md:gap-6 items-center">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#tech" class="nav-link">Stack</a>
+            <a href="#projects" class="nav-link">Work</a>
+            <a href="#interactive" class="nav-link hidden md:block">Play</a>
         </div>
-    </div>
+        <div class="flex gap-2">
+            <button id="bg-toggle-btn" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors" title="Toggle Matrix Mode">
+                <i class="fas fa-terminal text-xs"></i>
+            </button>
+            <button id="theme-toggle-btn" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors" title="Toggle Theme">
+                <i class="fas fa-sun text-xs"></i>
+            </button>
+        </div>
+    </nav>
 
-    <div class="container relative z-10">
-        <div class="main-container-card">
-            <header class="text-center mb-8">
-                <h1 class="text-4xl md:text-5xl font-extrabold mb-2 animate-pulse">
-                    Soumya Sagar
-                </h1>
-                <p class="text-xl md:text-2xl font-semibold" style="color: var(--text-secondary);">
-                    @Soumya-codr
-                </p>
-                <div class="h-1 w-24 rounded-full mx-auto mt-4" style="background: var(--accent-gradient);"></div>
-            </header>
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 pb-20">
+        
+        <!-- Hero -->
+        <header class="hero-container reveal-on-scroll">
+            <div class="mb-6 px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs md:text-sm font-medium tracking-wide animate-pulse">
+                ✨ Available for Hire
+            </div>
+            <h1 class="glitch-wrapper mb-6">
+                <span class="glitch-text" data-text="Soumya Sagar">Soumya Sagar</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                Building <span class="text-white font-medium">digital experiences</span> that blend aesthetic design with robust engineering.
+            </p>
+            <div class="flex gap-4">
+                <a href="#projects" class="px-6 py-3 rounded-full bg-white text-black font-bold hover:scale-105 transition-transform text-sm md:text-base">
+                    View Projects
+                </a>
+                <a href="https://github.com/Soumya-codr" target="_blank" class="px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-colors backdrop-blur-sm text-sm md:text-base flex items-center">
+                    <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+            </div>
+        </header>
 
-            <!-- Theme Changer UI -->
-            <div class="text-center mb-8">
-                <!-- 3-Way Palette Toggle Button -->
-                <button id="light-dark-toggle" class="theme-button">
-                    <!-- Icon will be set by JS -->
-                </button>
-                
-                <div class="theme-changer-container">
-                    <button id="theme-changer-toggle" class="theme-button">
-                        Change Animation <i class="fas fa-chevron-down ml-2"></i>
-                    </button>
-                    <div id="theme-dropdown" class="theme-dropdown">
-                        <button id="theme-aurora">Aurora Flow (Default)</button>
-                        <button id="theme-particles">Just Particles</button>
-                        <button id="theme-default">Code Rain (Old)</button>
-                        <button id="theme-video-game">Video Game Theme</button>
-                        <button id="theme-universe">Travel to Universe Theme</button>
+        <!-- About -->
+        <section id="about" class="section-box glass-panel reveal-on-scroll rounded-2xl p-6 md:p-10 mb-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">About Me</h2>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        I am a developer who focuses on the details. From the structure of the database to the pixel-perfect alignment of the UI, I strive for excellence in every layer of the stack.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        Currently, I am leveling up my skills in <strong class="text-white">Full Stack Development</strong>, exploring the creative possibilities of <strong class="text-white">AI integration</strong>, and building open-source tools.
+                    </p>
+                </div>
+                <!-- Code Snippet Visual -->
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                    <div class="relative bg-[#0a0a0a] border border-white/10 p-6 rounded-xl font-mono text-xs md:text-sm text-gray-400 overflow-hidden">
+                        <div class="flex gap-2 mb-4 opacity-50">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <p><span class="text-purple-400">class</span> <span class="text-yellow-400">Developer</span> {</p>
+                        <p class="pl-4">constructor() {</p>
+                        <p class="pl-8">this.name = <span class="text-green-400">'Soumya'</span>;</p>
+                        <p class="pl-8">this.skills = [<span class="text-green-400">'Web'</span>, <span class="text-green-400">'Design'</span>, <span class="text-green-400">'AI'</span>];</p>
+                        <p class="pl-4">}</p>
+                        <p class="pl-4">code() {</p>
+                        <p class="pl-8"><span class="text-blue-400">return</span> <span class="text-green-400">"Building the future..."</span>;</p>
+                        <p class="pl-4">}</p>
+                        <p>}</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <section class="mb-8 section-card">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">About Me</h2>
-                <p id="intro-text" class="text-lg md:text-xl leading-relaxed typing-text"></p>
-            </section>
-
-            <section class="mb-8 section-card text-center">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">Inspiration</h2>
-                <p id="quote-display" class="text-xl md:text-2xl italic mb-2 transition-opacity duration-500 ease-in-out">
-                    "The only way to do great work is to love what you do."
-                </p>
-                <p class="text-sm" style="color: var(--text-muted);">- Steve Jobs</p>
-            </section>
-
-            <section class="mb-8 section-card">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">My Journey & Dreams</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="p-5 rounded-lg shadow-md transition-transform duration-300" 
-                         style="background-color: var(--card-bg-solid); border: 1px solid var(--card-border); transform: scale(var(--section-hover-scale));">
-                        <h3 class="text-xl font-semibold mb-3 flex items-center" style="color: var(--text-link-bright);">
-                            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v14m-3-6h6m-6 4h6m-9 1l-3 3v2h18v-2l-3-3m-6 0V3"></path></svg>
-                            Aspirations
-                        </h3>
-                        <p>
-                            I am a new fresher in the coding world, but my dreams and aspirations are not limited; they are endless! I am eager to build impactful projects and contribute to the tech community.
-                        </p>
-                    </div>
-                    <div class="p-5 rounded-lg shadow-md transition-transform duration-300" 
-                         style="background-color: var(--card-bg-solid); border: 1px solid var(--card-border); transform: scale(var(--section-hover-scale));">
-                        <h3 class="text-xl font-semibold mb-3 flex items-center" style="color: var(--text-link-bright);">
-                            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                            Learning Path
-                        </h3>
-                        <p>
-                            Currently, I am diving deep into <strong>Web Development</strong> (HTML, CSS, JavaScript) and planning to learn <strong>Python</strong> parallely to expand my horizons.
-                        </p>
+        <!-- Tech Stack -->
+        <section id="tech" class="mb-20 reveal-on-scroll">
+            <h2 class="text-3xl font-bold mb-10 text-center gradient-text">Tech Arsenal</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Languages -->
+                <div class="glass-panel p-6 rounded-xl">
+                    <h3 class="text-lg font-bold mb-4 text-purple-400 border-l-2 border-purple-500 pl-3">Languages</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="skill-item"><i class="fab fa-html5 text-orange-500"></i> HTML5</div>
+                        <div class="skill-item"><i class="fab fa-css3-alt text-blue-500"></i> CSS3</div>
+                        <div class="skill-item"><i class="fab fa-js text-yellow-400"></i> JS (ES6+)</div>
+                        <div class="skill-item"><i class="fab fa-python text-blue-400"></i> Python</div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Tech Stack Section -->
-            <section class="mb-8 section-card text-center">
-                <h2 class="text-2xl md:text-3xl font-bold mb-6">My Tech Stack</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <!-- Renamed to .tech-card and removed .neon- classes -->
-                    <div class="tech-card neon-html">
-                        <i class="fab fa-html5 text-orange-500"></i>
-                        <span>HTML5</span>
-                    </div>
-                    <div class="tech-card neon-css">
-                        <i class="fab fa-css3-alt text-blue-500"></i>
-                        <span>CSS3</span>
-                    </div>
-                    <div class="tech-card neon-js">
-                        <i class="fab fa-js-square text-yellow-400"></i>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="tech-card neon-python">
-                        <i class="fab fa-python text-blue-600"></i>
-                        <span>Python</span>
+                <!-- Frameworks -->
+                <div class="glass-panel p-6 rounded-xl">
+                    <h3 class="text-lg font-bold mb-4 text-pink-400 border-l-2 border-pink-500 pl-3">Frameworks</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="skill-item"><i class="fab fa-react text-cyan-400"></i> React</div>
+                        <div class="skill-item"><i class="fas fa-wind text-teal-400"></i> Tailwind</div>
+                        <div class="skill-item"><i class="fab fa-bootstrap text-purple-600"></i> Bootstrap</div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Projects Section -->
-            <section class="mb-8 section-card text-center">
-                <!-- ... (content unchanged) ... -->
-                <h2 class="text-2xl md:text-3xl font-bold mb-6">My Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <a href="https://spontaneous-starship-5e5ca0.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-card">
-                        <i class="fas fa-robot project-icon"></i>
-                        <h3 class="project-title">EchoWhisper</h3>
-                        <p class="project-description">An AI Companion Friend designed to assist and interact.</p>
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="project-card">
-                        <i class="fas fa-chart-bar project-icon"></i>
-                        <h3 class="project-title">Data Visualizer</h3>
-                        <p class="project-description">An interactive data visualization tool to explore datasets.</p>
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="project-card">
-                        <i class="fas fa-blog project-icon"></i>
-                        <h3 class="project-title">Personal Blog</h3>
-                        <p class="project-description">My personal blog to share thoughts and coding experiences.</p>
-                    </a>
-                    <a href="https://github.com/Soumya-codr?tab=repositories" target="_blank" rel="noopener noreferrer" class="project-card">
-                        <i class="fas fa-arrow-right project-icon"></i>
-                        <h3 class="project-title">View All Projects</h3>
-                        <p class="project-description">Explore more repositories on my GitHub profile!</p>
-                    </a>
+                <!-- Tools -->
+                <div class="glass-panel p-6 rounded-xl">
+                    <h3 class="text-lg font-bold mb-4 text-indigo-400 border-l-2 border-indigo-500 pl-3">Tools</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="skill-item"><i class="fab fa-git-alt text-red-500"></i> Git</div>
+                        <div class="skill-item"><i class="fab fa-github"></i> GitHub</div>
+                        <div class="skill-item"><i class="fas fa-code text-blue-500"></i> VS Code</div>
+                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Interactive Grid Section -->
-            <section class="mb-8 section-card text-center">
-                <!-- ... (content unchanged) ... -->
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">My Interactive Grid</h2>
-                <p id="grid-instructions" class="mb-4">
-                    Explore different interactive modes on my grid! Select a mode below.
-                </p>
-                <div class="mb-4 mode-buttons">
-                    <button id="mode-contributions" class="px-4 py-2 rounded-md mr-2">Contributions</button>
-                    <button id="mode-conway" class="px-4 py-2 rounded-md mr-2">Conway's Game of Life</button>
-                    <button id="mode-pixelArt" class="px-4 py-2 rounded-md mr-2">Pixel Art</button>
-                    <button id="mode-generativeFlow" class="px-4 py-2 rounded-md">Generative Flow</button>
+        <!-- Projects -->
+        <section id="projects" class="mb-20 reveal-on-scroll">
+            <h2 class="text-3xl font-bold mb-10 text-center">Featured Work</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1: Project Nexus -->
+                <div class="holo-card group" onclick="window.open('https://github.com/Soumya-codr/project-nexus', '_blank')">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-gray-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">Project Nexus</h3>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
+                        A central hub designed for seamless project connectivity and management.
+                    </p>
+                    <div class="flex gap-2 mt-auto flex-wrap">
+                        <span class="tech-pill">Web</span>
+                        <span class="tech-pill">Nexus</span>
+                    </div>
                 </div>
-                <div id="interactive-grid"></div>
-                <p id="grid-message" class="font-bold text-xl mt-4 hidden"></p>
-                <div id="conway-controls" class="mt-4 hidden">
-                    <button id="conway-start-stop" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-md text-white mr-2">Start</button>
-                    <button id="conway-clear" class="px-4 py-2 bg-red-500 hover:bg-red-600 rounded-md text-white">Clear</button>
+
+                <!-- Project 2: OJT Stub Server -->
+                <div class="holo-card group" onclick="window.open('https://github.com/Soumya-codr/OJT-Stub-server', '_blank')">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-gray-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">OJT Stub Server</h3>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
+                        A robust backend stub server built for On-the-Job Training simulations and API testing.
+                    </p>
+                    <div class="flex gap-2 mt-auto flex-wrap">
+                        <span class="tech-pill">Backend</span>
+                        <span class="tech-pill">API</span>
+                    </div>
                 </div>
-            </section>
 
-            <!-- Pixel Message Board Section -->
-            <section class="pixel-message-panel-container">
-                <!-- ... (content unchanged) ... -->
-                <h2 class="pixel-heading">Soumya-codr's Message</h2>
-                <div class="pixel-grid-display" id="pixel-message-grid">
+                <!-- Project 3: Flare Hackathon -->
+                <div class="holo-card group" onclick="window.open('https://github.com/Soumya-codr/flare-hackathon', '_blank')">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-gray-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-orange-400 transition-colors">Flare Hackathon</h3>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
+                        An innovative solution developed under pressure during the Flare Hackathon event.
+                    </p>
+                    <div class="flex gap-2 mt-auto flex-wrap">
+                        <span class="tech-pill">Hackathon</span>
+                        <span class="tech-pill">Innovation</span>
+                    </div>
                 </div>
-                <a href="https://github.com/Soumya-codr" target="_blank" rel="noopener noreferrer" class="github-link-pixel-board">
-                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.828.092-.643.354-1.088.643-1.333-2.22-.253-4.555-1.119-4.555-4.934 0-1.089.389-1.979 1.029-2.679-.103-.253-.446-1.266.099-2.64 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.373.202 2.387.099 2.64.64.7 1.028 1.59.1028 2.679 0 3.823-2.339 4.681-4.566 4.925.359.309.678.92.678 1.855 0 1.336-.012 2.419-.012 2.747 0 .268.18.58.688.482C21.137 20.281 24 16.516 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"></path></svg>
-                    Visit my GitHub Profile
-                </a>
-            </section>
 
-            <!-- Recent Updates Section -->
-            <section class="mb-8 section-card">
-                <!-- ... (content unchanged) ... -->
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">Recent Updates</h2>
-                <ul class="list-disc list-inside text-left space-y-2">
-                    <li><strong>June 2, 2025:</strong> Implemented responsive pixel message board, ensuring optimal display across all device sizes.</li>
-                    <li><strong>May 30, 2025:</strong> Fixed minor layout issues on smaller screens, improving overall mobile compatibility.</li>
-                    <li><strong>May 25, 2025:</strong> Added interactive grid modes (Conway's Game of Life, Pixel Art, Generative Flow) for enhanced user engagement.</li>
-                    <li><strong>May 20, 2025:</strong> Initial release of animated GitHub profile with code rain and particle background.</li>
-                </ul>
-                <p class="text-sm mt-4" style="color: var(--text-muted);">Stay tuned for more exciting updates and features!</p>
-            </section>
+                <!-- Project 4: Pixel City -->
+                <div class="holo-card group" onclick="window.open('https://github.com/Soumya-codr/PIXEL_CITY', '_blank')">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-gray-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">Pixel City</h3>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
+                        A digital urban landscape project featuring retro aesthetics and pixel art design.
+                    </p>
+                    <div class="flex gap-2 mt-auto flex-wrap">
+                        <span class="tech-pill">Design</span>
+                        <span class="tech-pill">Pixel Art</span>
+                    </div>
+                </div>
 
-            <!-- Renamed class to .license-section -->
-            <section class="license-section">
-                <h2>MIT License</h2>
-                <pre>
-Copyright (c) 2025 Soumya Sagar (@Soumya-codr)
+                <!-- Project 5: EchoWhisperLive (Main Branch) -->
+                <div class="holo-card group" onclick="window.open('https://github.com/Soumya-codr/EchoWhisperLive/tree/main', '_blank')">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-pink-500/20 flex items-center justify-center text-pink-400 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-gray-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-pink-400 transition-colors">EchoWhisper Core</h3>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
+                        The main development branch for the EchoWhisper AI companion system.
+                    </p>
+                    <div class="flex gap-2 mt-auto flex-wrap">
+                        <span class="tech-pill">Source</span>
+                        <span class="tech-pill">AI</span>
+                    </div>
+                </div>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+                <!-- Project 6: EchoWhisperLive -->
+                <div class="holo-card group" onclick="window.open('https://github.com/Soumya-codr/EchoWhisperLive', '_blank')">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-gray-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-indigo-400 transition-colors">EchoWhisperLive</h3>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
+                        Real-time AI interaction platform designed for meaningful digital conversations.
+                    </p>
+                    <div class="flex gap-2 mt-auto flex-wrap">
+                        <span class="tech-pill">AI</span>
+                        <span class="tech-pill">Real-time</span>
+                    </div>
+                </div>
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+                <!-- Project 7: Telegram Project -->
+                <div class="holo-card group" onclick="window.open('https://github.com/Soumya-codr/telegram-project', '_blank')">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-sky-500/20 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-gray-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-sky-400 transition-colors">Telegram Bot</h3>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
+                        A specialized bot integration designed to automate tasks on Telegram.
+                    </p>
+                    <div class="flex gap-2 mt-auto flex-wrap">
+                        <span class="tech-pill">Bot</span>
+                        <span class="tech-pill">Automation</span>
+                    </div>
+                </div>
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-                </pre>
-            </section>
+                <!-- Project 8: Crop Sense -->
+                <div class="holo-card group" onclick="window.open('https://github.com/Soumya-codr/Crop_Sense', '_blank')">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-gray-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-green-400 transition-colors">Crop Sense</h3>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
+                        AgriTech solution utilizing AI to monitor crop health and improve yields.
+                    </p>
+                    <div class="flex gap-2 mt-auto flex-wrap">
+                        <span class="tech-pill">AgriTech</span>
+                        <span class="tech-pill">AI</span>
+                    </div>
+                </div>
 
-            <!-- Connect Section -->
-            <section class="text-center p-6 section-card mt-8">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">Let's Connect!</h2>
-                <p class="text-lg mb-6">
-                    Feel free to explore my repositories and connect with me. Let's build amazing things together!
-                </p>
-                <a href="https://github.com/Soumya-codr" target="_blank" rel="noopener noreferrer"
-                   class="inline-flex items-center px-6 py-3 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
-                   style="background: var(--accent-gradient); color: white;">
-                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.828.092-.643.354-1.088.643-1.333-2.22-.253-4.555-1.119-4.555-4.934 0-1.089.389-1.979 1.029-2.679-.103-.253-.446-1.266.099-2.64 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.373.202 2.387.099 2.64.64.7 1.028 1.59.1028 2.679 0 3.823-2.339 4.681-4.566 4.925.359.309.678.92.678 1.855 0 1.336-.012 2.419-.012 2.747 0 .268.18.58.688.482C21.137 20.281 24 16.516 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"></path></svg>
-                    Visit My GitHub
-                </a>
-            </section>
-        </div>
+            </div>
+        </section>
+
+        <!-- RESTORED: Pixel Message Board -->
+        <section class="mb-20 reveal-on-scroll">
+            <h2 class="text-2xl font-bold mb-6 text-center gradient-text mono-font">&lt;Message_Board /&gt;</h2>
+            <div id="pixel-board" class="pixel-board-container overflow-hidden"></div>
+            <p class="text-center text-xs text-gray-500 mt-2">Rendering realtime pixel data...</p>
+        </section>
+
+        <!-- Interactive Grid -->
+        <section id="interactive" class="glass-panel rounded-2xl p-8 mb-20 text-center reveal-on-scroll">
+            <h2 class="text-2xl font-bold mb-6">Interactive Playground</h2>
+            
+            <div class="flex justify-center gap-2 mb-6 flex-wrap">
+                <button onclick="switchGridMode('contributions')" id="btn-contrib" class="px-4 py-2 text-sm rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors">Contribution Graph</button>
+                <button onclick="switchGridMode('conway')" id="btn-conway" class="px-4 py-2 text-sm rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors">Game of Life</button>
+                <button onclick="switchGridMode('pixelArt')" id="btn-pixel" class="px-4 py-2 text-sm rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors">Pixel Paint</button>
+            </div>
+
+            <!-- Grid Container -->
+            <div id="interactive-grid" class="inline-grid gap-1 p-2 bg-black/40 rounded-lg border border-white/5 mx-auto"></div>
+            
+            <div id="grid-controls" class="mt-4 hidden flex justify-center gap-3">
+                <button id="run-life" class="px-4 py-1 text-xs font-bold bg-green-600 rounded hover:bg-green-500 transition-colors">START SIMULATION</button>
+                <button id="clear-life" class="px-4 py-1 text-xs font-bold bg-red-600 rounded hover:bg-red-500 transition-colors">CLEAR GRID</button>
+            </div>
+            <p id="grid-status" class="mt-4 text-sm text-gray-400 font-mono">Select a mode to interact.</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 text-sm pb-8 border-t border-white/5 pt-8">
+            <div class="flex justify-center gap-6 mb-4">
+                <a href="#" class="hover:text-white transition-colors text-lg"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-white transition-colors text-lg"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="hover:text-white transition-colors text-lg"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>© 2026 Soumya Sagar. Crafted with <i class="fas fa-heart text-red-500 mx-1"></i> and Code.</p>
+        </footer>
+
     </div>
 
     <script>
-        // Global animation interval/timeout IDs
-        let codeRainInterval = null, particleInterval = null, videoGameBlockInterval = null, universeStarInterval = null, universeStarClearTimeout = null;
+        // --- 1. Animation Observer ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
 
-        function stopAllBackgroundAnimations() {
-            clearInterval(codeRainInterval);
-            clearInterval(particleInterval);
-            clearInterval(videoGameBlockInterval);
-            clearInterval(universeStarInterval);
-            clearTimeout(universeStarClearTimeout);
+        // --- 2. Theme & Background Logic ---
+        const matrixCanvas = document.getElementById('matrix-canvas');
+        const auroraContainer = document.getElementById('main-bg');
+        let isMatrixMode = false;
+        let matrixInterval;
+
+        // Toggle Matrix Mode
+        document.getElementById('bg-toggle-btn').addEventListener('click', () => {
+            isMatrixMode = !isMatrixMode;
+            if (isMatrixMode) {
+                auroraContainer.style.opacity = '0';
+                matrixCanvas.classList.add('active');
+                startMatrix();
+            } else {
+                auroraContainer.style.opacity = '1';
+                matrixCanvas.classList.remove('active');
+                stopMatrix();
+            }
+        });
+
+        // Toggle Light/Dark Theme
+        const themes = ['revamp', 'light'];
+        let currentThemeIndex = 0;
+        document.getElementById('theme-toggle-btn').addEventListener('click', () => {
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            document.body.dataset.theme = themes[currentThemeIndex];
+            const btnIcon = document.querySelector('#theme-toggle-btn i');
+            btnIcon.className = themes[currentThemeIndex] === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        });
+
+        // --- 3. Matrix Rain Implementation ---
+        function startMatrix() {
+            const ctx = matrixCanvas.getContext('2d');
+            matrixCanvas.width = window.innerWidth;
+            matrixCanvas.height = window.innerHeight;
             
-            document.getElementById('code-rain-container').innerHTML = '';
-            document.getElementById('particle-container').innerHTML = '';
-            document.getElementById('video-game-bg').innerHTML = '';
-            document.getElementById('universe-bg').innerHTML = '';
+            const chars = "01010101010101010101XYZABC"; // Binary + Chars
+            const fontSize = 14;
+            const columns = matrixCanvas.width / fontSize;
+            const drops = Array(Math.floor(columns)).fill(1);
 
-            document.querySelectorAll('.background-animation-container').forEach(container => {
-                container.style.display = 'none';
-            });
-        }
+            function draw() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+                ctx.fillStyle = '#0F0';
+                ctx.font = fontSize + 'px monospace';
 
-        // --- All Background Animation Functions (createCodeDrop, startCodeRain, createParticle, etc.) ---
-        // ... (All of your original JS functions for animations are preserved here) ...
-        const codeRainContainer = document.getElementById('code-rain-container');
-        const codeCharacters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+{}[]|:;"<>,.?/~`';
-        const vibrantColors = ['#f87171', '#fb923c', '#fcd34d', '#a78bfa', '#60a5fa', '#34d399', '#e879f9', '#00FFFF', '#FF00FF'];
-        function createCodeDrop() { /* ... (original function) ... */ 
-            const drop = document.createElement('span'); drop.classList.add('code-drop'); drop.style.left = Math.random() * 100 + 'vw';
-            drop.style.animationDuration = (Math.random() * 5 + 3) + 's'; drop.style.animationDelay = (Math.random() * 5) + 's';
-            drop.style.color = vibrantColors[Math.floor(Math.random() * vibrantColors.length)]; let codeString = '';
-            const length = Math.floor(Math.random() * 10) + 5; for (let i = 0; i < length; i++) { codeString += codeCharacters.charAt(Math.floor(Math.random() * codeCharacters.length)); }
-            drop.textContent = codeString; codeRainContainer.appendChild(drop); drop.addEventListener('animationend', () => { drop.remove(); });
-        }
-        function startCodeRain() { if (codeRainInterval) return; codeRainContainer.style.display = 'block'; for (let i = 0; i < 50; i++) createCodeDrop(); codeRainInterval = setInterval(createCodeDrop, 500); }
-        const particleContainer = document.getElementById('particle-container'); const numberOfParticles = 70;
-        function createParticle() { /* ... (original function) ... */
-            const particle = document.createElement('div'); particle.classList.add('particle'); const size = Math.random() * 3 + 1;
-            particle.style.width = size + 'px'; particle.style.height = size + 'px'; particle.style.left = Math.random() * 100 + 'vw'; particle.style.bottom = Math.random() * 100 + 'vh';
-            particle.style.animationDuration = (Math.random() * 15 + 10) + 's'; particle.style.animationDelay = (Math.random() * 10) + 's';
-            particle.style.backgroundColor = vibrantColors[Math.floor(Math.random() * vibrantColors.length)]; particle.style.setProperty('--float-x', (Math.random() * 200 - 100) + 'px');
-            particle.style.setProperty('--scale', (Math.random() * 0.5 + 0.5)); particleContainer.appendChild(particle); particle.addEventListener('animationend', () => { particle.remove(); createParticle(); });
-        }
-        function startParticleBackground() { if (particleInterval) return; particleContainer.style.display = 'block'; for (let i = 0; i < numberOfParticles; i++) createParticle(); }
-        const videoGameBgContainer = document.getElementById('video-game-bg');
-        const tetriminoShapes = {'I': [[1,1,1,1]], 'O': [[1,1],[1,1]], 'T': [[0,1,0],[1,1,1]], 'L': [[1,0,0],[1,1,1]], 'J': [[0,0,1],[1,1,1]], 'S': [[0,1,1],[1,1,0]], 'Z': [[1,1,0],[0,1,1]]};
-        const tetriminoColors = {'I': '#00FFFF', 'O': '#FDE047', 'T': '#A855F7', 'L': '#F97316', 'J': '#3B82F6', 'S': '#22C55E', 'Z': '#EF4444'};
-        const pixelSize = 15;
-        function createTetrisBlock() { /* ... (original function) ... */
-            const shapes = Object.keys(tetriminoShapes); const randomShapeKey = shapes[Math.floor(Math.random() * shapes.length)]; const shape = tetriminoShapes[randomShapeKey]; const color = tetriminoColors[randomShapeKey];
-            const blockContainer = document.createElement('div'); blockContainer.classList.add('tetris-block'); blockContainer.style.animationDuration = (Math.random() * 5 + 4) + 's'; blockContainer.style.animationDelay = (Math.random() * 3) + 's';
-            const blockWidth = shape[0].length * pixelSize; const blockHeight = shape.length * pixelSize; blockContainer.style.width = blockWidth + 'px'; blockContainer.style.height = blockHeight + 'px';
-            blockContainer.style.left = Math.random() * (window.innerWidth - blockWidth) + 'px';
-            for (let r = 0; r < shape.length; r++) { for (let c = 0; c < shape[r].length; c++) { const pixel = document.createElement('div'); if (shape[r][c] === 1) { pixel.classList.add('tetris-pixel'); pixel.style.backgroundColor = color; } else { pixel.style.width = pixelSize + 'px'; pixel.style.height = pixelSize + 'px'; } blockContainer.appendChild(pixel); } }
-            videoGameBgContainer.appendChild(blockContainer); blockContainer.addEventListener('animationend', () => { blockContainer.remove(); });
-        }
-        function startVideoGameBackground() { if (videoGameBlockInterval) return; videoGameBgContainer.style.display = 'block'; videoGameBgContainer.style.perspective = '500px'; for (let i = 0; i < 15; i++) createTetrisBlock(); videoGameBlockInterval = setInterval(createTetrisBlock, 1500); }
-        const universeBgContainer = document.getElementById('universe-bg'); const spacecraftElement = universeBgContainer.querySelector('.spacecraft');
-        function createStar() { /* ... (original function) ... */
-            const star = document.createElement('div'); star.classList.add('star'); const size = Math.random() * 3 + 1; star.style.width = size + 'px'; star.style.height = size + 'px';
-            star.style.left = Math.random() * 100 + 'vw'; star.style.top = Math.random() * 100 + 'vh'; star.style.animationDuration = (Math.random() * 8 + 4) + 's'; star.style.animationDelay = (Math.random() * 8) + 's';
-            const tint = Math.random() > 0.5 ? 'rgba(255, 255, 200, 0.8)' : 'rgba(200, 220, 255, 0.8)'; star.style.backgroundColor = tint;
-            universeBgContainer.appendChild(star); star.addEventListener('animationend', () => { star.remove(); createStar(); });
-        }
-        function startUniverseBackground() { if (universeStarInterval) return; universeBgContainer.style.display = 'block'; spacecraftElement.style.display = 'block'; for (let i = 0; i < 150; i++) createStar(); universeStarInterval = setInterval(createStar, 200); }
-
-
-        // --- Background Animation Switching Logic ---
-        function applyAnimation(animationName) {
-            stopAllBackgroundAnimations();
-            
-            const defaultContainer = document.getElementById('default-bg-container');
-            const particleOnlyContainer = document.getElementById('particle-container');
-            const videoGameContainer = document.getElementById('video-game-bg');
-            const universeContainer = document.getElementById('universe-bg');
-            const auroraContainer = document.getElementById('aurora-bg');
-
-            // Hide spacecraft by default
-            if(spacecraftElement) spacecraftElement.style.display = 'none';
-
-            switch (animationName) {
-                case 'aurora':
-                    auroraContainer.style.display = 'block';
-                    break;
-                case 'particles':
-                    particleOnlyContainer.style.display = 'block';
-                    startParticleBackground();
-                    break;
-                case 'default': // Old code rain
-                    defaultContainer.style.display = 'block';
-                    startCodeRain();
-                    startParticleBackground();
-                    break;
-                case 'video-game':
-                    videoGameContainer.style.display = 'block';
-                    startVideoGameBackground();
-                    break;
-                case 'universe':
-                    universeContainer.style.display = 'block';
-                    startUniverseBackground();
-                    break;
-                case 'none':
-                default:
-                    // Do nothing, all are hidden
-                    break;
-            }
-        }
-
-        // --- Interactive Grid Logic (Unchanged) ---
-        let interactiveGrid, gridMessageElement, conwayControls, conwayStartStopBtn, conwayClearBtn, modeButtonsGlobal;
-        const numRows = 7, numCols = 26;
-        let currentMode = 'contributions', gridState = [], conwayInterval = null, conwayIsRunning = false, generativeFlowInterval = null, originalContributionLevels = [];
-        function getGridCell(x, y) { /* ... (original function) ... */ if (x < 0 || x >= numCols || y < 0 || y >= numRows) { return null; } return interactiveGrid.children[y * numCols + x]; }
-        function createGrid(initialStateGenerator) { /* ... (original function) ... */
-            interactiveGrid.innerHTML = ''; gridState = [];
-            for (let r = 0; r < numRows; r++) { gridState[r] = []; for (let c = 0; c < numCols; c++) {
-                const cell = document.createElement('div'); cell.classList.add('grid-cell'); cell.dataset.x = c; cell.dataset.y = r;
-                interactiveGrid.appendChild(cell); gridState[r][c] = initialStateGenerator(c, r); updateCellVisual(c, r, gridState[r][c]);
-            } }
-        }
-        function updateCellVisual(x, y, state, additionalClass = null) { /* ... (original function) ... */
-            const cell = getGridCell(x, y); if (cell) {
-                cell.classList.remove('level-0', 'level-1', 'level-2', 'level-3', 'level-4', 'conway-alive'); cell.style.backgroundColor = '';
-                if (currentMode === 'contributions') { cell.classList.add(state); }
-                else if (currentMode === 'conway') { if (state === 1) { cell.classList.add('conway-alive'); } else { cell.classList.add('level-0'); } }
-                else if (currentMode === 'pixelArt' || currentMode === 'generativeFlow') { cell.style.backgroundColor = state; }
-                if (additionalClass) { cell.classList.add(additionalClass); }
-            }
-        }
-        function initContributionsMode() { /* ... (original function) ... */
-            gridMessageElement.classList.add('hidden'); conwayControls.classList.add('hidden');
-            createGrid((c, r) => {
-                const today = new Date(); const currentDayOfWeek = today.getDay(); const relativeWeek = numCols - 1 - c; let level;
-                if (Math.random() < 0.03) level = 1; else if (Math.random() < 0.08) level = 2;
-                else if (relativeWeek < 4) { level = (r >= 1 && r <= 5) ? Math.floor(Math.random() * 2) + 3 : Math.floor(Math.random() * 2) + 0; }
-                else if (relativeWeek < 12) { level = (r >= 1 && r <= 5) ? Math.floor(Math.random() * 2) + 0 : Math.floor(Math.random() * 1); }
-                else { level = 0; }
-                if (c === numCols -1 && r > currentDayOfWeek) level = 0;
-                return `level-${level}`;
-            });
-            interactiveGrid.removeEventListener('click', handleConwayGridClick); interactiveGrid.removeEventListener('click', handlePixelArtGridClick);
-            for(let r = 0; r < numRows; r++) { originalContributionLevels[r] = []; for(let c = 0; c < numCols; c++) { originalContributionLevels[r][c] = gridState[r][c]; } }
-        }
-        function initConwayMode() { /* ... (original function) ... */
-            gridMessageElement.textContent = "Click cells to make them alive, then hit Start/Stop!"; gridMessageElement.classList.remove('hidden'); conwayControls.classList.remove('hidden');
-            createGrid((c, r) => 0); interactiveGrid.removeEventListener('click', handlePixelArtGridClick); interactiveGrid.addEventListener('click', handleConwayGridClick);
-            conwayStartStopBtn.textContent = 'Start'; conwayIsRunning = false; if (conwayInterval) { clearInterval(conwayInterval); conwayInterval = null; }
-        }
-        function handleConwayGridClick(event) { /* ... (original function) ... */
-            const cell = event.target.closest('.grid-cell'); if (cell) { const x = parseInt(cell.dataset.x); const y = parseInt(cell.dataset.y); gridState[y][x] = gridState[y][x] === 0 ? 1 : 0; updateCellVisual(x, y, gridState[y][x]); }
-        }
-        function runConwayGeneration() { /* ... (original function) ... */
-            const newGrid = []; for (let r = 0; r < numRows; r++) { newGrid[r] = []; for (let c = 0; c < numCols; c++) {
-                const currentState = gridState[r][c]; let liveNeighbors = 0;
-                for (let dr = -1; dr <= 1; dr++) { for (let dc = -1; dc <= 1; dc++) { if (dr === 0 && dc === 0) continue; const nr = r + dr; const nc = c + dc; if (nr >= 0 && nr < numRows && nc >= 0 && nc < numCols) { if (gridState[nr][nc] === 1) liveNeighbors++; } } }
-                if (currentState === 1) { newGrid[r][c] = (liveNeighbors < 2 || liveNeighbors > 3) ? 0 : 1; } else { newGrid[r][c] = (liveNeighbors === 3) ? 1 : 0; }
-            } } gridState = newGrid; drawConwayGrid();
-        }
-        function drawConwayGrid() { for (let r = 0; r < numRows; r++) { for (let c = 0; c < numCols; c++) { updateCellVisual(c, r, gridState[r][c]); } } }
-        const pixelArtColors = ['#4a5568', '#f87171', '#60a5fa', '#facc15', '#a78bfa'];
-        function initPixelArtMode() { /* ... (original function) ... */
-            gridMessageElement.textContent = "Click cells to draw!"; gridMessageElement.classList.remove('hidden'); conwayControls.classList.add('hidden');
-            createGrid((c, r) => pixelArtColors[0]); interactiveGrid.removeEventListener('click', handleConwayGridClick); interactiveGrid.addEventListener('click', handlePixelArtGridClick);
-            if (conwayInterval) { clearInterval(conwayInterval); conwayInterval = null; conwayIsRunning = false; conwayStartStopBtn.textContent = 'Start'; }
-        }
-        function handlePixelArtGridClick(event) { /* ... (original function) ... */
-            const cell = event.target.closest('.grid-cell'); if (cell) { const x = parseInt(cell.dataset.x); const y = parseInt(cell.dataset.y); let currentColor = cell.style.backgroundColor; let nextColorIndex = (pixelArtColors.indexOf(currentColor) + 1) % pixelArtColors.length; let nextColor = pixelArtColors[nextColorIndex]; gridState[y][x] = nextColor; updateCellVisual(x, y, nextColor); }
-        }
-        let flowTime = 0, flowParams = {};
-        function generateFlowParams() { /* ... (original function) ... */ return { speed: 0.01 + Math.random() * 0.04, scaleX: 0.05 + Math.random() * 0.2, scaleY: 0.05 + Math.random() * 0.2, offsetX: Math.random() * 100, offsetY: Math.random() * 100, hueShiftSpeed: 0.01 + Math.random() * 0.05, saturationBase: 60 + Math.random() * 30, saturationRange: 10 + Math.random() * 30, lightnessBase: 40 + Math.random() * 20, lightnessRange: 10 + Math.random() * 20, complexFactor1: 0.01 + Math.random() * 0.05, complexFactor2: 0.01 + Math.random() * 0.05, }; }
-        function initGenerativeFlowMode() { /* ... (original function) ... */
-            gridMessageElement.textContent = "Watch the mesmerizing, ever-changing colorful pattern!"; gridMessageElement.classList.remove('hidden'); conwayControls.classList.add('hidden'); flowTime = 0; flowParams = generateFlowParams();
-            createGrid((c, r) => { const hue = (Math.sin(c * flowParams.scaleX + r * flowParams.scaleY + flowParams.offsetX) * 0.5 + 0.5) * 360; const saturation = flowParams.saturationBase + Math.sin(c * flowParams.complexFactor1) * flowParams.saturationRange; const lightness = flowParams.lightnessBase + Math.cos(r * flowParams.complexFactor2) * flowParams.lightnessRange; return `hsl(${hue}, ${saturation}%, ${lightness}%)`; });
-            interactiveGrid.removeEventListener('click', handleConwayGridClick); interactiveGrid.removeEventListener('click', handlePixelArtGridClick);
-            if (generativeFlowInterval) { clearInterval(generativeFlowInterval); } generativeFlowInterval = setInterval(runGenerativeFlow, 80);
-        }
-        function runGenerativeFlow() { /* ... (original function) ... */
-            flowTime += flowParams.speed; for (let r = 0; r < numRows; r++) { for (let c = 0; c < numCols; c++) {
-                const hue = ( Math.sin(c * flowParams.scaleX + r * flowParams.scaleY + flowTime + flowParams.offsetX) + Math.cos(r * flowParams.complexFactor1 + c * flowParams.complexFactor2 + flowTime * flowParams.hueShiftSpeed) ) * 0.5 + 0.5;
-                const saturation = flowParams.saturationBase + Math.sin(c * flowParams.complexFactor1 + flowTime * 0.5) * flowParams.saturationRange; const lightness = flowParams.lightnessBase + Math.cos(r * flowParams.complexFactor2 + flowTime * 0.3) * flowParams.lightnessRange;
-                const finalHue = (hue * 360) % 360; const finalSaturation = Math.max(0, Math.min(100, saturation)); const finalLightness = Math.max(0, Math.min(100, lightness));
-                const color = `hsl(${finalHue}, ${finalSaturation}%, ${finalLightness}%)`; gridState[r][c] = color; updateCellVisual(c, r, color);
-            } }
-        }
-        function switchMode(newMode) { /* ... (original function) ... */
-            if (conwayInterval) { clearInterval(conwayInterval); conwayInterval = null; conwayIsRunning = false; conwayStartStopBtn.textContent = 'Start'; }
-            if (generativeFlowInterval) { clearInterval(generativeFlowInterval); generativeFlowInterval = null; }
-            interactiveGrid.removeEventListener('click', handleConwayGridClick); interactiveGrid.removeEventListener('click', handlePixelArtGridClick);
-            modeButtonsGlobal.forEach(button => button.classList.remove('mode-button-active')); const activeButton = document.getElementById(`mode-${newMode}`); if (activeButton) { activeButton.classList.add('mode-button-active'); }
-            currentMode = newMode; gridMessageElement.classList.add('hidden'); conwayControls.classList.add('hidden');
-            switch (currentMode) {
-                case 'contributions': initContributionsMode(); document.getElementById('grid-instructions').textContent = "Explore different interactive modes on my grid! Select a mode below."; break;
-                case 'conway': initConwayMode(); document.getElementById('grid-instructions').textContent = "Conway's Game of Life: Click cells to toggle them alive/dead. Then Start/Stop the simulation!"; break;
-                case 'pixelArt': initPixelArtMode(); document.getElementById('grid-instructions').textContent = "Pixel Art Canvas: Click cells to cycle through colors and draw your own art!"; break;
-                case 'generativeFlow': initGenerativeFlowMode(); document.getElementById('grid-instructions').textContent = "Watch the mesmerizing, ever-changing colorful pattern!"; break;
-                default: initContributionsMode();
-            }
-        }
-
-        // --- Pixel Message Board Logic (Unchanged) ---
-        const pixelFont = { /* ... (original font object) ... */ 'H':["10001","10001","11111","10001","10001","10001","10001"],'i':["01000","00000","01000","01000","01000","01000","01000"],' ':["00000","00000","00000","00000","00000","00000","00000"],'a':["00000","01110","10001","11111","10001","10001","10001"],'m':["00000","11011","10101","10101","10101","10101","10000"],'S':["01110","10000","10000","01110","00001","00001","01110"],'o':["00000","01110","10001","10001","10001","10001","01110"],'u':["00000","10001","10001","10001","10001","10001","01110"],'y':["00000","10001","10001","01110","00001","01110","00000"],'c':["00000","01110","10000","10000","10000","10000","01110"],'d':["00000","11100","10010","10010","10010","10010","11100"],'r':["00000","11100","10010","10000","10000","10000","10000"],'.':["00000","00000","00000","00000","00000","01000","01000"],'!':["01000","01000","01000","01000","01000","00000","01000"],'C':["01110","10000","10000","10000","10000","10000","01110"],'n':["00000","11010","10100","10010","10010","10010","10000"],'e':["00000","01110","10000","11110","10000","10000","01110"],'t':["01000","01000","11111","01000","01000","01000","00100"],'w':["10001","10001","10001","10001","10101","01010","00100"],'h':["10000","10000","10000","11110","10001","10001","10001"],'G':["01110","10000","10000","10110","10001","10001","01110"],'b':["10000","10000","10000","11110","10001","10001","01110"],'l':["10000","10000","10000","10000","10000","10000","11111"],'k':["10001","10010","10100","11000","10100","10010","10001"],'p':["11110","10001","10001","11110","10000","10000","10000"],'f':["11111","10000","10000","11110","10000","10000","10000"],'v':["10001","10001","10001","10001","10001","01010","00100"],'x':["10001","01010","00100","01010","10001","00000","00000"],'z':["11111","00010","00100","01000","10000","11111","00000"],'R':["11110","10001","10001","11110","10010","10001","10001"],'L':["10000","10000","10000","10000","10000","10000","11111"],'J':["00111","00010","00010","00010","00010","10010","01100"],'N':["10001","11001","10101","10011","10001","10001","10001"],'M':["10001","11011","10101","10001","10001","10001","10001"],'I':["11111","01000","01000","01000","01000","01000","11111"],'P':["11110","10001","10001","11110","10000","10000","10000"],'X':["10001","01010","00100","01010","10001","00000","00000"],'Y':["10001","01010","00100","00100","00100","00100","00100"],'Z':["11111","00010","00100","01000","10000","11111","00000"],'Q':["01110","10001","10001","10001","10011","01101","00011"],'D':["11110","10001","10001","10001","10001","10001","11110"],'F':["11111","10000","10000","11110","10000","10000","10000"],'V':["10001","10001","10001","10001","10001","01010","00100"],'W':["10001","10001","10001","10101","10101","01010","00100"],'B':["11110","10001","10001","11110","10001","10001","11110"],'A':["01110","10001","10001","11111","10001","10001","10001"],'E':["11111","10000","10000","11110","10000","10000","11111"],'G':["01110","10000","10000","10110","10001","10001","01110"],'K':["10001","10010","10100","11000","10100","10010","10001"],'L':["10000","10000","10000","10000","10000","10000","11111"],'O':["01110","10001","10001","10001","10001","10001","01110"],'T':["11111","01000","01000","01000","01000","01000","01000"],'U':["10001","10001","10001","10001","10001","10001","01110"],'R':["11110","10001","10001","11110","10010","10001","10001"],'N':["10001","11001","10101","10011","10001","10001","10001"],'P':["11110","10001","10001","11110","10000","10000","10000"],',':["00000","00000","00000","00000","00000","01000","10000"],'1':["01000","11000","01000","01000","01000","01000","11100"],'2':["11110","00001","00010","00100","01000","10000","11111"],'3':["11110","00001","00001","01110","00001","00001","11110"],'4':["00100","01100","10100","11111","00100","00100","00100"],'5':["11111","10000","10000","11110","00001","00001","11110"],'6':["01110","10000","10000","11110","10001","10001","01110"],'7':["11111","00001","00010","00100","01000","10000","10000"],'8':["01110","10001","10001","01110","10001","10001","01110"],'9':["01110","10001","10001","01111","00001","00001","01110"],'0':["01110","10001","10001","10001","10001","10001","01110"],':':["00000","01000","00000","01000","00000","00000","00000"],'/':["00001","00001","00010","00100","01000","10000","10000"],'-':["00000","00000","00000","11111","00000","00000","00000"],'_':["00000","00000","00000","00000","00000","00000","11111"],'(':["00100","01000","10000","10000","10000","01000","00100"],')':["00100","00010","00001","00001","00001","00010","00100"],'[':["11110","10000","10000","10000","10000","10000","11110"],']':["01111","00001","00001","00001","00001","00001","01111"],'{':["00100","01000","01000","10000","01000","01000","00100"],'}':["00100","00010","00010","00001","00010","00010","00100"],'<':["00100","01000","10000","01000","00100","00000","00000"],'>':["10000","01000","00100","01000","10000","00000","00000"],'+':["00100","00100","00100","11111","00100","00100","00100"],'=':["00000","11111","00000","11111","00000","00000","00000"],'*':["00000","10101","01110","10101","00000","00000","00000"],'#':["01010","11111","01010","11111","01010","00000","00000"],'@':["01110","10001","10111","10101","10111","10000","01110"] };
-        let pixelMessageGridElement, pixelsMessage = [];
-        const pixelMessageCharWidth = 5, pixelMessageCharSpacing = 1, pixelMessageCharHeight = 7, pixelMessageLineSpacing = 2;
-        const messages = [["Find me on GitHub!"]];
-        window.pixelMessageAnimationFrame = 0; window.currentMessageIndex = 0; window.currentLineIndex = 0;
-        window.currentCharIndex = 0; window.animationPhase = 'typing'; window.animationStartTime = 0;
-        const typingSpeed = 70;
-        let maxCharsInAnyLine = 0;
-        messages.forEach(msg => { msg.forEach(line => { if (line.length > maxCharsInAnyLine) { maxCharsInAnyLine = line.length; } }); });
-        const pixelMessageTotalCols = maxCharsInAnyLine * (pixelMessageCharWidth + pixelMessageCharSpacing) - pixelMessageCharSpacing;
-        const pixelMessageTotalRows = pixelMessageCharHeight;
-        const pixelMessageAnimationColors = ['#4f46e5', '#a855f7', '#ec4899', '#818cf8', '#c084fc'];
-        
-        function getPixelMessageElement(x, y) { /* ... (original function) ... */ if (x < 0 || x >= pixelMessageTotalCols || y < 0 || y >= pixelMessageTotalRows) { return null; } return pixelsMessage[y][x]; }
-        function drawCharMessage(char, startCol, startRow, color = null) { /* ... (original function) ... */
-            const charPixels = pixelFont[char]; if (!charPixels) return;
-            for (let r = 0; r < pixelMessageCharHeight; r++) { for (let c = 0; c < pixelMessageCharWidth; c++) {
-                if (charPixels[r] && charPixels[r][c] === '1') { const gridRow = startRow + r; const gridCol = startCol + c;
-                    if (gridRow >= 0 && gridRow < pixelMessageTotalRows && gridCol >= 0 && gridCol < pixelMessageTotalCols) {
-                        const pixel = getPixelMessageElement(gridCol, gridRow);
-                        if (pixel) { pixel.classList.add('pixel-text-color'); if (color) { pixel.style.backgroundColor = color; } }
-                    }
-                }
-            } }
-        }
-
-        function animatePixelText(timestamp) {
-            const theme = document.body.dataset.theme;
-            let defaultPixelColor;
-            if (theme === 'light') defaultPixelColor = '#cbd5e0';
-            else if (theme === 'dark') defaultPixelColor = '#2d3748';
-            else defaultPixelColor = '#222222'; // Revamp
-
-            for (let r = 0; r < pixelMessageTotalRows; r++) { for (let c = 0; c < pixelMessageTotalCols; c++) {
-                const pixel = getPixelMessageElement(c, r); if (pixel) { pixel.style.backgroundColor = defaultPixelColor; }
-            } }
-            const currentMessageLines = messages[window.currentMessageIndex]; const totalLinesInCurrentMessage = currentMessageLines.length;
-            const currentMessageHeightInPixels = (pixelMessageCharHeight * totalLinesInCurrentMessage) + (pixelMessageLineSpacing * (totalLinesInCurrentMessage - 1));
-            const verticalStartRow = Math.floor((pixelMessageTotalRows - currentMessageHeightInPixels) / 2);
-
-            if (window.animationPhase === 'typing') {
-                if (!window.animationStartTime) window.animationStartTime = timestamp; const elapsed = timestamp - window.animationStartTime;
-                const currentLineText = currentMessageLines[window.currentLineIndex]; let displayCharCount = Math.floor(elapsed / typingSpeed);
-                if (displayCharCount > currentLineText.length) { displayCharCount = currentLineText.length; }
-                for (let l = 0; l < totalLinesInCurrentMessage; l++) {
-                    const lineText = currentMessageLines[l]; const lineLengthInChars = lineText.length;
-                    const lineStartCol = Math.floor((pixelMessageTotalCols - (lineLengthInChars * (pixelMessageCharWidth + pixelMessageCharSpacing) - pixelMessageCharSpacing)) / 2);
-                    const lineStartRow = verticalStartRow + l * (pixelMessageCharHeight + pixelMessageLineSpacing);
-                    for (let i = 0; i < lineText.length; i++) {
-                        if (l === window.currentLineIndex && i >= displayCharCount) break;
-                        const char = lineText[i]; const colorIndex = (window.pixelMessageAnimationFrame + i + l * 5) % pixelMessageAnimationColors.length;
-                        drawCharMessage(char, lineStartCol + i * (pixelMessageCharWidth + pixelMessageCharSpacing), lineStartRow, pixelMessageAnimationColors[colorIndex]);
-                    }
-                }
-                if (displayCharCount === currentLineText.length) { window.animationPhase = 'displayed'; window.animationStartTime = 0; }
-            } else if (window.animationPhase === 'displayed') {
-                for (let l = 0; l < totalLinesInCurrentMessage; l++) {
-                    const lineText = currentMessageLines[l]; const lineLengthInChars = lineText.length;
-                    const lineStartCol = Math.floor((pixelMessageTotalCols - (lineLengthInChars * (pixelMessageCharWidth + pixelMessageCharSpacing) - pixelMessageCharSpacing)) / 2);
-                    const lineStartRow = verticalStartRow + l * (pixelMessageCharHeight + pixelMessageLineSpacing);
-                    for (let i = 0; i < lineText.length; i++) {
-                        const char = lineText[i]; const colorIndex = (window.pixelMessageAnimationFrame + i + l * 5) % pixelMessageAnimationColors.length;
-                        drawCharMessage(char, lineStartCol + i * (pixelMessageCharWidth + pixelMessageCharSpacing), lineStartRow, pixelMessageAnimationColors[colorIndex]);
-                    }
+                for (let i = 0; i < drops.length; i++) {
+                    const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) drops[i] = 0;
+                    drops[i]++;
                 }
             }
-            window.pixelMessageAnimationFrame++; requestAnimationFrame(animatePixelText);
+            clearInterval(matrixInterval);
+            matrixInterval = setInterval(draw, 50);
         }
+        function stopMatrix() { clearInterval(matrixInterval); }
+        window.addEventListener('resize', () => { if(isMatrixMode) startMatrix(); });
 
-        function initPixelMessageBoard() {
-            pixelMessageGridElement = document.getElementById('pixel-message-grid'); if (!pixelMessageGridElement) return;
-            const containerWidth = pixelMessageGridElement.offsetWidth; const padding = parseFloat(getComputedStyle(pixelMessageGridElement).paddingLeft) * 2;
-            const effectiveContainerWidth = containerWidth - padding; const totalGapWidth = (pixelMessageTotalCols - 1) * 0.5;
-            const availableSpaceForPixels = effectiveContainerWidth - totalGapWidth; let calculatedPixelSize = availableSpaceForPixels / pixelMessageTotalCols;
-            const minPixelSize = 2; calculatedPixelSize = Math.max(calculatedPixelSize, minPixelSize);
-            pixelMessageGridElement.style.gridTemplateColumns = `repeat(${pixelMessageTotalCols}, ${calculatedPixelSize}px)`;
-            pixelMessageGridElement.style.gridTemplateRows = `repeat(${pixelMessageTotalRows}, ${calculatedPixelSize}px)`;
-            pixelMessageGridElement.innerHTML = ''; pixelsMessage = [];
-            for (let r = 0; r < pixelMessageTotalRows; r++) { pixelsMessage[r] = []; for (let c = 0; c < pixelMessageTotalCols; c++) {
-                const pixelElement = document.createElement('div'); pixelElement.classList.add('pixel-display');
-                pixelMessageGridElement.appendChild(pixelElement); pixelsMessage[r][c] = pixelElement;
-            } }
-            if (!window.pixelMessageAnimationRunning) { animatePixelText(); window.pixelMessageAnimationRunning = true; }
-        }
-        window.addEventListener('resize', () => { clearTimeout(window.resizeTimer); window.resizeTimer = setTimeout(() => { initPixelMessageBoard(); }, 250); });
-
-        // --- Page Load & Main Setup ---
-        window.onload = function() {
-            interactiveGrid = document.getElementById('interactive-grid'); gridMessageElement = document.getElementById('grid-message');
-            conwayControls = document.getElementById('conway-controls'); conwayStartStopBtn = document.getElementById('conway-start-stop');
-            conwayClearBtn = document.getElementById('conway-clear'); modeButtonsGlobal = document.querySelectorAll('.mode-buttons button');
-
-            typeIntroText();
-            updateQuote();
-
-            modeButtonsGlobal.forEach(button => { button.addEventListener('click', (event) => { switchMode(event.target.id.replace('mode-', '')); }); });
-            conwayStartStopBtn.addEventListener('click', () => {
-                if (conwayIsRunning) { clearInterval(conwayInterval); conwayInterval = null; conwayStartStopBtn.textContent = 'Start'; conwayIsRunning = false; gridMessageElement.textContent = "Simulation Paused."; }
-                else { conwayInterval = setInterval(runConwayGeneration, 200); conwayStartStopBtn.textContent = 'Stop'; conwayIsRunning = true; gridMessageElement.textContent = "Simulation Running!"; }
-            });
-            conwayClearBtn.addEventListener('click', () => {
-                if (conwayInterval) { clearInterval(conwayInterval); conwayInterval = null; conwayIsRunning = false; conwayStartStopBtn.textContent = 'Start'; }
-                createGrid((c, r) => 0); gridMessageElement.textContent = "Grid Cleared.";
-            });
-
-            // Animation Theme Changer
-            const animToggleBtn = document.getElementById('theme-changer-toggle');
-            const animDropdown = document.getElementById('theme-dropdown');
-            animToggleBtn.addEventListener('click', () => {
-                animDropdown.classList.toggle('show');
-                const icon = animToggleBtn.querySelector('i');
-                icon.classList.toggle('fa-chevron-down'); icon.classList.toggle('fa-chevron-up');
-            });
-            document.addEventListener('click', (event) => {
-                if (!animToggleBtn.contains(event.target) && !animDropdown.contains(event.target)) {
-                    animDropdown.classList.remove('show');
-                    animToggleBtn.querySelector('i').classList.remove('fa-chevron-up');
-                    animToggleBtn.querySelector('i').classList.add('fa-chevron-down');
-                }
-            });
-            document.getElementById('theme-aurora').addEventListener('click', () => { applyAnimation('aurora'); animDropdown.classList.remove('show'); });
-            document.getElementById('theme-particles').addEventListener('click', () => { applyAnimation('particles'); animDropdown.classList.remove('show'); });
-            document.getElementById('theme-default').addEventListener('click', () => { applyAnimation('default'); animDropdown.classList.remove('show'); });
-            document.getElementById('theme-video-game').addEventListener('click', () => { applyAnimation('video-game'); animDropdown.classList.remove('show'); });
-            document.getElementById('theme-universe').addEventListener('click', () => { applyAnimation('universe'); animDropdown.classList.remove('show'); });
-
-
-            // --- NEW 3-Way Palette Switcher ---
-            const lightDarkToggle = document.getElementById('light-dark-toggle');
-            const body = document.body;
-            const themes = ['revamp', 'light', 'dark'];
-            const icons = {
-                'revamp': '<i class="fas fa-star-of-life"></i>',
-                'light': '<i class="fas fa-sun"></i>',
-                'dark': '<i class="fas fa-moon"></i>'
-            };
-            const themeAnimations = {
-                'revamp': 'aurora',
-                'light': 'particles',
-                'dark': 'default' // Old neon theme gets old code rain
-            };
-
-            function setPalette(theme) {
-                if (!themes.includes(theme)) theme = 'revamp';
-                body.dataset.theme = theme;
-                lightDarkToggle.innerHTML = icons[theme];
-                localStorage.setItem('paletteTheme', theme);
-                
-                // Link palette to its default animation
-                applyAnimation(themeAnimations[theme]);
-                
-                // Re-init pixel board to update colors
-                initPixelMessageBoard();
-            }
-
-            lightDarkToggle.addEventListener('click', () => {
-                const currentTheme = body.dataset.theme;
-                let nextIndex = (themes.indexOf(currentTheme) + 1) % themes.length;
-                setPalette(themes[nextIndex]);
-            });
-
-            // Initial setup for the entire page
-            const savedTheme = localStorage.getItem('paletteTheme') || 'revamp'; // Default to new
-            setPalette(savedTheme);
-            switchMode('contributions'); // Initialize main grid mode
+        // --- 4. Pixel Message Board (Fixed Scrolling & Multicolor)   ---
+        const pixelBoard = document.getElementById('pixel-board');
+        const msgText = "MEET MY PROGRAMMING WORLD   FIND ME ON GITHUB";
+        const charMap = {
+            'A': [0,1,1,1,0, 1,0,0,0,1, 1,1,1,1,1, 1,0,0,0,1, 1,0,0,0,1],
+            'B': [1,1,1,1,0, 1,0,0,0,1, 1,1,1,1,0, 1,0,0,0,1, 1,1,1,1,0],
+            'C': [0,1,1,1,1, 1,0,0,0,0, 1,0,0,0,0, 1,0,0,0,0, 0,1,1,1,1],
+            'D': [1,1,1,1,0, 1,0,0,0,1, 1,0,0,0,1, 1,0,0,0,1, 1,1,1,1,0],
+            'E': [1,1,1,1,1, 1,0,0,0,0, 1,1,1,1,0, 1,0,0,0,0, 1,1,1,1,1],
+            'F': [1,1,1,1,1, 1,0,0,0,0, 1,1,1,1,0, 1,0,0,0,0, 1,0,0,0,0],
+            'G': [0,1,1,1,0, 1,0,0,0,0, 1,0,1,1,1, 1,0,0,0,1, 0,1,1,1,0],
+            'H': [1,0,0,0,1, 1,0,0,0,1, 1,1,1,1,1, 1,0,0,0,1, 1,0,0,0,1],
+            'I': [0,1,1,1,0, 0,0,1,0,0, 0,0,1,0,0, 0,0,1,0,0, 0,1,1,1,0],
+            'J': [0,0,1,1,1, 0,0,0,1,0, 0,0,0,1,0, 1,0,0,1,0, 0,1,1,0,0],
+            'K': [1,0,0,0,1, 1,0,0,1,0, 1,1,1,0,0, 1,0,0,1,0, 1,0,0,0,1],
+            'L': [1,0,0,0,0, 1,0,0,0,0, 1,0,0,0,0, 1,0,0,0,0, 1,1,1,1,1],
+            'M': [1,0,0,0,1, 1,1,0,1,1, 1,0,1,0,1, 1,0,0,0,1, 1,0,0,0,1],
+            'N': [1,0,0,0,1, 1,1,0,0,1, 1,0,1,0,1, 1,0,0,1,1, 1,0,0,0,1],
+            'O': [0,1,1,1,0, 1,0,0,0,1, 1,0,0,0,1, 1,0,0,0,1, 0,1,1,1,0],
+            'P': [1,1,1,1,0, 1,0,0,0,1, 1,1,1,1,0, 1,0,0,0,0, 1,0,0,0,0],
+            'Q': [0,1,1,1,0, 1,0,0,0,1, 1,0,0,0,1, 1,0,0,1,0, 0,1,1,0,1],
+            'R': [1,1,1,1,0, 1,0,0,0,1, 1,1,1,1,0, 1,0,0,1,0, 1,0,0,0,1],
+            'S': [0,1,1,1,1, 1,0,0,0,0, 0,1,1,1,0, 0,0,0,0,1, 1,1,1,1,0],
+            'T': [1,1,1,1,1, 0,0,1,0,0, 0,0,1,0,0, 0,0,1,0,0, 0,0,1,0,0],
+            'U': [1,0,0,0,1, 1,0,0,0,1, 1,0,0,0,1, 1,0,0,0,1, 0,1,1,1,0],
+            'V': [1,0,0,0,1, 1,0,0,0,1, 1,0,0,0,1, 0,1,0,1,0, 0,0,1,0,0],
+            'W': [1,0,0,0,1, 1,0,0,0,1, 1,0,1,0,1, 1,1,0,1,1, 1,0,0,0,1],
+            'X': [1,0,0,0,1, 0,1,0,1,0, 0,0,1,0,0, 0,1,0,1,0, 1,0,0,0,1],
+            'Y': [1,0,0,0,1, 0,1,0,1,0, 0,0,1,0,0, 0,0,1,0,0, 0,0,1,0,0],
+            'Z': [1,1,1,1,1, 0,0,0,1,0, 0,0,1,0,0, 0,1,0,0,0, 1,1,1,1,1],
+            ' ': [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0],
+            '.': [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,1,0,0]
         };
+        
+        const colors = ['#ef4444', '#facc15', '#3b82f6', '#10b981', '#a855f7', '#ec4899'];
+        const boardRows = 5, boardCols = 40;
+        let pixelGrid = [];
 
-        // --- Typing & Quote Logic (Unchanged) ---
-        const introTextElement = document.getElementById('intro-text');
-        const fullIntroText = "Hello there! I'm Soumya Sagar, a passionate and aspiring developer embarking on an exciting journey into the world of code. As a new fresher, I'm eager to learn, build, and innovate.";
-        let introCharIndex = 0;
-        function typeIntroText() { /* ... (original function) ... */
-            if (introCharIndex < fullIntroText.length) { introTextElement.textContent += fullIntroText.charAt(introCharIndex); introCharIndex++; setTimeout(typeIntroText, 50); }
-            else { introTextElement.classList.remove('typing-text'); }
+        function initPixelBoard() {
+            pixelBoard.style.gridTemplateColumns = `repeat(${boardCols}, 8px)`;
+            pixelBoard.innerHTML = '';
+            pixelGrid = [];
+            for(let i=0; i<boardRows * boardCols; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'pixel-dot';
+                pixelBoard.appendChild(dot);
+                pixelGrid.push(dot);
+            }
+            // Start offset off-screen to the right
+            msgOffset = boardCols; 
+            animateMessage();
         }
-        const quotes = [
-            { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
-            { quote: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.", author: "Martin Fowler" },
-            { quote: "First, solve the problem. Then, write the code.", author: "John Johnson" },
-            { quote: "Experience is the name everyone gives to their mistakes.", author: "Oscar Wilde" },
-            { quote: "Code is like humor. When you have to explain it, it’s bad.", author: "Cory House" }
-        ];
-        let currentQuoteIndex = 0; const quoteDisplay = document.getElementById('quote-display');
-        function updateQuote() { /* ... (original function) ... */
-            quoteDisplay.style.opacity = 0;
-            setTimeout(() => {
-                currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-                const { quote, author } = quotes[currentQuoteIndex];
-                quoteDisplay.innerHTML = `"${quote}"<br><span class="text-sm" style="color: var(--text-muted);">- ${author}</span>`;
-                quoteDisplay.style.opacity = 1;
-            }, 500);
+
+        let msgOffset = 0;
+        const totalTextWidth = msgText.length * 6; // 5px char + 1px spacing
+
+        function animateMessage() {
+            // Clear styles
+            pixelGrid.forEach(d => {
+                d.style.backgroundColor = '';
+                d.style.boxShadow = '';
+            });
+            
+            let colOffset = 0;
+            for(let i = 0; i < msgText.length; i++) {
+                let char = msgText[i];
+                const map = charMap[char] || charMap[' '];
+                const charColor = colors[i % colors.length];
+
+                for(let r=0; r<5; r++) {
+                    for(let c=0; c<5; c++) {
+                        if(map[r*5+c]) {
+                            // Calculate exact column index
+                            const drawCol = colOffset + c + msgOffset;
+                            
+                            // Only draw if within visible bounds [0, boardCols-1]
+                            if(drawCol >= 0 && drawCol < boardCols) {
+                                const idx = r * boardCols + drawCol;
+                                if(pixelGrid[idx]) {
+                                    pixelGrid[idx].style.backgroundColor = charColor;
+                                    pixelGrid[idx].style.boxShadow = `0 0 4px ${charColor}`;
+                                }
+                            }
+                        }
+                    }
+                }
+                colOffset += 6; // Move to next char position
+            }
+
+            msgOffset--;
+            // If text has scrolled completely off left side, reset to right side
+            if(msgOffset < -totalTextWidth) {
+                msgOffset = boardCols;
+            }
+            
+            setTimeout(animateMessage, 100);
         }
-        setInterval(updateQuote, 8000);
+        initPixelBoard();
+
+        // --- 5. Interactive Grid (Fixed Logic) ---
+        const gridEl = document.getElementById('interactive-grid');
+        const gridRows = 10, gridCols = 20; // Smaller for mobile friendly
+        let gridData = [], gridMode = 'contributions', gameInterval;
+
+        function initMainGrid() {
+            gridEl.style.gridTemplateColumns = `repeat(${gridCols}, 1fr)`;
+            gridEl.innerHTML = '';
+            gridData = [];
+            
+            for(let r=0; r<gridRows; r++) {
+                let row = [];
+                for(let c=0; c<gridCols; c++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'w-4 h-4 md:w-6 md:h-6 rounded bg-[#1e293b] cursor-pointer hover:opacity-80 transition-colors duration-200';
+                    cell.dataset.r = r; cell.dataset.c = c;
+                    cell.addEventListener('click', onGridClick);
+                    gridEl.appendChild(cell);
+                    row.push(0);
+                }
+                gridData.push(row);
+            }
+            drawContributions();
+        }
+
+        function onGridClick(e) {
+            const r = +e.target.dataset.r;
+            const c = +e.target.dataset.c;
+            
+            if (gridMode === 'conway') {
+                gridData[r][c] = gridData[r][c] ? 0 : 1;
+                updateGridVisuals();
+            } else if (gridMode === 'pixelArt') {
+                // Random color on click
+                const colors = ['#ef4444', '#facc15', '#3b82f6', '#10b981', '#a855f7'];
+                e.target.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            }
+        }
+
+        function updateGridVisuals() {
+            const cells = gridEl.children;
+            for(let i=0; i<cells.length; i++) {
+                const r = Math.floor(i / gridCols);
+                const c = i % gridCols;
+                if(gridMode === 'conway') {
+                    cells[i].style.backgroundColor = gridData[r][c] ? '#facc15' : '#1e293b';
+                }
+            }
+        }
+
+        function drawContributions() {
+            const cells = gridEl.children;
+            const colors = ['#1e293b', '#064e3b', '#065f46', '#10b981', '#34d399'];
+            for(let i=0; i<cells.length; i++) {
+                const level = Math.random() > 0.7 ? Math.floor(Math.random() * 4) + 1 : 0;
+                cells[i].style.backgroundColor = colors[level];
+            }
+        }
+
+        function switchGridMode(mode) {
+            gridMode = mode;
+            clearInterval(gameInterval);
+            const controls = document.getElementById('grid-controls');
+            const status = document.getElementById('grid-status');
+            
+            // Reset Styles
+            const cells = gridEl.children;
+            for(let cell of cells) cell.style.backgroundColor = '#1e293b';
+            
+            // Active Button State
+            ['btn-contrib', 'btn-conway', 'btn-pixel'].forEach(id => document.getElementById(id).classList.remove('bg-purple-600'));
+            
+            if (mode === 'contributions') {
+                drawContributions();
+                controls.classList.add('hidden');
+                status.innerText = "Viewing simulated GitHub activity.";
+                document.getElementById('btn-contrib').classList.add('bg-purple-600');
+            } else if (mode === 'conway') {
+                // Reset data
+                gridData = gridData.map(r => r.map(() => 0));
+                controls.classList.remove('hidden');
+                status.innerText = "Game of Life: Click cells to create life, then Start.";
+                document.getElementById('btn-conway').classList.add('bg-purple-600');
+            } else {
+                controls.classList.add('hidden');
+                status.innerText = "Pixel Art: Click cells to paint.";
+                document.getElementById('btn-pixel').classList.add('bg-purple-600');
+            }
+        }
+
+        // Game of Life Logic
+        document.getElementById('run-life').addEventListener('click', function() {
+            const btn = this;
+            if (gameInterval) {
+                clearInterval(gameInterval);
+                gameInterval = null;
+                btn.innerText = "START SIMULATION";
+                btn.classList.replace('bg-red-600', 'bg-green-600');
+            } else {
+                btn.innerText = "STOP SIMULATION";
+                btn.classList.replace('bg-green-600', 'bg-red-600');
+                gameInterval = setInterval(() => {
+                    const nextGrid = gridData.map(arr => [...arr]);
+                    for(let r=0; r<gridRows; r++) {
+                        for(let c=0; c<gridCols; c++) {
+                            let neighbors = 0;
+                            for(let i=-1; i<=1; i++) {
+                                for(let j=-1; j<=1; j++) {
+                                    if(i===0 && j===0) continue;
+                                    const nr = r+i, nc = c+j;
+                                    if(nr>=0 && nr<gridRows && nc>=0 && nc<gridCols) {
+                                        neighbors += gridData[nr][nc];
+                                    }
+                                }
+                            }
+                            if(gridData[r][c] === 1 && (neighbors < 2 || neighbors > 3)) nextGrid[r][c] = 0;
+                            else if(gridData[r][c] === 0 && neighbors === 3) nextGrid[r][c] = 1;
+                        }
+                    }
+                    gridData = nextGrid;
+                    updateGridVisuals();
+                }, 200);
+            }
+        });
+
+        document.getElementById('clear-life').addEventListener('click', () => {
+            clearInterval(gameInterval);
+            document.getElementById('run-life').innerText = "START SIMULATION";
+            gridData = gridData.map(r => r.map(() => 0));
+            updateGridVisuals();
+        });
+
+        initMainGrid();
 
     </script>
 </body>
