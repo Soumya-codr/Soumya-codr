@@ -62,26 +62,8 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
 
 ### 🚀 Featured Projects (Scroll to Explore →)
 <div align="center">
-  <div style="display: flex; overflow-x: auto; gap: 15px; padding: 10px; scrollbar-width: thin;">
-    
-    ---
-
-### 🚀 Featured Projects (Scroll to Explore →)
-
-<div align="center">
   <div style="display: flex; overflow-x: auto; white-space: nowrap; gap: 10px; padding-bottom: 10px;">
-    <a href="https://github.com/Soumya-codr/project-nexus" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=project-nexus&theme=tokyonight" height="150" /></a>
-    <a href="https://github.com/Soumya-codr/OJT-Stub-server" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=OJT-Stub-server&theme=tokyonight" height="150" /></a>
-    <a href="https://github.com/Soumya-codr/flare-hackathon" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=flare-hackathon&theme=tokyonight" height="150" /></a>
-    <a href="https://github.com/Soumya-codr/PIXEL_CITY" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=PIXEL_CITY&theme=tokyonight" height="150" /></a>
-    <a href="https://github.com/Soumya-codr/EchoWhisperLive" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=EchoWhisperLive&theme=tokyonight" height="150" /></a>
-    <a href="https://github.com/Soumya-codr/telegram-project" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=telegram-project&theme=tokyonight" height="150" /></a>
-    <a href="https://github.com/Soumya-codr/Crop_Sense" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=Crop_Sense&theme=tokyonight" height="150" /></a>
-  </div>
-</div>
-
----
-
+    <a href="https://github.com/Soumya-codr/project-nexus" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=project-nexus&theme=tokyonight" height="150" /></a><a href="https://github.com/Soumya-codr/OJT-Stub-server" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=OJT-Stub-server&theme=tokyonight" height="150" /></a><a href="https://github.com/Soumya-codr/flare-hackathon" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=flare-hackathon&theme=tokyonight" height="150" /></a><a href="https://github.com/Soumya-codr/PIXEL_CITY" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=PIXEL_CITY&theme=tokyonight" height="150" /></a><a href="https://github.com/Soumya-codr/EchoWhisperLive" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=EchoWhisperLive&theme=tokyonight" height="150" /></a><a href="https://github.com/Soumya-codr/telegram-project" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=telegram-project&theme=tokyonight" height="150" /></a><a href="https://github.com/Soumya-codr/Crop_Sense" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=Crop_Sense&theme=tokyonight" height="150" /></a>
   </div>
 </div>
 
