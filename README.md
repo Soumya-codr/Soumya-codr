@@ -60,79 +60,29 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
 
 ---
 
-### 🚀 Featured Projects (Scroll to Explore →)
+### 🚀 Featured Projects
 <div align="center">
-  <div style="display: flex; overflow-x: auto; white-space: nowrap; gap: 10px; padding-bottom: 10px;">
-    <a href="https://github.com/Soumya-codr/project-nexus" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=project-nexus&theme=tokyonight" height="150" /></a><a href="https://github.com/Soumya-codr/OJT-Stub-server" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=OJT-Stub-server&theme=tokyonight" height="150" /></a><a href="https://github.com/Soumya-codr/flare-hackathon" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=flare-hackathon&theme=tokyonight" height="150" /></a><a href="https://github.com/Soumya-codr/PIXEL_CITY" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=PIXEL_CITY&theme=tokyonight" height="150" /></a><a href="https://github.com/Soumya-codr/EchoWhisperLive" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=EchoWhisperLive&theme=tokyonight" height="150" /></a><a href="https://github.com/Soumya-codr/telegram-project" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=telegram-project&theme=tokyonight" height="150" /></a><a href="https://github.com/Soumya-codr/Crop_Sense" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=Crop_Sense&theme=tokyonight" height="150" /></a>
-  </div>
-</div>
-
----
-
-### 🌱 Currently Learning  
-- Advanced JavaScript (ES6+)  
-- Python for automation & backend  
-- Responsive Web Design  
-- Frontend frameworks (React coming soon!)  
-
----
-
-### 💫 Fun Fact  
-> “Even a single line of code can change the world — keep building, keep dreaming!” 🌍  
-
----
-
-### 🪄 Explore My Animated Profile  
-<p align="center">
-  <a href="https://soumya-codr.github.io/Soumya-codr/" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/🚀%20Visit%20My%20Animated%20Profile-blueviolet?style=for-the-badge&logo=github" alt="Animated Profile Link">
-  </a>
-</p>
-
----
-
-### 📊 GitHub Stats  
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Soumya-codr&show_icons=true&theme=tokyonight&cache_seconds=1800" height="165" alt="GitHub Stats"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=Soumya-codr&theme=tokyonight&hide_border=true" height="165" alt="GitHub Streak"/>
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Soumya-codr&layout=compact&theme=tokyonight" height="150" alt="Top Languages"/>
-</p>
-
----
-
-### 🏆 GitHub Trophies  
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Soumya-codr&theme=tokyonight&no-frame=true&margin-w=15" alt="GitHub Trophies"/>
-</p>
-
----
-
-### 🐍 Watch My Contribution Snake 🐍  
-<div align="center">
-  <img src="https://raw.githubusercontent.com/Soumya-codr/Soumya-codr/output/snake.svg" alt="Snake animation" />
-</div>
-
----
-
-### 💎 My Contribution Graph
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Soumya-codr&custom_title=Contribution+Graph&bg_color=0d1117&color=00e5ff&line=00c3ff&point=ffffff&area=true&area_color=00c3ff&hide_border=true" />
-</p>
-
----
-
-### 🤝 Let's Connect!  
-<p align="center">
-  <a href="https://github.com/Soumya-codr"><img src="https://img.shields.io/badge/GitHub-000?style=flat&logo=github&logoColor=white"></a>
-  <a href="#"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white"></a>
-  <a href="https://soumya-codr.github.io/Soumya-codr/"><img src="https://img.shields.io/badge/Portfolio-000000?style=flat&logo=vercel&logoColor=white"></a>
-</p>
-
----
-
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=90&section=footer"/>
-</p>
+  <table>
+    <tr>
+      <td>
+        <a href="https://github.com/Soumya-codr/project-nexus">
+          <img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=project-nexus&theme=tokyonight" width="250" />
+        </a>
+      </td>
+      <td>
+        <a href="https://github.com/Soumya-codr/OJT-Stub-server">
+          <img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=OJT-Stub-server&theme=tokyonight" width="250" />
+        </a>
+      </td>
+      <td>
+        <a href="https://github.com/Soumya-codr/flare-hackathon">
+          <img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=flare-hackathon&theme=tokyonight" width="250" />
+        </a>
+      </td>
+      <td>
+        <a href="https://github.com/Soumya-codr/PIXEL_CITY">
+          <img src="https://github-readme-stats.vercel.app/api/pin/?username=Soumya-codr&repo=PIXEL_CITY&theme=tokyonight" width="250" />
+        </a>
+      </td>
+      <td>
+        <a href="
