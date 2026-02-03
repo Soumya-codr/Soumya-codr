@@ -35,54 +35,44 @@
 
 ---
 
-<!-- 🚀 Projects Slider Section -->
+<!-- 🚀 Projects Section (Clean Card Style) -->
 <h2 align="center">🚀 Featured Projects</h2>
 
-<div align="center" style="overflow-x: auto; white-space: nowrap; padding: 20px;">
+<details open>
+  <summary><strong>🌐 Project Nexus</strong></summary>
+  <p>
+    Modern web project focused on clean UI and scalable architecture.
+    <br><br>
+    🔗 <a href="https://github.com/Soumya-codr/project-nexus" target="_blank">View Repository</a>
+  </p>
+</details>
 
-  <div style="display: inline-block; width: 280px; margin: 10px; padding: 20px;
-              background: linear-gradient(135deg, #6366f1, #8b5cf6);
-              border-radius: 16px; color: white; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
-    <h3>🌐 Project Nexus</h3>
-    <p>Modern web project focused on clean UI & scalable architecture.</p>
-    <a href="https://github.com/Soumya-codr/project-nexus" target="_blank">
-      🔗 View Repository
-    </a>
-  </div>
+<details>
+  <summary><strong>🧪 OJT Stub Server</strong></summary>
+  <p>
+    Backend stub server built for API testing and development workflows.
+    <br><br>
+    🔗 <a href="https://github.com/Soumya-codr/OJT-Stub-server" target="_blank">View Repository</a>
+  </p>
+</details>
 
-  <div style="display: inline-block; width: 280px; margin: 10px; padding: 20px;
-              background: linear-gradient(135deg, #22c55e, #16a34a);
-              border-radius: 16px; color: white; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
-    <h3>🧪 OJT Stub Server</h3>
-    <p>Backend stub server built for testing & API simulations.</p>
-    <a href="https://github.com/Soumya-codr/OJT-Stub-server" target="_blank">
-      🔗 View Repository
-    </a>
-  </div>
+<details>
+  <summary><strong>⚡ Flare Hackathon</strong></summary>
+  <p>
+    Hackathon project focused on innovation, rapid prototyping, and teamwork.
+    <br><br>
+    🔗 <a href="https://github.com/Soumya-codr/flare-hackathon" target="_blank">View Repository</a>
+  </p>
+</details>
 
-  <div style="display: inline-block; width: 280px; margin: 10px; padding: 20px;
-              background: linear-gradient(135deg, #f97316, #fb7185);
-              border-radius: 16px; color: white; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
-    <h3>⚡ Flare Hackathon</h3>
-    <p>Hackathon project built with innovation & problem-solving.</p>
-    <a href="https://github.com/Soumya-codr/flare-hackathon" target="_blank">
-      🔗 View Repository
-    </a>
-  </div>
-
-  <div style="display: inline-block; width: 280px; margin: 10px; padding: 20px;
-              background: linear-gradient(135deg, #0ea5e9, #22d3ee);
-              border-radius: 16px; color: white; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
-    <h3>🏙️ Pixel City</h3>
-    <p>Creative city-themed project with visual & interactive elements.</p>
-    <a href="https://github.com/Soumya-codr/PIXEL_CITY" target="_blank">
-      🔗 View Repository
-    </a>
-  </div>
-
-</div>
-
-<p align="center">👉 Swipe left/right to explore projects</p>
+<details>
+  <summary><strong>🏙️ Pixel City</strong></summary>
+  <p>
+    Creative city-themed project with visual storytelling and interactions.
+    <br><br>
+    🔗 <a href="https://github.com/Soumya-codr/PIXEL_CITY" target="_blank">View Repository</a>
+  </p>
+</details>
 
 
 ### 🏅 Hacktoberfest Achievement  
