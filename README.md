@@ -35,44 +35,28 @@
 
 ---
 
-<!-- 🚀 Projects Section (Clean Card Style) -->
+<!-- 🚀 Projects Carousel -->
 <h2 align="center">🚀 Featured Projects</h2>
 
-<details open>
-  <summary><strong>🌐 Project Nexus</strong></summary>
-  <p>
-    Modern web project focused on clean UI and scalable architecture.
-    <br><br>
-    🔗 <a href="https://github.com/Soumya-codr/project-nexus" target="_blank">View Repository</a>
-  </p>
-</details>
+<p align="center">
+  <img 
+    src="https://raw.githubusercontent.com/Soumya-codr/Soumya-codr/main/assets/projects-carousel.gif"
+    alt="Projects Carousel"
+    width="650"
+  />
+</p>
 
-<details>
-  <summary><strong>🧪 OJT Stub Server</strong></summary>
-  <p>
-    Backend stub server built for API testing and development workflows.
-    <br><br>
-    🔗 <a href="https://github.com/Soumya-codr/OJT-Stub-server" target="_blank">View Repository</a>
-  </p>
-</details>
+<p align="center">
+  ⬅️ Projects auto-slide • Click repo links below ⬇️
+</p>
 
-<details>
-  <summary><strong>⚡ Flare Hackathon</strong></summary>
-  <p>
-    Hackathon project focused on innovation, rapid prototyping, and teamwork.
-    <br><br>
-    🔗 <a href="https://github.com/Soumya-codr/flare-hackathon" target="_blank">View Repository</a>
-  </p>
-</details>
-
-<details>
-  <summary><strong>🏙️ Pixel City</strong></summary>
-  <p>
-    Creative city-themed project with visual storytelling and interactions.
-    <br><br>
-    🔗 <a href="https://github.com/Soumya-codr/PIXEL_CITY" target="_blank">View Repository</a>
-  </p>
-</details>
+<p align="center">
+  🔗 <a href="https://github.com/Soumya-codr/project-nexus">Project Nexus</a> |
+  🔗 <a href="https://github.com/Soumya-codr/OJT-Stub-server">OJT Stub Server</a> |
+  🔗 <a href="https://github.com/Soumya-codr/flare-hackathon">Flare Hackathon</a> |
+  🔗 <a href="https://github.com/Soumya-codr/PIXEL_CITY">Pixel City</a>
+</p>
+----
 
 
 ### 🏅 Hacktoberfest Achievement  
