@@ -148,8 +148,3 @@ It’s one of our exciting **side projects**, blending tech with purpose to help
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=90&section=footer"/>
 </p>
-hey see this is my github readme page of the account so now i want u to add a slidable card in which my project info is mentioned 
-first proejct—> https://github.com/Soumya-codr/project-nexus
-2nd project —> https://github.com/Soumya-codr/OJT-Stub-server
-3rd Project —> https://github.com/Soumya-codr/flare-hackathon
-4th Project—> https://github.com/Soumya-codr/PIXEL_CITY
