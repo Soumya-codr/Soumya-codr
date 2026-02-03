@@ -34,31 +34,6 @@
 </p>
 
 ---
-
-<!-- 🚀 Projects Carousel -->
-<h2 align="center">🚀 Featured Projects</h2>
-
-<p align="center">
-  <img 
-    src="https://raw.githubusercontent.com/Soumya-codr/Soumya-codr/main/assets/projects-carousel.gif"
-    alt="Projects Carousel"
-    width="650"
-  />
-</p>
-
-<p align="center">
-  ⬅️ Projects auto-slide • Click repo links below ⬇️
-</p>
-
-<p align="center">
-  🔗 <a href="https://github.com/Soumya-codr/project-nexus">Project Nexus</a> |
-  🔗 <a href="https://github.com/Soumya-codr/OJT-Stub-server">OJT Stub Server</a> |
-  🔗 <a href="https://github.com/Soumya-codr/flare-hackathon">Flare Hackathon</a> |
-  🔗 <a href="https://github.com/Soumya-codr/PIXEL_CITY">Pixel City</a>
-</p>
-----
-
-
 ### 🏅 Hacktoberfest Achievement  
 <!-- <p align="center">
   <a href="https://holopin.io/@Soumya-codr" target="_blank" title="View my Holopin profile">
@@ -86,6 +61,55 @@
 <p align="center">
   <img src="https://avatars.githubusercontent.com/u/215826870?s=400&u=36be9cd6e0d18f16b728db1632669a8095e55d6b&v=4" />
 </p>
+
+## 🚀 Featured Projects
+
+### **Project Nexus**
+Repo: https://github.com/Soumya-codr/project-nexus  
+A modern web project focused on clean UI, scalability, and best development practices.
+
+---
+
+### **OJT Stub Server**
+Repo: https://github.com/Soumya-codr/OJT-Stub-server  
+A backend stub server designed for API testing, simulations, and development workflows.
+
+---
+
+### **Flare Hackathon**
+Repo: https://github.com/Soumya-codr/flare-hackathon  
+A hackathon project built with innovation, rapid prototyping, and problem-solving in mind.
+
+---
+
+### **Pixel City**
+Repo: https://github.com/Soumya-codr/PIXEL_CITY  
+A creative city-themed project focusing on visuals, interactions, and design concepts.
+
+---
+
+### **EchoWhisperLive (Main)**
+Repo: https://github.com/Soumya-codr/EchoWhisperLive  
+A real-time communication project focused on audio streaming and live interaction.
+
+---
+
+### **EchoWhisperLive (Submodule / Variant)**
+Repo: https://github.com/Soumya-codr/EchoWhisperLive/tree/main  
+Extended or structured version of EchoWhisperLive with modular organization.
+
+---
+
+### **Telegram Project**
+Repo: https://github.com/Soumya-codr/telegram-project  
+A Telegram-based automation / bot project exploring messaging workflows and APIs.
+
+---
+
+### **Crop Sense**
+Repo: https://github.com/Soumya-codr/Crop_Sense  
+An agriculture-focused project for crop insights, analysis, and smart farming solutions.
+
 
 <h1 align="center">UDriven Organisation Community</h1>
 
