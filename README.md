@@ -35,6 +35,56 @@
 
 ---
 
+<!-- 🚀 Projects Slider Section -->
+<h2 align="center">🚀 Featured Projects</h2>
+
+<div align="center" style="overflow-x: auto; white-space: nowrap; padding: 20px;">
+
+  <div style="display: inline-block; width: 280px; margin: 10px; padding: 20px;
+              background: linear-gradient(135deg, #6366f1, #8b5cf6);
+              border-radius: 16px; color: white; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+    <h3>🌐 Project Nexus</h3>
+    <p>Modern web project focused on clean UI & scalable architecture.</p>
+    <a href="https://github.com/Soumya-codr/project-nexus" target="_blank">
+      🔗 View Repository
+    </a>
+  </div>
+
+  <div style="display: inline-block; width: 280px; margin: 10px; padding: 20px;
+              background: linear-gradient(135deg, #22c55e, #16a34a);
+              border-radius: 16px; color: white; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+    <h3>🧪 OJT Stub Server</h3>
+    <p>Backend stub server built for testing & API simulations.</p>
+    <a href="https://github.com/Soumya-codr/OJT-Stub-server" target="_blank">
+      🔗 View Repository
+    </a>
+  </div>
+
+  <div style="display: inline-block; width: 280px; margin: 10px; padding: 20px;
+              background: linear-gradient(135deg, #f97316, #fb7185);
+              border-radius: 16px; color: white; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+    <h3>⚡ Flare Hackathon</h3>
+    <p>Hackathon project built with innovation & problem-solving.</p>
+    <a href="https://github.com/Soumya-codr/flare-hackathon" target="_blank">
+      🔗 View Repository
+    </a>
+  </div>
+
+  <div style="display: inline-block; width: 280px; margin: 10px; padding: 20px;
+              background: linear-gradient(135deg, #0ea5e9, #22d3ee);
+              border-radius: 16px; color: white; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+    <h3>🏙️ Pixel City</h3>
+    <p>Creative city-themed project with visual & interactive elements.</p>
+    <a href="https://github.com/Soumya-codr/PIXEL_CITY" target="_blank">
+      🔗 View Repository
+    </a>
+  </div>
+
+</div>
+
+<p align="center">👉 Swipe left/right to explore projects</p>
+
+
 ### 🏅 Hacktoberfest Achievement  
 <!-- <p align="center">
   <a href="https://holopin.io/@Soumya-codr" target="_blank" title="View my Holopin profile">
