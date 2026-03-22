@@ -8,14 +8,14 @@
 
 <!-- ░░ TYPING SVG ░░ -->
 <br/>
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=2800&pause=900&color=00E5FF&center=true&vCenter=true&width=650&lines=💻+Crafting+Pixels+Into+Products;🌐+HTML+%7C+CSS+%7C+JavaScript+%7C+Python;🔥+Open+Source+Contributor+%40+Hacktoberfest;🚀+Building+Projects+That+Matter" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=2800&pause=900&color=00E5FF&center=true&vCenter=true&width=700&lines=Crafting+Pixels+Into+Products;HTML+%7C+CSS+%7C+JavaScript+%7C+Python;Open+Source+Contributor+%40+Hacktoberfest;Building+Projects+That+Matter;NumPy+%7C+Pandas+%7C+React+%7C+PyPlot" alt="Typing SVG" />
 
 <br/>
 
 <!-- ░░ BADGES ROW ░░ -->
-<img src="https://img.shields.io/badge/Status-Available_for_Collab-00e5ff?style=flat-square&logo=statuspage&logoColor=black" />
+<img src="https://img.shields.io/badge/Status-Available_for_Collab-00e5ff?style=flat-square&logo=circle&logoColor=black" />
 &nbsp;
-<img src="https://img.shields.io/badge/Focus-Full_Stack_Dev-a78bfa?style=flat-square&logo=lightning&logoColor=black" />
+<img src="https://img.shields.io/badge/Focus-Full_Stack_Dev-a78bfa?style=flat-square&logo=rocket&logoColor=black" />
 &nbsp;
 <img src="https://komarev.com/ghpvc/?username=Soumya-codr&label=Profile+Views&color=302b63&style=flat-square" />
 
