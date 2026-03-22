@@ -13,11 +13,11 @@
 <br/>
 
 <!-- ░░ BADGES ROW ░░ -->
-<img src="https://img.shields.io/badge/Status-Available_for_Collab-00e5ff?style=flat-square&logo=circle&logoColor=black" />
-&nbsp;
-<img src="https://img.shields.io/badge/Focus-Full_Stack_Dev-a78bfa?style=flat-square&logo=rocket&logoColor=black" />
-&nbsp;
-<img src="https://komarev.com/ghpvc/?username=Soumya-codr&label=Profile+Views&color=302b63&style=flat-square" />
+<img src="https://img.shields.io/badge/Status-Available%20for%20Collab-00e5ff?style=for-the-badge&labelColor=1a1a2e&logoColor=00e5ff&logo=checkmarx" />
+&nbsp;&nbsp;
+<img src="https://img.shields.io/badge/Focus-Full%20Stack%20Dev-a78bfa?style=for-the-badge&labelColor=1a1a2e&logo=rocket&logoColor=a78bfa" />
+&nbsp;&nbsp;
+<img src="https://komarev.com/ghpvc/?username=Soumya-codr&label=Profile+Views&color=00e5ff&labelColor=1a1a2e&style=for-the-badge" />
 
 </div>
 
