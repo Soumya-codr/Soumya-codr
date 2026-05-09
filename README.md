@@ -1,44 +1,45 @@
-```diff
-+  ______  ___  _   _ __  __ __   __ ___  
-+ / __/ / / _ \/ | / |\ \/ / \ \ / // _ \ 
-+/ _// /_/ // /| |/ /|>  <   \ V // // / 
-+\___/____/___/ |___//_/\_\    \_/ \___/  
+<div align="center">
+
+```
+ ______  ___  _   _ __  __ __   __ ___ 
+/ __/ / / _ \/ | / |\ \/ / \ \ / // _ \
+\__ \/ // // /| |/ />  <   \ V // // /
+/___/____/___/ |___//_/\_\   \_/ \___/ 
 ```
 
-```yaml
-> initializing profile...
-> user     : Soumya
-> role     : Full-Stack Dev + Data Tinkerer
-> status   : always building. always breaking. always fixing.
-> motto    : "ship it or it didn't happen"
-```
+</div>
 
 ---
 
-```diff
-- # STACK.config
-+ [WEB]
-+  JavaScript  TypeScript  React  Next.js  Node.js
-+ [DATA]  
-+  Python  Pandas  NumPy  Matplotlib  Data Visualization
+<div align="center">
+
+```js
+const soumya = {
+  role    : "Full-Stack Dev  +  Data Tinkerer",
+  stack   : ["JS", "TS", "React", "Next.js", "Node.js"],
+  data    : ["Python", "Pandas", "NumPy", "Matplotlib"],
+  now     : "building things that don't break in prod",
+  motto   : "ship it or it didn't happen",
+};
 ```
+
+</div>
 
 ---
 
-```css
-/* current_focus.exe */
-
-[LEARNING]  → data storytelling & visualization
-[BUILDING]  → backend systems that survive production
-[GRINDING]  → DSA, one bug at a time
-```
-
----
+<div align="center">
 
 ```bash
-~/soumya $ cat contact.txt
- 📬  your@email.com
+~/soumya $ cat logs/current.txt
 
-~/soumya $ echo $QUOTE
- "First, solve the problem. Then, write the code."
+  [→]  making data actually tell something
+  [→]  backend systems that survive 3am
+  [→]  DSA — one problem at a time
+
+~/soumya $ echo $CONTACT
+  📬  your@email.com
+
+~/soumya $ _
 ```
+
+</div>
