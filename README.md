@@ -25,7 +25,7 @@ text, tspan {white-space: pre;}
 <text x="15" y="478" fill="#9a95b5" font-size="14px">Soumya-codr @ GitHub</text>
 
 
-<text x="570" y="30" fill="#e8e6f5">
+<!-- <text x="570" y="30" fill="#e8e6f5">
 <tspan x="570" y="30">soumya@codr</tspan> -——————————————————————————————————————————————————-—-
 <tspan x="570" y="50" class="cc">. </tspan><tspan class="key">Role</tspan>:<tspan class="cc"> ........................ </tspan><tspan class="value">Full-Stack Developer</tspan>
 <tspan x="570" y="70" class="cc">. </tspan><tspan class="key">Education</tspan>:<tspan class="cc"> ................... </tspan><tspan class="value">B.Tech CSE (AI &amp; ML), Polaris SoT '29</tspan>
@@ -45,4 +45,4 @@ text, tspan {white-space: pre;}
 <tspan x="570" y="410" class="cc">. </tspan><tspan class="key">Contributing to</tspan>:<tspan class="cc"> .............. </tspan><tspan class="value">Gemini CLI, Wagtail, AsyncAPI</tspan>
 <tspan x="570" y="430" class="cc">. </tspan><tspan class="key">Recognized by</tspan>:<tspan class="cc"> ................ </tspan><tspan class="value">Zulip, NexFellow</tspan>
 </text>
-</svg>
+</svg> -->
