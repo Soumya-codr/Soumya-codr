@@ -26,7 +26,7 @@ text, tspan {white-space: pre;}
 
 <!-- <text x="15" y="497" fill="#9a95b5" font-size="13px">Soumya-codr @ GitHub</text> -->
 
-<text x="390" y="30" fill="#e8e6f5">
+<!-- <text x="390" y="30" fill="#e8e6f5">
 <tspan x="390" y="30">soumya@codr</tspan> -————————————————————————————————-—-
 <tspan x="390" y="50" class="cc">. </tspan><tspan class="key">Role</tspan>:<tspan class="cc"> ................ </tspan><tspan class="value">Full-Stack Developer</tspan>
 <tspan x="390" y="70" class="cc">. </tspan><tspan class="key">Education</tspan>:<tspan class="cc"> ........... </tspan><tspan class="value">B.Tech CSE (AI/ML), Polaris SoT '29</tspan>
@@ -45,7 +45,7 @@ text, tspan {white-space: pre;}
 <tspan x="390" y="360">- Open Source</tspan> -——————————————————————————————-—-
 <tspan x="390" y="380" class="cc">. </tspan><tspan class="key">Contributing to</tspan>:<tspan class="cc"> .......... </tspan><tspan class="value">Gemini CLI, Wagtail, AsyncAPI</tspan>
 <tspan x="390" y="400" class="cc">. </tspan><tspan class="key">Recognized by</tspan>:<tspan class="cc"> ............ </tspan><tspan class="value">Zulip, NexFellow</tspan>
-</text>
+</text> -->
 
 <line x1="15" y1="515" x2="970" y2="515" stroke="#22243f" stroke-width="1"/>
 <text x="15" y="540" fill="#9a95b5" font-size="13px">Badges</text>
