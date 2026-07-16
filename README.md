@@ -1,3 +1,4 @@
+<img width="1400" height="500" alt="profile_card" src="https://github.com/user-attachments/assets/283f9f42-7847-40b3-b0b9-058ffd398c70" />
 <?xml version='1.0' encoding='UTF-8'?>
 <svg xmlns="http://www.w3.org/2000/svg" font-family="ConsolasFallback,Consolas,monospace" width="1400px" height="500px" font-size="16px">
 <style>
