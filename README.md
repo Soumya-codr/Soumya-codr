@@ -48,7 +48,7 @@ text, tspan {white-space: pre;}
 </text> -->
 
 <line x1="15" y1="515" x2="970" y2="515" stroke="#22243f" stroke-width="1"/>
-<text x="15" y="540" fill="#9a95b5" font-size="13px">Badges</text>
+<!-- <text x="15" y="540" fill="#9a95b5" font-size="13px">Badges</text> -->
 <a href="https://holopin.io/@soumyacodr" target="_blank">
 <image href="https://holopin.me/soumyacodr" x="15" y="550" height="32" preserveAspectRatio="xMinYMid meet"/>
 </a>
