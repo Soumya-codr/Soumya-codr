@@ -9,11 +9,11 @@ font-display: swap;
 -webkit-size-adjust: 109%;
 size-adjust: 109%;
 } -->
-.key {fill: #ff6ec7;}
+<!-- .key {fill: #ff6ec7;}
 .value {fill: #8ecbff;}
 .cc {fill: #55507a;}
 .px {fill: #d6409f;}
-text, tspan {white-space: pre;}
+text, tspan {white-space: pre;} -->
 <!-- </style>
 <rect width="1400px" height="500px" fill="#0b0c1a" rx="15"/>
 <defs>
