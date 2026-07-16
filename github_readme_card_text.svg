@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" font-family="ConsolasFallback,Consolas,monospace" width="620px" height="360px" viewBox="0 0 610 440" font-size="16px">
+<style>
+@font-face {
+src: local('Consolas'), local('Consolas Bold');
+font-family: 'ConsolasFallback';
+font-display: swap;
+-webkit-size-adjust: 109%;
+size-adjust: 109%;
+}
+.key {fill: #ff6ec7;}
+.value {fill: #8ecbff;}
+.cc {fill: #55507a;}
+text, tspan {white-space: pre;}
+</style>
+<rect width="610px" height="440px" fill="#0b0c1a" rx="15"/>
+
+<text x="15" y="30" fill="#e8e6f5">
+<tspan x="15" y="30">soumya@codr</tspan> -————————————————————————————————-—-
+<tspan x="15" y="50" class="cc">. </tspan><tspan class="key">Role</tspan>:<tspan class="cc"> ................ </tspan><tspan class="value">Full-Stack Developer</tspan>
+<tspan x="15" y="70" class="cc">. </tspan><tspan class="key">Education</tspan>:<tspan class="cc"> ........... </tspan><tspan class="value">B.Tech CSE (AI/ML), Polaris SoT '29</tspan>
+<tspan x="15" y="90" class="cc">. </tspan><tspan class="key">Location</tspan>:<tspan class="cc"> ............ </tspan><tspan class="value">Bengaluru, India</tspan>
+<tspan x="15" y="110" class="cc">. </tspan>
+<tspan x="15" y="130" class="cc">. </tspan><tspan class="key">Stack.Frontend</tspan>:<tspan class="cc"> .......... </tspan><tspan class="value">React, Next.js, Tailwind CSS</tspan>
+<tspan x="15" y="150" class="cc">. </tspan><tspan class="key">Stack.Backend</tspan>:<tspan class="cc"> ........... </tspan><tspan class="value">Node.js, Express, Flask</tspan>
+<tspan x="15" y="170" class="cc">. </tspan><tspan class="key">Stack.Data</tspan>:<tspan class="cc"> .............. </tspan><tspan class="value">PostgreSQL, MongoDB, Prisma</tspan>
+<tspan x="15" y="200">- Contact</tspan> -—————————————————————————————————————
+<tspan x="15" y="220" class="cc">. </tspan><tspan class="key">Email</tspan>:<tspan class="cc"> ............... </tspan><tspan class="value">soumya.sagar.codr@gmail.com</tspan>
+<tspan x="15" y="240" class="cc">. </tspan><tspan class="key">LinkedIn</tspan>:<tspan class="cc"> ............ </tspan><tspan class="value">soumya-sagar-44812a371</tspan>
+<tspan x="15" y="260" class="cc">. </tspan><tspan class="key">Portfolio</tspan>:<tspan class="cc"> ........... </tspan><tspan class="value">soumya-codr.github.io</tspan>
+<tspan x="15" y="290">- GitHub Stats</tspan> -—————————————————————————————-—-
+<tspan x="15" y="310" class="cc">. </tspan><tspan class="key">Repos</tspan>:<tspan class="cc"> .. </tspan><tspan class="value">94</tspan> | <tspan class="key">Followers</tspan>:<tspan class="cc"> .... </tspan><tspan class="value">39</tspan> | <tspan class="key">Following</tspan>:<tspan class="cc"> .. </tspan><tspan class="value">161</tspan>
+<tspan x="15" y="330" class="cc">. </tspan><tspan class="key">Stars</tspan>:<tspan class="cc"> .. </tspan><tspan class="value">28</tspan> | <tspan class="key">Contributions (past yr)</tspan>:<tspan class="cc"> . </tspan><tspan class="value">523</tspan>
+<tspan x="15" y="360">- Open Source</tspan> -——————————————————————————————-—-
+<tspan x="15" y="380" class="cc">. </tspan><tspan class="key">Contributing to</tspan>:<tspan class="cc"> .......... </tspan><tspan class="value">Gemini CLI, Wagtail, AsyncAPI</tspan>
+<tspan x="15" y="400" class="cc">. </tspan><tspan class="key">Recognized by</tspan>:<tspan class="cc"> ............ </tspan><tspan class="value">Zulip, NexFellow</tspan>
+</text>
+
+
+</svg>
