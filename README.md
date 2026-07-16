@@ -1,4 +1,4 @@
-<img width="985" height="530" alt="github_readme_card (1)" src="https://github.com/user-attachments/assets/44382345-f67e-4d06-b3a1-de53bc27e16e" />
+<img width="800" height="480" alt="github_readme_card (1)" src="https://github.com/user-attachments/assets/44382345-f67e-4d06-b3a1-de53bc27e16e" />
 <?xml version='1.0' encoding='UTF-8'?>
 <svg xmlns="http://www.w3.org/2000/svg" font-family="ConsolasFallback,Consolas,monospace" width="800px" height="480px" viewBox="0 0 985 590" font-size="16px">
 <!-- <style>
