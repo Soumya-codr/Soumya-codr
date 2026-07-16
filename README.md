@@ -9,12 +9,12 @@ font-display: swap;
 -webkit-size-adjust: 109%;
 size-adjust: 109%;
 } -->
-.key {fill: #ff6ec7;}
+<!-- .key {fill: #ff6ec7;}
 .value {fill: #8ecbff;}
 .cc {fill: #55507a;}
 text, tspan {white-space: pre;}
-</style>
-<rect width="985px" height="590px" fill="#0b0c1a" rx="15"/>
+</style> -->
+<rect width="985px" height="530px" fill="#0b0c1a" rx="15"/>
 
 <!-- <defs>
 <clipPath id="avatarClip">
