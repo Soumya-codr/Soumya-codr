@@ -1,12 +1,12 @@
 <table>
 <tr>
-<td width="360">
-<img src="soumya_aurora.gif" width="345" style="border-radius:15px 15px 0 0;">
+<td width="360" valign="top">
+<img src="soumya_aurora.gif" height="400">
 <br>
 <sub>Soumya-codr @ GitHub</sub>
 </td>
-<td>
-<img src="github_readme_card_text.svg" width="595">
+<td valign="top">
+<img src="github_readme_card_text.svg" height="400">
 </td>
 </tr>
 </table>
